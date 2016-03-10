@@ -49,28 +49,28 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     }
     
     observations = [[NSArray alloc] init];
+    
     // fetch the newest observations from services_view
-//    [DIOSView viewGet: [[NSDictionary alloc] initWithObjects: [[NSArray alloc]
-//                                initWithObjects:@"services_ios_newest_observations", nil]
-//                                            forKeys:  [[NSArray alloc]
-//                                initWithObjects:@"view_name", nil]]
-//                success:^(AFHTTPRequestOperation *operation, id responseObject)
-//                {
-//    
-//                    // grab list of newest observations, and update
-//                    // collectionview
-//                    observations = responseObject ;
-//                    [self.collectionView reloadData];
-//    
-//                }
-//               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                   
-//                   NSLog(@"-----------FAILED--------------");
-//                   NSLog(@"%@",error);
-//                   NSLog(@"-----------FAILED--------------");
-//                   
-//               }
-//      ];
+    [DIOSView viewGet: [[NSDictionary alloc] initWithObjects: [[NSArray alloc]
+                                             initWithObjects:@"newest_mobile", nil]
+                                            forKeys:  [[NSArray alloc]
+                                initWithObjects:@"view_name", nil]
+                        ]
+                success:^(AFHTTPRequestOperation *operation, id responseObject)
+                {
+    
+//                    NSLog(@"%@",responseObject);
+                    
+                    // grab list of newest observations, and update
+                    // collectionview
+                    observations = responseObject ;
+                    [self.collectionView reloadData];
+    
+                }
+               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   NSLog(@"%@",error);
+               }
+      ];
     
     
 }

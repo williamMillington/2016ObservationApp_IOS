@@ -5,7 +5,7 @@
 	<key>endpoint</key>
 	<string>mobile-api</string>
 	<key>siteUrl</key>
-	<string>http://137.149.157.10/cs482/</string>
+	<string>http://137.149.157.10/cs482</string>
 	<key>oauth_consumer_key</key>
 	<string>yTkyapFEPAdjkW7G2euvJHhmmsURaYJP</string>
 	<key>oauth_token</key>
