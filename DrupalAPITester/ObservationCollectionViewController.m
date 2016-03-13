@@ -50,17 +50,15 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     observations = [[NSArray alloc] init];
     
+    
     // fetch the newest observations from services_view
     [DIOSView viewGet: [[NSDictionary alloc] initWithObjects: [[NSArray alloc]
-                                             initWithObjects:@"newest_mobile", nil]
-                                            forKeys:  [[NSArray alloc]
-                                initWithObjects:@"view_name", nil]
+                                                            initWithObjects:@"newest_mobile", nil]
+                                             forKeys:  [[NSArray alloc]
+                                                            initWithObjects:@"view_name", nil]
                         ]
                 success:^(AFHTTPRequestOperation *operation, id responseObject)
                 {
-    
-//                    NSLog(@"%@",responseObject);
-                    
                     // grab list of newest observations, and update
                     // collectionview
                     observations = responseObject ;
@@ -71,8 +69,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                    NSLog(@"%@",error);
                }
       ];
-    
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,7 +87,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 }
 */
 
-#pragma mark <UICollectionViewDataSource>
+//#pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -102,21 +99,18 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 }
 
 
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     
     ObservationCollectionViewCell *cell = [collectionView
                                         dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                         forIndexPath:indexPath];
-    
     
     // Style cell shadow
     cell.layer.shadowOffset = CGSizeMake(0.5f, 0.5f);
     cell.layer.shadowRadius = 0.5f;
     cell.layer.shadowOpacity = 0.5f;
     cell.layer.masksToBounds = NO;
-    
-    
 
     // Retrieve the html string detailing the URL of the image
     NSString *htmlImgUrl = observations[indexPath.row][@"image"];
@@ -150,8 +144,8 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     // Extract observation data from observation
-    NSString *title = observations[indexPath.row][@"node_title"];
-    NSString *user = observations[indexPath.row][@"author uid"];
+    NSString *title = observations[indexPath.row][@"title"];
+    NSString *user = observations[indexPath.row][@"name"];
     
     
     // Populate Cell with observation data

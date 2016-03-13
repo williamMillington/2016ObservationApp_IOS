@@ -17,23 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-//    [DIOSSession setupDiosWithURL:@"http://iosdrupal.dd:8083/api/anonymous"];
    
     
     [DIOSSession setupDios];
    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    
-//    UINavigationController *navigationController =
-//                            (UINavigationController  *) self.window.rootViewController;
-//
-//    
-//   
-//    
-//    
-//    [navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"ObservationCollectionViewController"] animated:NO];
-    
     
     return YES;
 }
