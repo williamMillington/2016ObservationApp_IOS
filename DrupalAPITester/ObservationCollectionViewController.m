@@ -51,6 +51,9 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     observations = [[NSArray alloc] init];
     
     
+    // only load from source on first instance of viewDidLoad
+    if([observations count] == 0){
+        NSLog(@"DATA FETCHED");
     // fetch the newest observations from services_view
     [DIOSView viewGet: [[NSDictionary alloc] initWithObjects: [[NSArray alloc]
                                                             initWithObjects:@"newest_mobile", nil]
@@ -69,6 +72,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                    NSLog(@"%@",error);
                }
       ];
+    }
 
 }
 
@@ -118,29 +122,14 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     // If the string is not NSNULL
     if(htmlImgUrl != (id)[NSNull null]){
         
-        
-        // Find the first occurence of the substring "src" and store its location
-        NSRange locationOfSubstring = [htmlImgUrl rangeOfString:@"src="];
-        int startIndex = locationOfSubstring.location;
-        
-        // - Clip the string starting from the location of "src="
-        // - Clip "src=" in the process (+5)
-        // - Store the location of the first whitespace following the url
-        NSString *tailString = [htmlImgUrl substringFromIndex:startIndex+5];
-        NSRange endIndex = [tailString rangeOfString:@" "];
-        
-        
-        // - Clip everything from the string following the whitespace
-        // - (-1) clips off the closing quotation around the URL
-        NSString *imgURL = [tailString substringToIndex:endIndex.location-1];
-        
+        // strip HTML tags from URL
+        NSString *imgURL = [self retrieveImageURLFromString:htmlImgUrl];
         
         // create NSURL and use UIImage_AFNetworking method to
         // load image
-        NSURL *img_url = [NSURL URLWithString:imgURL];
-        [cell.imgThumbnail setImageWithURL:img_url];
+        NSURL *url = [NSURL URLWithString:imgURL];
+        [cell.imgThumbnail setImageWithURL:url];
     }
-    
     
     
     // Extract observation data from observation
@@ -188,15 +177,31 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 */
 
 
-// will launch the login screen
-- (void)launchLoginScreen {
-    [self performSegueWithIdentifier: @"launchLogin" sender: self];
-}
-
-
 // allows for the login screen to return to this view controller upon completion
 - (IBAction)prepareForUnwindSegue:(UIStoryboardSegue *) segue{
 
+}
+
+
+- (NSString *) retrieveImageURLFromString: (NSString *)string {
+    
+    
+    // Find the first occurence of the substring "src" and store its location
+    NSRange locationOfSubstring = [string rangeOfString:@"src="];
+    int startIndex = locationOfSubstring.location;
+    
+    // - Clip the string starting from the location of "src="
+    // - Clip "src=" in the process (+5)
+    // - Store the location of the first whitespace following the url
+    NSString *tailString = [string substringFromIndex:startIndex+5];
+    NSRange endIndex = [tailString rangeOfString:@" "];
+    
+    
+    // - Clip everything from the string following the whitespace
+    // - (-1) clips off the closing quotation around the URL
+    NSString *imgURL = [tailString substringToIndex:endIndex.location-1];
+    
+    return imgURL;
 }
 
 @end

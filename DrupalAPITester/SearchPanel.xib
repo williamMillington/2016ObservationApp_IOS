@@ -58,7 +58,8 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTk-Ce-hLm">
                     <rect key="frame" x="20" y="351" width="274" height="46"/>
                     <color key="backgroundColor" red="0.1722616361" green="0.79371237709999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Button">
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <state key="normal" title="Search">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ObservationCollectionViewController.h"
 
-@interface SearchViewController : ObservationCollectionViewController
+@interface SearchViewController : UICollectionViewController
 
 @end
