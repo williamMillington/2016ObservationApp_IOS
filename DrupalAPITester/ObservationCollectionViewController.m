@@ -50,30 +50,10 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     observations = [[NSArray alloc] init];
     
-    
     // only load from source on first instance of viewDidLoad
-    if([observations count] == 0){
-        NSLog(@"DATA FETCHED");
-    // fetch the newest observations from services_view
-    [DIOSView viewGet: [[NSDictionary alloc] initWithObjects: [[NSArray alloc]
-                                                            initWithObjects:@"newest_mobile", nil]
-                                             forKeys:  [[NSArray alloc]
-                                                            initWithObjects:@"view_name", nil]
-                        ]
-                success:^(AFHTTPRequestOperation *operation, id responseObject)
-                {
-                    // grab list of newest observations, and update
-                    // collectionview
-                    observations = responseObject ;
-                    [self.collectionView reloadData];
+    [self fetchObservations];
     
-                }
-               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                   NSLog(@"%@",error);
-               }
-      ];
-    }
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -115,7 +95,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     cell.layer.shadowRadius = 0.5f;
     cell.layer.shadowOpacity = 0.5f;
     cell.layer.masksToBounds = NO;
-
+    
     // Retrieve the html string detailing the URL of the image
     NSString *htmlImgUrl = observations[indexPath.row][@"image"];
     
@@ -203,5 +183,32 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     return imgURL;
 }
+
+
+// fetches the observations
+- (void) fetchObservations{
+    
+    
+    // fetch the newest observations from services_view
+    [DIOSView viewGet: [[NSDictionary alloc] initWithObjects: [[NSArray alloc]
+                                                               initWithObjects:@"newest_mobile", nil]
+                                                     forKeys:  [[NSArray alloc]
+                                                                initWithObjects:@"view_name", nil]
+                        ]
+              success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+         // grab list of newest observations, and update
+         // collectionview
+         observations = responseObject ;
+         [self.collectionView reloadData];
+         
+     }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+                  NSLog(@"%@",error);
+    }
+     ];
+}
+
 
 @end

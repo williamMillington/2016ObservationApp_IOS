@@ -79,8 +79,9 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     // - define panel height, create panel frame
     // - the searchPanel is created off-screen (-panelheight)
     int panelHeight = SPControls.frame.size.height;
-    searchPanel.frame = CGRectMake(0, -panelHeight, 320, panelHeight);
-    SPControls.frame = CGRectMake(0, 0, 320, panelHeight);
+    int panelWidth = SPControls.frame.size.width;
+    searchPanel.frame = CGRectMake(0, -panelHeight, panelWidth, panelHeight);
+    SPControls.frame = CGRectMake(0, 0, panelWidth, panelHeight);
     
     // add SPControls to the searchPanel
     // add searchPanel to this View Controller
@@ -90,6 +91,9 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     [self.view addSubview:dimView];
     
     
+//    observations = [[NSArray alloc] init];
+//    // only load from source on first instance of viewDidLoad
+//    [self fetchObservations];
     
 }
 
@@ -175,7 +179,8 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         searchPanelVisible = TRUE;
         
         // Dim the background
-        int dimViewOriginY = searchPanel.frame.size.height;
+        int dimViewOriginY = searchPanel.frame.size.height
+                                + (navbarFrame.origin.y + navbarFrame.size.height);
         int dimViewWidth = self.view.frame.size.width;
         int dimViewHeight = self.view.frame.size.height;
         
@@ -218,9 +223,32 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
 }
 
-- (NSArray *) fetchObservations{
 
-    return [[NSArray alloc] init];
+
+
+// fetches the observations
+- (void) fetchObservations{
+    
+    
+    // fetch the newest observations from services_view
+    [DIOSView viewGet: [[NSDictionary alloc] initWithObjects: [[NSArray alloc]
+                                                               initWithObjects:@"newest_mobile", nil]
+                                                     forKeys:  [[NSArray alloc]
+                                                                initWithObjects:@"view_name", nil]
+                        ]
+              success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         // grab list of newest observations, and update
+         // collectionview
+         observations = responseObject ;
+         [self.collectionView reloadData];
+         
+     }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"%@",error);
+     }
+     ];
 }
 
 - (NSString *) retrieveImageURLFromString: (NSString *)string {
