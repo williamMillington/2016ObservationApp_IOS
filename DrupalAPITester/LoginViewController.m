@@ -45,7 +45,6 @@
     [credentialsBox.layer setCornerRadius:10.0f];
     [credentialsBox.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     
-    
 }
 
 

@@ -33,6 +33,25 @@
     menuItems = @[@"title", @"newest", @"search"];
     
     
+    
+    // create the viewControllerCache
+    self.viewControllerCache = [[NSMutableDictionary alloc] init];
+    
+    // create cacheKey for initial NavigationViewController
+    NSString *cacheKey = @"NewestViewController";
+    
+    // create newest observations view controller
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ObservationCollectionViewController *newestViewController =
+                                [storyboard instantiateViewControllerWithIdentifier:cacheKey];
+    
+    // create UINavigationController to contain newestViewController
+    UINavigationController *startViewController =
+                [[UINavigationController alloc]  initWithRootViewController:newestViewController];
+    
+    // set it into the cache
+    [self.viewControllerCache setObject:startViewController forKey:cacheKey];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +67,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return [menuItems count];
 }
 
 
@@ -56,30 +75,23 @@
     
      NSString *cellIdentifier = [menuItems objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-
-    // Configure the cell...
     
-
     return cell;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    // your logic will vary here, this is just an example
-    
     switch(indexPath.row)
     {
         case 0:
-//            NSLog(@"ROW 0 SELECTED");
             [self showViewControllerForSegueWithIdentifier:@"UserViewController" sender:nil];
             break;
         case 1:
-//            NSLog(@"ROW 1 SELECTED");
             [self showViewControllerForSegueWithIdentifier:@"NewestViewController" sender:nil];
             break;
         case 2:
-//            NSLog(@"ROW 2 SELECTED");
             [self showViewControllerForSegueWithIdentifier:@"SearchViewController" sender:nil];
             break;
         default:
@@ -88,55 +100,40 @@
     
 }
 
+
 - (void)showViewControllerForSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    
-//    NSString *cacheKey = [identifier stringByAppendingFormat:@":%@", sender];
+    // search the cache for a UINavigationController with
+    // the requested key
     NSString *cacheKey = identifier;
-    UINavigationController *destViewCont = [self.viewControllerCache objectForKey:cacheKey];
+    UINavigationController *destinationViewController =
+                                    [self.viewControllerCache objectForKey:cacheKey];
     
-    
-//    NSLog(@"identifier: %@", identifier);
-//    NSLog(@"sender: %@", sender);
-//    NSLog(@"View Controller Cache: %@", self.viewControllerCache);
-    
-    
-    
-    if(destViewCont)
+    // if controller exists, swap it into the FrontViewController
+    if(destinationViewController)
     {
-//        NSLog(@"reusing view controller from cache");
-//        UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
-//        [navController setViewControllers: @[dvc] animated: NO ];
-        
-        
-        [self.revealViewController setFrontViewController:destViewCont animated:NO];
+        [self.revealViewController setFrontViewController:destinationViewController animated:NO];
         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
     }
-    else
+    else // create it
     {
-//        NSLog(@"creating view controller from segue");
         
-        if(!self.viewControllerCache){
-//            NSLog(@"init viewControllerCache");
-            self.viewControllerCache = [[NSMutableDictionary alloc] init];
-        }
-        
+        // use 'identifier' to create specific ViewController required
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        SearchViewController *searchViewCont = [storyboard instantiateViewControllerWithIdentifier:identifier];
+        SearchViewController *searchViewCont =
+                                [storyboard instantiateViewControllerWithIdentifier:identifier];
+        // create UINavigationController to house it
+        destinationViewController =
+                    [[UINavigationController alloc] initWithRootViewController:searchViewCont];
         
-        UINavigationController *newNavContr = [[UINavigationController alloc]
-                                                        initWithRootViewController:searchViewCont];
+        
+        // stick it in the cache
+        [self.viewControllerCache setObject:destinationViewController forKey:cacheKey];
         
         
-        
-        [self.viewControllerCache setObject:newNavContr forKey:cacheKey];
-        
-//        NSLog(@"Inside View Controller Cache: %@", self.viewControllerCache);
-        
-        [self.revealViewController setFrontViewController:newNavContr animated:NO];
+        // swap new view controller into the FrontViewController
+        [self.revealViewController setFrontViewController:destinationViewController animated:NO];
         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
-        
-//        [self performSegueWithIdentifier:identifier sender:sender];
     }
     
     
