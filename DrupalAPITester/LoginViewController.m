@@ -40,13 +40,10 @@
     }
     
     
-    
-    
     // Style the view holding the username and
     // password fields
     [credentialsBox.layer setCornerRadius:10.0f];
     [credentialsBox.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    
     
     
 }

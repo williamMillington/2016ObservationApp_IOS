@@ -35,8 +35,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     
     // Configure the menu button on the leftside
     UIBarButtonItem *sidebarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style: UIBarButtonItemStylePlain target:nil action:nil];

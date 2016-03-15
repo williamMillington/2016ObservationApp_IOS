@@ -84,7 +84,7 @@
         <!--Login View Controller-->
         <scene sceneID="Pi4-7x-3Zp">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="NkL-rV-T8V" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserViewController" id="NkL-rV-T8V" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MF4-dN-Khw"/>
                         <viewControllerLayoutGuide type="bottom" id="HdU-Re-837"/>
@@ -216,9 +216,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="BZt-PL-CCM" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="5s4-nk-7fZ"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newest" id="dwS-1c-rD5">
                                 <rect key="frame" x="0.0" y="72" width="320" height="44"/>
@@ -235,9 +232,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Gat-he-Q8X" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="ER2-bI-ERX"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="search" id="XjO-8Q-FUd">
                                 <rect key="frame" x="0.0" y="116" width="320" height="44"/>
@@ -254,9 +248,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="zge-0Y-fbB" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="cdF-ZZ-6gk"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -290,7 +281,7 @@
         <!--Newest Observations-->
         <scene sceneID="Iqu-Pf-3Jx">
             <objects>
-                <collectionViewController storyboardIdentifier="ObservationCollectionViewController" id="7jY-WF-Tce" customClass="ObservationCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="NewestViewController" id="7jY-WF-Tce" customClass="ObservationCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vNc-bd-CNi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -368,7 +359,7 @@
         <!--Search View Controller-->
         <scene sceneID="Wpk-jw-S7x">
             <objects>
-                <collectionViewController id="H6d-1s-GQt" customClass="SearchViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="SearchViewController" id="H6d-1s-GQt" customClass="SearchViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ibK-1X-l0c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -445,7 +436,4 @@
             <point key="canvasLocation" x="-949" y="2214"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ER2-bI-ERX"/>
-    </inferredMetricsTieBreakers>
 </document>
