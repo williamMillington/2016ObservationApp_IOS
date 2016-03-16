@@ -15,6 +15,7 @@
 		790FDC861C8396E50081DE8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790FDC841C8396E50081DE8E /* LaunchScreen.storyboard */; };
 		791EB60C1C91F13A00B02FC7 /* SearchPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791EB60B1C91F13A00B02FC7 /* SearchPanel.xib */; };
 		791EB60F1C91F2F800B02FC7 /* SearchPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 791EB60E1C91F2F800B02FC7 /* SearchPanelView.m */; };
+		792373BF1C988764008F67C6 /* ObservationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 792373BE1C988764008F67C6 /* ObservationView.xib */; };
 		796DA8791C84907500741F2D /* dios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 796DA8781C84907500741F2D /* dios.plist */; };
 		79E480D31C8B309A005047ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E480D21C8B309A005047ED /* LoginViewController.m */; };
 		79E480E21C907352005047ED /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E480E11C907352005047ED /* SearchViewController.m */; };
@@ -42,6 +43,7 @@
 		791EB60B1C91F13A00B02FC7 /* SearchPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPanel.xib; sourceTree = "<group>"; };
 		791EB60D1C91F2F800B02FC7 /* SearchPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPanelView.h; sourceTree = "<group>"; };
 		791EB60E1C91F2F800B02FC7 /* SearchPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPanelView.m; sourceTree = "<group>"; };
+		792373BE1C988764008F67C6 /* ObservationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObservationView.xib; sourceTree = "<group>"; };
 		796DA8781C84907500741F2D /* dios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dios.plist; sourceTree = "<group>"; };
 		79E480D11C8B309A005047ED /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		79E480D21C8B309A005047ED /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				79E480D11C8B309A005047ED /* LoginViewController.h */,
 				79E480D21C8B309A005047ED /* LoginViewController.m */,
 				790FDC7F1C8396E50081DE8E /* Main.storyboard */,
+				792373BE1C988764008F67C6 /* ObservationView.xib */,
 				791EB60B1C91F13A00B02FC7 /* SearchPanel.xib */,
 				79F1F5511C8692D300E73733 /* ObservationCollectionViewCell.h */,
 				79F1F5521C8692D300E73733 /* ObservationCollectionViewCell.m */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				790FDC861C8396E50081DE8E /* LaunchScreen.storyboard in Resources */,
+				792373BF1C988764008F67C6 /* ObservationView.xib in Resources */,
 				790FDC831C8396E50081DE8E /* Assets.xcassets in Resources */,
 				796DA8791C84907500741F2D /* dios.plist in Resources */,
 				790FDC811C8396E50081DE8E /* Main.storyboard in Resources */,

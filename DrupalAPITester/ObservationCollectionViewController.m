@@ -74,6 +74,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 }
 */
 
+
 //#pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -102,10 +103,9 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     // Retrieve the html string detailing the URL of the image
     NSString *htmlImgUrl = observations[indexPath.row][@"image"];
     
+    
     // If the string is not NSNULL
     if(htmlImgUrl != (id)[NSNull null]){
-        
-        // strip HTML tags from URL
         NSString *imgURL = [self retrieveImageURLFromString:htmlImgUrl];
         
         // create NSURL and use UIImage_AFNetworking method to
@@ -116,14 +116,11 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     // Extract observation data from observation
-    NSString *title = observations[indexPath.row][@"title"];
-    NSString *user = observations[indexPath.row][@"name"];
+    cell.observationName.text = observations[indexPath.row][@"node_title"];
+    cell.username.text = observations[indexPath.row][@"author_name"];
+    cell.nid = observations[indexPath.row][@"nid"];
     
-    
-    // Populate Cell with observation data
-    cell.observationName.text = title;
-    cell.username.text = user;
-    
+    NSLog(@"%@",cell.nid);
     
     return cell;
 }
@@ -168,7 +165,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 - (NSString *) retrieveImageURLFromString: (NSString *)string {
     
-    
     // Find the first occurence of the substring "src" and store its location
     NSRange locationOfSubstring = [string rangeOfString:@"src="];
     int startIndex = locationOfSubstring.location;
@@ -187,7 +183,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     return imgURL;
 }
 
-
 // fetches the observations
 - (void) fetchObservations{
     
@@ -199,12 +194,15 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                                                 initWithObjects:@"view_name", nil]
                         ]
               success:^(AFHTTPRequestOperation *operation, id responseObject)
-    {
+     {
          // grab list of newest observations, and update
          // collectionview
          observations = responseObject ;
          [self.collectionView reloadData];
-         
+        
+         NSLog(@"%@",operation);
+         NSLog(@"%@",responseObject);
+        
      }
               failure:^(AFHTTPRequestOperation *operation, NSError *error)
     {

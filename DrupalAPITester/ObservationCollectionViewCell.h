@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *observationName;
 @property (weak, nonatomic) IBOutlet UILabel *username;
+@property (weak, nonatomic) NSString *nid;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgThumbnail;
 
