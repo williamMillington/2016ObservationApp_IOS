@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79069A091CA2035100A8AC31 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79069A081CA2035100A8AC31 /* UserViewController.m */; };
 		790FDC781C8396E50081DE8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC771C8396E50081DE8E /* main.m */; };
 		790FDC7B1C8396E50081DE8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC7A1C8396E50081DE8E /* AppDelegate.m */; };
 		790FDC7E1C8396E50081DE8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC7D1C8396E50081DE8E /* ViewController.m */; };
@@ -15,12 +16,15 @@
 		790FDC861C8396E50081DE8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790FDC841C8396E50081DE8E /* LaunchScreen.storyboard */; };
 		791EB60C1C91F13A00B02FC7 /* SearchPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791EB60B1C91F13A00B02FC7 /* SearchPanel.xib */; };
 		791EB60F1C91F2F800B02FC7 /* SearchPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 791EB60E1C91F2F800B02FC7 /* SearchPanelView.m */; };
-		792373BF1C988764008F67C6 /* ObservationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 792373BE1C988764008F67C6 /* ObservationView.xib */; };
+		792373C81C99A330008F67C6 /* ObservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792373C71C99A330008F67C6 /* ObservationViewController.m */; };
+		792373CA1C99A367008F67C6 /* ObservationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 792373C91C99A367008F67C6 /* ObservationViewController.xib */; };
+		792373CD1C99AE91008F67C6 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 792373CC1C99AE91008F67C6 /* XMLReader.m */; };
 		796DA8791C84907500741F2D /* dios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 796DA8781C84907500741F2D /* dios.plist */; };
 		79E480D31C8B309A005047ED /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E480D21C8B309A005047ED /* LoginViewController.m */; };
 		79E480E21C907352005047ED /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E480E11C907352005047ED /* SearchViewController.m */; };
 		79E480E61C90CC5F005047ED /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E480E51C90CC5F005047ED /* SWRevealViewController.m */; };
 		79E480E91C90D0CA005047ED /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E480E81C90D0CA005047ED /* SideMenuViewController.m */; };
+		79E7A2B81CA08DCF00AB701F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E7A2B71CA08DCF00AB701F /* MapKit.framework */; };
 		79F1F5501C8692B800E73733 /* ObservationCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F1F54F1C8692B800E73733 /* ObservationCollectionViewController.m */; };
 		79F1F5531C8692D300E73733 /* ObservationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F1F5521C8692D300E73733 /* ObservationCollectionViewCell.m */; };
 		E690A6958F24FB746D1F5941 /* libPods-DrupalAPITester.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A14F780DE01B682E2FA348 /* libPods-DrupalAPITester.a */; };
@@ -30,6 +34,8 @@
 		1EA8BFD529523BBE789661B6 /* Pods-DrupalAPITester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrupalAPITester.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrupalAPITester/Pods-DrupalAPITester.release.xcconfig"; sourceTree = "<group>"; };
 		61A14F780DE01B682E2FA348 /* libPods-DrupalAPITester.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrupalAPITester.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C17DE28DC32AFC96D683C4 /* Pods-DrupalAPITester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrupalAPITester.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrupalAPITester/Pods-DrupalAPITester.debug.xcconfig"; sourceTree = "<group>"; };
+		79069A071CA2035100A8AC31 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		79069A081CA2035100A8AC31 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		790FDC731C8396E50081DE8E /* DrupalAPITester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrupalAPITester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		790FDC771C8396E50081DE8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		790FDC791C8396E50081DE8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -43,7 +49,11 @@
 		791EB60B1C91F13A00B02FC7 /* SearchPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPanel.xib; sourceTree = "<group>"; };
 		791EB60D1C91F2F800B02FC7 /* SearchPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPanelView.h; sourceTree = "<group>"; };
 		791EB60E1C91F2F800B02FC7 /* SearchPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPanelView.m; sourceTree = "<group>"; };
-		792373BE1C988764008F67C6 /* ObservationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObservationView.xib; sourceTree = "<group>"; };
+		792373C61C99A330008F67C6 /* ObservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservationViewController.h; sourceTree = "<group>"; };
+		792373C71C99A330008F67C6 /* ObservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservationViewController.m; sourceTree = "<group>"; };
+		792373C91C99A367008F67C6 /* ObservationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ObservationViewController.xib; path = ../ObservationViewController.xib; sourceTree = "<group>"; };
+		792373CB1C99AE91008F67C6 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		792373CC1C99AE91008F67C6 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		796DA8781C84907500741F2D /* dios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dios.plist; sourceTree = "<group>"; };
 		79E480D11C8B309A005047ED /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		79E480D21C8B309A005047ED /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -53,6 +63,7 @@
 		79E480E51C90CC5F005047ED /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		79E480E71C90D0CA005047ED /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
 		79E480E81C90D0CA005047ED /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		79E7A2B71CA08DCF00AB701F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		79F1F54E1C8692B800E73733 /* ObservationCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservationCollectionViewController.h; sourceTree = "<group>"; };
 		79F1F54F1C8692B800E73733 /* ObservationCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservationCollectionViewController.m; sourceTree = "<group>"; };
 		79F1F5511C8692D300E73733 /* ObservationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservationCollectionViewCell.h; sourceTree = "<group>"; };
@@ -64,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79E7A2B81CA08DCF00AB701F /* MapKit.framework in Frameworks */,
 				E690A6958F24FB746D1F5941 /* libPods-DrupalAPITester.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +86,7 @@
 		2D67848F78CB0E08CD819AE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79E7A2B71CA08DCF00AB701F /* MapKit.framework */,
 				61A14F780DE01B682E2FA348 /* libPods-DrupalAPITester.a */,
 			);
 			name = Frameworks;
@@ -107,12 +120,14 @@
 				79E480D11C8B309A005047ED /* LoginViewController.h */,
 				79E480D21C8B309A005047ED /* LoginViewController.m */,
 				790FDC7F1C8396E50081DE8E /* Main.storyboard */,
-				792373BE1C988764008F67C6 /* ObservationView.xib */,
+				792373C91C99A367008F67C6 /* ObservationViewController.xib */,
 				791EB60B1C91F13A00B02FC7 /* SearchPanel.xib */,
 				79F1F5511C8692D300E73733 /* ObservationCollectionViewCell.h */,
 				79F1F5521C8692D300E73733 /* ObservationCollectionViewCell.m */,
 				79F1F54E1C8692B800E73733 /* ObservationCollectionViewController.h */,
 				79F1F54F1C8692B800E73733 /* ObservationCollectionViewController.m */,
+				792373C61C99A330008F67C6 /* ObservationViewController.h */,
+				792373C71C99A330008F67C6 /* ObservationViewController.m */,
 				791EB60D1C91F2F800B02FC7 /* SearchPanelView.h */,
 				791EB60E1C91F2F800B02FC7 /* SearchPanelView.m */,
 				79E480E01C907352005047ED /* SearchViewController.h */,
@@ -121,6 +136,10 @@
 				79E480E81C90D0CA005047ED /* SideMenuViewController.m */,
 				790FDC7C1C8396E50081DE8E /* ViewController.h */,
 				790FDC7D1C8396E50081DE8E /* ViewController.m */,
+				79069A071CA2035100A8AC31 /* UserViewController.h */,
+				79069A081CA2035100A8AC31 /* UserViewController.m */,
+				792373CB1C99AE91008F67C6 /* XMLReader.h */,
+				792373CC1C99AE91008F67C6 /* XMLReader.m */,
 				790FDC821C8396E50081DE8E /* Assets.xcassets */,
 				790FDC841C8396E50081DE8E /* LaunchScreen.storyboard */,
 				790FDC871C8396E50081DE8E /* Info.plist */,
@@ -216,9 +235,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				790FDC861C8396E50081DE8E /* LaunchScreen.storyboard in Resources */,
-				792373BF1C988764008F67C6 /* ObservationView.xib in Resources */,
 				790FDC831C8396E50081DE8E /* Assets.xcassets in Resources */,
 				796DA8791C84907500741F2D /* dios.plist in Resources */,
+				792373CA1C99A367008F67C6 /* ObservationViewController.xib in Resources */,
 				790FDC811C8396E50081DE8E /* Main.storyboard in Resources */,
 				791EB60C1C91F13A00B02FC7 /* SearchPanel.xib in Resources */,
 			);
@@ -280,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79E480E91C90D0CA005047ED /* SideMenuViewController.m in Sources */,
+				792373C81C99A330008F67C6 /* ObservationViewController.m in Sources */,
 				790FDC7E1C8396E50081DE8E /* ViewController.m in Sources */,
 				790FDC7B1C8396E50081DE8E /* AppDelegate.m in Sources */,
 				79E480D31C8B309A005047ED /* LoginViewController.m in Sources */,
@@ -288,6 +308,8 @@
 				79E480E61C90CC5F005047ED /* SWRevealViewController.m in Sources */,
 				790FDC781C8396E50081DE8E /* main.m in Sources */,
 				79E480E21C907352005047ED /* SearchViewController.m in Sources */,
+				792373CD1C99AE91008F67C6 /* XMLReader.m in Sources */,
+				79069A091CA2035100A8AC31 /* UserViewController.m in Sources */,
 				79F1F5501C8692B800E73733 /* ObservationCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

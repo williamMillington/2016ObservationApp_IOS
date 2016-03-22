@@ -10,9 +10,11 @@
 
 @interface ObservationCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *observationName;
+@property (weak, nonatomic) IBOutlet UILabel *observation_title;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) NSString *nid;
+@property (weak, nonatomic) NSString *uid;
+@property (weak, nonatomic) NSString *field_date_observed;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgThumbnail;
 

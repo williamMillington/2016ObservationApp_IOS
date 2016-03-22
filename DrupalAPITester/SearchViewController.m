@@ -118,12 +118,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                            dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                            forIndexPath:indexPath];
     
-    // Style cell shadow
-    cell.layer.shadowOffset = CGSizeMake(0.5f, 0.5f);
-    cell.layer.shadowRadius = 0.5f;
-    cell.layer.shadowOpacity = 0.5f;
-    cell.layer.masksToBounds = NO;
-    
     // Retrieve the html string detailing the URL of the image
     NSString *htmlImgUrl = observations[indexPath.row][@"image"];
     
@@ -146,7 +140,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     // Populate Cell with observation data
-    cell.observationName.text = title;
+    cell.observation_title.text = title;
     cell.username.text = user;
     
     

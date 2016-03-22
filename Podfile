@@ -6,6 +6,7 @@
 
 target 'DrupalAPITester' do
     pod 'drupal-ios-sdk', '~> 2.1'
+    pod ‘GoogleMaps’
 
 end
 

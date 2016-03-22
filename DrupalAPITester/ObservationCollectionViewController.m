@@ -8,6 +8,7 @@
 
 #import "ObservationCollectionViewController.h"
 #import "ObservationCollectionViewCell.h"
+#import "ObservationViewController.h"
 
 #import "DIOSNode.h"
 #import "DIOSView.h"
@@ -15,11 +16,13 @@
 #import "UIImageView+AFNetworking.h"
 
 #import "SWRevealViewController.h"
+#import "XMLReader.h"
 
 @interface ObservationCollectionViewController ()
 @end
 
 @implementation ObservationCollectionViewController{
+//    NSMutableArray *observations;
     NSArray *observations;
 }
 
@@ -48,12 +51,9 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
     
-    observations = [[NSArray alloc] init];
     
-    // only load from source on first instance of viewDidLoad
+    observations = [[NSMutableArray alloc] init];
     [self fetchObservations];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,15 +94,11 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                         dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                         forIndexPath:indexPath];
     
-    // Style cell shadow
-    cell.layer.shadowOffset = CGSizeMake(0.5f, 0.5f);
-    cell.layer.shadowRadius = 0.5f;
-    cell.layer.shadowOpacity = 0.5f;
-    cell.layer.masksToBounds = NO;
+    // grab observation
+    NSDictionary *observation = observations[indexPath.row];
     
     // Retrieve the html string detailing the URL of the image
-    NSString *htmlImgUrl = observations[indexPath.row][@"image"];
-    
+    NSString *htmlImgUrl = observation[@"image"];
     
     // If the string is not NSNULL
     if(htmlImgUrl != (id)[NSNull null]){
@@ -114,15 +110,39 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         [cell.imgThumbnail setImageWithURL:url];
     }
     
-    
     // Extract observation data from observation
-    cell.observationName.text = observations[indexPath.row][@"node_title"];
-    cell.username.text = observations[indexPath.row][@"author_name"];
-    cell.nid = observations[indexPath.row][@"nid"];
-    
-    NSLog(@"%@",cell.nid);
+    cell.observation_title.text = observation[@"title"];
+    cell.username.text = observation[@"author_name"];
+    cell.nid = observation[@"nid"];
+    cell.uid = observation[@"uid"];
+    cell.field_date_observed = observation[@"field_date_observed"];
     
     return cell;
+}
+
+
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    ObservationViewController *obsViewContr = [[ObservationViewController alloc] initWithNibName:@"ObservationViewController" bundle:nil];
+    
+    ObservationCollectionViewCell *cell = (ObservationCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
+    
+    
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    
+//    [data setObject:cell.observation_title.text forKey:@"observation_title"];
+//    [data setObject:cell.username.text forKey:@"username"];
+//    [data setObject:cell.imgThumbnail.image forKey:@"image"];
+    [data setObject:cell.nid forKey:@"nid"];
+    [data setObject:cell.uid forKey:@"uid"];
+//    [data setObject:cell.field_date_observed forKey:@"field_date_observed"];
+    
+    obsViewContr.cellData = data;
+//    [obsViewContr viewDidLoad];
+    [obsViewContr reload];
+    
+    [self.navigationController pushViewController:obsViewContr animated:YES];
 }
 
 #pragma mark <UICollectionViewDelegate>
@@ -183,32 +203,32 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     return imgURL;
 }
 
+
 // fetches the observations
 - (void) fetchObservations{
     
+    // Set up URL for one-time request to Newest Observations
+    NSMutableURLRequest *request =
+        [NSMutableURLRequest requestWithURL:
+         [NSURL URLWithString:@"http://137.149.157.10/cs482/mobile-api/newest-observations-mobile"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     
-    // fetch the newest observations from services_view
-    [DIOSView viewGet: [[NSDictionary alloc] initWithObjects: [[NSArray alloc]
-                                                               initWithObjects:@"newest_mobile", nil]
-                                                     forKeys:  [[NSArray alloc]
-                                                                initWithObjects:@"view_name", nil]
-                        ]
-              success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-         // grab list of newest observations, and update
-         // collectionview
-         observations = responseObject ;
-         [self.collectionView reloadData];
-        
-         NSLog(@"%@",operation);
-         NSLog(@"%@",responseObject);
-        
-     }
-              failure:^(AFHTTPRequestOperation *operation, NSError *error)
-    {
-                  NSLog(@"%@",error);
-    }
-     ];
+    // Set Request to GET, and specify JSON
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setHTTPMethod:@"GET"];
+    
+    // Set up error and response objects
+    NSError *requestError = nil;
+    NSURLResponse *response = nil;
+    
+    // Send request
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
+    
+    // Convert data into JSON
+    NSError *error = nil;
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+    
+    // load observation into observations list
+    observations = jsonArray;
 }
 
 
