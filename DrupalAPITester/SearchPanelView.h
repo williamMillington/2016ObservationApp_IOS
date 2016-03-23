@@ -10,4 +10,8 @@
 
 @interface SearchPanelView : UIVisualEffectView
 
+
+
+- (IBAction)executeSearch:(id)sender;
+
 @end

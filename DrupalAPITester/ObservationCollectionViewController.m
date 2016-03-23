@@ -131,15 +131,10 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
     
-//    [data setObject:cell.observation_title.text forKey:@"observation_title"];
-//    [data setObject:cell.username.text forKey:@"username"];
-//    [data setObject:cell.imgThumbnail.image forKey:@"image"];
     [data setObject:cell.nid forKey:@"nid"];
     [data setObject:cell.uid forKey:@"uid"];
-//    [data setObject:cell.field_date_observed forKey:@"field_date_observed"];
     
     obsViewContr.cellData = data;
-//    [obsViewContr viewDidLoad];
     [obsViewContr reload];
     
     [self.navigationController pushViewController:obsViewContr animated:YES];
@@ -229,6 +224,8 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     // load observation into observations list
     observations = jsonArray;
+    
+    NSLog(@"%@",jsonArray);
 }
 
 

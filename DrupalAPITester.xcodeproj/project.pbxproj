@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79069A091CA2035100A8AC31 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79069A081CA2035100A8AC31 /* UserViewController.m */; };
 		790FDC781C8396E50081DE8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC771C8396E50081DE8E /* main.m */; };
 		790FDC7B1C8396E50081DE8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC7A1C8396E50081DE8E /* AppDelegate.m */; };
 		790FDC7E1C8396E50081DE8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC7D1C8396E50081DE8E /* ViewController.m */; };
@@ -34,8 +33,6 @@
 		1EA8BFD529523BBE789661B6 /* Pods-DrupalAPITester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrupalAPITester.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrupalAPITester/Pods-DrupalAPITester.release.xcconfig"; sourceTree = "<group>"; };
 		61A14F780DE01B682E2FA348 /* libPods-DrupalAPITester.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrupalAPITester.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C17DE28DC32AFC96D683C4 /* Pods-DrupalAPITester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrupalAPITester.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrupalAPITester/Pods-DrupalAPITester.debug.xcconfig"; sourceTree = "<group>"; };
-		79069A071CA2035100A8AC31 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
-		79069A081CA2035100A8AC31 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		790FDC731C8396E50081DE8E /* DrupalAPITester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrupalAPITester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		790FDC771C8396E50081DE8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		790FDC791C8396E50081DE8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -136,8 +133,6 @@
 				79E480E81C90D0CA005047ED /* SideMenuViewController.m */,
 				790FDC7C1C8396E50081DE8E /* ViewController.h */,
 				790FDC7D1C8396E50081DE8E /* ViewController.m */,
-				79069A071CA2035100A8AC31 /* UserViewController.h */,
-				79069A081CA2035100A8AC31 /* UserViewController.m */,
 				792373CB1C99AE91008F67C6 /* XMLReader.h */,
 				792373CC1C99AE91008F67C6 /* XMLReader.m */,
 				790FDC821C8396E50081DE8E /* Assets.xcassets */,
@@ -309,7 +304,6 @@
 				790FDC781C8396E50081DE8E /* main.m in Sources */,
 				79E480E21C907352005047ED /* SearchViewController.m in Sources */,
 				792373CD1C99AE91008F67C6 /* XMLReader.m in Sources */,
-				79069A091CA2035100A8AC31 /* UserViewController.m in Sources */,
 				79F1F5501C8692B800E73733 /* ObservationCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 #import "SearchPanelView.h"
 #import "ObservationCollectionViewCell.h"
+#import "ObservationViewController.h"
 
 #import "DIOSNode.h"
 #import "DIOSView.h"
@@ -17,6 +18,9 @@
 #import "UIImageView+AFNetworking.h"
 
 @interface SearchViewController ()
+{
+    NSMutableData *_responseData;
+}
 
 @end
 
@@ -73,6 +77,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                            self.view.frame.size.width,
                                            self.view.frame.size.height)
                ];
+    [dimView setUserInteractionEnabled:NO]; 
     
     // - define panel height, create panel frame
     // - the searchPanel is created off-screen (-panelheight)
@@ -87,13 +92,8 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     [searchPanel addSubview:SPControls];
     [self.view addSubview:searchPanel];
     [self.view addSubview:dimView];
-    
-    
-//    observations = [[NSArray alloc] init];
-//    // only load from source on first instance of viewDidLoad
-//    [self fetchObservations];
-    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -104,8 +104,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [observations count];
 }
@@ -118,8 +116,11 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                            dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                            forIndexPath:indexPath];
     
+    // grab observation
+    NSDictionary *observation = observations[indexPath.row];
+    
     // Retrieve the html string detailing the URL of the image
-    NSString *htmlImgUrl = observations[indexPath.row][@"image"];
+    NSString *htmlImgUrl = observation[@"Image"];
     
     // If the string is not NSNULL
     if(htmlImgUrl != (id)[NSNull null]){
@@ -133,11 +134,12 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         [cell.imgThumbnail setImageWithURL:url];
     }
     
-    
     // Extract observation data from observation
-    NSString *title = observations[indexPath.row][@"title"];
-    NSString *user = observations[indexPath.row][@"name"];
-    
+    NSString *title = observation[@"title"];
+    NSString *user = observation[@"name"];
+    cell.nid = observation[@"nid"];
+    cell.uid = observation[@"uid"];
+    cell.field_date_observed = observation[@"field_date_observed"];
     
     // Populate Cell with observation data
     cell.observation_title.text = title;
@@ -146,6 +148,27 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     return cell;
 }
+
+
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    ObservationViewController *obsViewContr = [[ObservationViewController alloc] initWithNibName:@"ObservationViewController" bundle:nil];
+    
+    ObservationCollectionViewCell *cell = (ObservationCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
+    
+    
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    
+    [data setObject:cell.nid forKey:@"nid"];
+    [data setObject:cell.uid forKey:@"uid"];
+    
+    obsViewContr.cellData = data;
+    [obsViewContr reload];
+    
+    [self.navigationController pushViewController:obsViewContr animated:YES];
+}
+
 
 
 // Method responsible for toggling the reveal/hide
@@ -219,32 +242,87 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 
 // fetches the observations
-- (void) fetchObservations{
+- (void) fetchObservations:(NSMutableDictionary *)parameters{
+    
+    NSURLComponents *requestURL =
+    [[NSURLComponents alloc]
+     initWithString:@"http://137.149.157.10/cs482/mobile-api/search-mobile"];
     
     
-    // fetch the newest observations from services_view
-    [DIOSView viewGet: [[NSDictionary alloc] initWithObjects: [[NSArray alloc]
-                                                               initWithObjects:@"newest_mobile", nil]
-                                                     forKeys:  [[NSArray alloc]
-                                                                initWithObjects:@"view_name", nil]
-                        ]
-              success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-         // grab list of newest observations, and update
-         // collectionview
-         observations = responseObject ;
-         [self.collectionView reloadData];
-         
-     }
-              failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         NSLog(@"%@",error);
-     }
-     ];
+    NSString *titleVal = [parameters objectForKey:@"title"];
+    NSURLQueryItem *q_item_nid = [[NSURLQueryItem alloc] initWithName:@"title"
+                                                                value:titleVal];
+    requestURL.queryItems = @[q_item_nid];
+    
+    
+    // Set up URL for one-time request to Newest Observations
+    NSMutableURLRequest *request =
+    [NSMutableURLRequest requestWithURL: requestURL.URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+    
+    // Set Request to GET, and specify JSON
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setHTTPMethod:@"GET"];
+    
+    // Create url connection and fire request
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
-- (NSString *) retrieveImageURLFromString: (NSString *)string {
+
+
+#pragma mark NSURLConnection Delegate Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    // A response has been received, this is where we initialize the instance var you created
+    // so that we can append data to it in the didReceiveData method
+    // Furthermore, this method is called each time there is a redirect so reinitializing it
+    // also serves to clear it
     
+    _responseData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    // Append the new data to the instance variable you declared
+    [_responseData appendData:data];
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    NSString *url = [connection.currentRequest.URL absoluteString];
+    
+    // convert data to JSON
+    NSError *error = nil;
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_responseData options:kNilOptions error:&error];
+    
+    
+//    if([jsonArray count] > 1)
+        observations = jsonArray;
+    
+    
+    [self.collectionView reloadData];
+    [self toggleSearchPanel];
+    
+    NSLog(@"%@",jsonArray);
+    
+}
+
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
+    NSLog(@"%@",error);
+}
+
+
+
+
+- (NSString *) retrieveImageURLFromString: (NSString *)string {
     
     // Find the first occurence of the substring "src" and store its location
     NSRange locationOfSubstring = [string rangeOfString:@"src="];

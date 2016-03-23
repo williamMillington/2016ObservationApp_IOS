@@ -93,25 +93,6 @@
             </objects>
             <point key="canvasLocation" x="-335" y="2962"/>
         </scene>
-        <!--User View Controller-->
-        <scene sceneID="w9C-MT-bvd">
-            <objects>
-                <viewController id="6Yl-fZ-oB5" customClass="UserViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="l2T-6E-Qkn"/>
-                        <viewControllerLayoutGuide type="bottom" id="nql-Ir-bfU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="48Z-yM-aMf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qCe-uC-f5y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="142" y="2957"/>
-        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="zH4-PA-SFO">
             <objects>
@@ -368,7 +349,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="imgThumbnail" destination="osc-50-sA0" id="GOP-qJ-Dza"/>
-                                    <outlet property="observationName" destination="dJb-cL-rbz" id="O3g-P8-OgE"/>
+                                    <outlet property="observation_title" destination="dJb-cL-rbz" id="1ts-tM-A4H"/>
                                     <outlet property="username" destination="H9i-Df-CLU" id="UTQ-hV-t6g"/>
                                 </connections>
                             </collectionViewCell>

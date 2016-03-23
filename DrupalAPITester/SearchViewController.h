@@ -11,4 +11,7 @@
 
 @interface SearchViewController : UICollectionViewController
 
+
+- (void) fetchObservations:(NSMutableDictionary *)parameters;
+
 @end

@@ -8,6 +8,8 @@
 
 #import "SearchPanelView.h"
 
+#import "SearchViewController.h"
+
 @implementation SearchPanelView
 
 /*
@@ -18,14 +20,31 @@
 }
 */
 
-- (IBAction)useLocationToggle:(id)sender {
-}
 
-- (IBAction)city_textfield:(id)sender {
-}
-- (IBAction)street_textfield:(id)sender {
-}
-- (IBAction)execute_search:(id)sender {
-    NSLog(@"Search button pressed");
+- (IBAction)executeSearch:(id)sender {
+    
+    SearchViewController *parent = (SearchViewController *)[[[self superview] superview] nextResponder];
+    
+    
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    
+    UISearchBar *searchbar = (UISearchBar *)parent.navigationItem.titleView;
+    NSString *searchString = [searchbar text];
+    
+    
+//    NSLog(@"REACHED 1");
+    [parameters setObject:searchString forKey:@"title"];
+//    parameters 
+//    NSLog(@"%@",searchString);
+    
+    [parent fetchObservations:parameters];
+//    NSLog(@"REACHED 2");
 }
 @end
+
+
+
+
+
+
+

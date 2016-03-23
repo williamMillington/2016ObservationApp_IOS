@@ -22,15 +22,12 @@ PODS:
     - AFNetworking/NSURLSession
   - drupal-ios-sdk (2.1.5):
     - AFNetworking (~> 2.0)
-  - GoogleMaps (1.12.3)
 
 DEPENDENCIES:
   - drupal-ios-sdk (~> 2.1)
-  - GoogleMaps
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   drupal-ios-sdk: 4202e4cb689f162ab513d62fe1f05c89205158be
-  GoogleMaps: a4ac67918d0b5ba5f6b9893ac80487e357779e6c
 
 COCOAPODS: 0.39.0
