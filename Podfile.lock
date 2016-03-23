@@ -22,12 +22,18 @@ PODS:
     - AFNetworking/NSURLSession
   - drupal-ios-sdk (2.1.5):
     - AFNetworking (~> 2.0)
+  - KCFloatingActionButton (1.2.1)
+  - LGPlusButtonsView (1.1.1)
 
 DEPENDENCIES:
   - drupal-ios-sdk (~> 2.1)
+  - KCFloatingActionButton
+  - LGPlusButtonsView (~> 1.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   drupal-ios-sdk: 4202e4cb689f162ab513d62fe1f05c89205158be
+  KCFloatingActionButton: 0210361043c9c151beafce36a7677effc7703790
+  LGPlusButtonsView: 57878cd3d461d0ee2042f5b7b25d1c017e22a084
 
 COCOAPODS: 0.39.0

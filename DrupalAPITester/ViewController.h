@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <drupal-ios-sdk/DIOSSession.h>
-#import <drupal-ios-sdk/DIOSNode.h>
-#import <drupal-ios-sdk/DIOSUser.h>
+#import "DIOSSession.h"
+#import "DIOSNode.h"
+#import "DIOSUser.h"
 
 @interface ViewController : UIViewController
 

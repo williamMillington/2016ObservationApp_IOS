@@ -235,7 +235,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         // Begin animation
         [UIView commitAnimations];
     }
-    
 }
 
 
@@ -300,15 +299,13 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     NSError *error = nil;
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_responseData options:kNilOptions error:&error];
     
-    
-//    if([jsonArray count] > 1)
-        observations = jsonArray;
+    observations = jsonArray;
     
     
     [self.collectionView reloadData];
     [self toggleSearchPanel];
     
-    NSLog(@"%@",jsonArray);
+//    NSLog(@"%@",jsonArray);
     
 }
 

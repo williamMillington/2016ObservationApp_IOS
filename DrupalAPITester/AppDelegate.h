@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <drupal-ios-sdk/DIOSSession.h>
-#import <drupal-ios-sdk/DIOSNode.h>
+#import "DIOSSession.h"
+#import "DIOSNode.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

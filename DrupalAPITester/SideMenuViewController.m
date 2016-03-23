@@ -52,6 +52,9 @@
     // set it into the cache
     [self.viewControllerCache setObject:startViewController forKey:cacheKey];
     
+    // eliminates warning about ambiguous cell height
+    self.tableView.rowHeight = 45;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,9 +138,6 @@
         [self.revealViewController setFrontViewController:destinationViewController animated:NO];
         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
     }
-    
-    
-    
 }
 
 
@@ -192,12 +192,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-    
-    
-    
-    
-    
 }
 
 
