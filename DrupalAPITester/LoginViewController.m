@@ -8,9 +8,6 @@
 
 #import "LoginViewController.h"
 
-#import "DIOSUser.h"
-
-#import "SWRevealViewController.h"
 
 @interface LoginViewController ()
 

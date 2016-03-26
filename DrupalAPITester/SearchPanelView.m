@@ -8,8 +8,6 @@
 
 #import "SearchPanelView.h"
 
-#import "SearchViewController.h"
-
 @implementation SearchPanelView
 
 /*

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DIOSNode.h"
 
 #import <MapKit/MapKit.h>
 
@@ -18,9 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *observation_title;
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *ui_block_1;
-
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *ui_block_2;
-
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *observation_info_block;
 
 @property (weak, nonatomic) IBOutlet MKMapView *map;

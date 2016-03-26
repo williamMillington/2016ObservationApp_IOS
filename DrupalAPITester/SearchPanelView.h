@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SearchViewController.h"
+
 @interface SearchPanelView : UIVisualEffectView
-
-
 
 - (IBAction)executeSearch:(id)sender;
 

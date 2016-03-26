@@ -7,15 +7,6 @@
 //
 
 #import "SearchViewController.h"
-#import "SWRevealViewController.h"
-#import "SearchPanelView.h"
-#import "ObservationCollectionViewCell.h"
-#import "ObservationViewController.h"
-
-#import "DIOSNode.h"
-#import "DIOSView.h"
-#import "UIImage+AFNetworking.h"
-#import "UIImageView+AFNetworking.h"
 
 @interface SearchViewController ()
 {
@@ -338,7 +329,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     return imgURL;
 }
-
 
 
 /*

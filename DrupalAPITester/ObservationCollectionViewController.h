@@ -7,6 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ObservationCollectionViewCell.h"
+#import "ObservationViewController.h"
+#import "VCUtility.h"
+#import "UploadViewController.h"
+
+#import "DIOSNode.h"
+#import "DIOSView.h"
+#import "UIImage+AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
+
+#import "SWRevealViewController.h"
+#import "XMLReader.h"
+@import LGPlusButtonsView;
+@import KCFloatingActionButton;
 
 @interface ObservationCollectionViewController : UICollectionViewController
 

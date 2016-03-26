@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import "DIOSUser.h"
+#import "SWRevealViewController.h"
+
 @interface LoginViewController : UIViewController
 
 

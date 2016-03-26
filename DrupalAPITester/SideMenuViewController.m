@@ -7,12 +7,10 @@
 //
 
 #import "SideMenuViewController.h"
-#import "SWRevealViewController.h"
-
-#import "SearchViewController.h"
 
 @interface SideMenuViewController ()
 @property (nonatomic, strong) NSMutableDictionary *viewControllerCache;
+//@property (nonatomic, strong) UIViewController *current;
 @end
 
 @implementation SideMenuViewController{
@@ -20,6 +18,33 @@
 }
 
 @synthesize viewControllerCache;
+
+
+
+- (instancetype) initWithCoder:(NSCoder *)aDecoder  {
+    
+    // create the viewControllerCache
+    self.viewControllerCache = [[NSMutableDictionary alloc] init];
+    
+    // create cacheKey for initial NavigationViewController
+    NSString *cacheKey = @"NewestViewController";
+    // create newest observations view controller
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ObservationCollectionViewController *newestViewController =
+    [storyboard instantiateViewControllerWithIdentifier:cacheKey];
+    
+    // create UINavigationController to contain newestViewController
+    UINavigationController *startViewController =
+    [[UINavigationController alloc]  initWithRootViewController:newestViewController];
+    
+    // set it into the cache
+    [self.viewControllerCache setObject:startViewController forKey:cacheKey];
+    self.current = startViewController;
+    
+    return [super initWithCoder:aDecoder];
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,25 +57,6 @@
     
     menuItems = @[@"title", @"newest", @"search"];
     
-    
-    
-    // create the viewControllerCache
-    self.viewControllerCache = [[NSMutableDictionary alloc] init];
-    
-    // create cacheKey for initial NavigationViewController
-    NSString *cacheKey = @"NewestViewController";
-    
-    // create newest observations view controller
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ObservationCollectionViewController *newestViewController =
-                                [storyboard instantiateViewControllerWithIdentifier:cacheKey];
-    
-    // create UINavigationController to contain newestViewController
-    UINavigationController *startViewController =
-                [[UINavigationController alloc]  initWithRootViewController:newestViewController];
-    
-    // set it into the cache
-    [self.viewControllerCache setObject:startViewController forKey:cacheKey];
     
     // eliminates warning about ambiguous cell height
     self.tableView.rowHeight = 45;
@@ -116,6 +122,7 @@
     if(destinationViewController)
     {
         [self.revealViewController setFrontViewController:destinationViewController animated:NO];
+        self.current = destinationViewController;
         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
     }
     else // create it
@@ -136,6 +143,7 @@
         
         // swap new view controller into the FrontViewController
         [self.revealViewController setFrontViewController:destinationViewController animated:NO];
+        self.current = destinationViewController;
         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
     }
 }

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SWRevealViewController.h"
+#import "SearchViewController.h"
+
 @interface SideMenuViewController : UITableViewController
 
+@property (nonatomic, strong) UINavigationController *current;
 @end

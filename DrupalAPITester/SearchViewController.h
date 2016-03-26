@@ -7,11 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "SWRevealViewController.h"
+#import "SearchPanelView.h"
 #import "ObservationCollectionViewController.h"
+#import "ObservationCollectionViewCell.h"
+#import "ObservationViewController.h"
+
+#import "DIOSNode.h"
+#import "DIOSView.h"
+#import "UIImage+AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface SearchViewController : UICollectionViewController
 
 
 - (void) fetchObservations:(NSMutableDictionary *)parameters;
+
 
 @end
