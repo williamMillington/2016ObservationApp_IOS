@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ObservationCollectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,10 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-   
-    
     [DIOSSession setupDios];
-   
     
     return YES;
 }

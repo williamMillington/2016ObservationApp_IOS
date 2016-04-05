@@ -176,7 +176,7 @@ static NSUInteger USERNAME_MAX_LENGTH = 60;
 #pragma mark userLogout
 + (void)userLogoutWithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject)) success
                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error)) failure {
-    
+    NSLog(@"ALIASUSER PATH: %@", [[DIOSSession sharedSession] aliasUser]);
     NSString *path = [NSString stringWithFormat:@"%@/logout", [[DIOSSession sharedSession] aliasUser]];
     
     [[DIOSSession sharedSession] sendRequestWithPath:path method:@"POST" params:nil success:success failure:failure];

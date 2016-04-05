@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
+#import "VCUtility.h"
 #import "DIOSUser.h"
+#import "DIOSNode.h"
+#import "DIOSView.h"
+#import "UIImage+AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 #import "SWRevealViewController.h"
+#import "XMLReader.h"
 
 @interface LoginViewController : UIViewController
+
 
 
 
@@ -22,8 +28,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *wrong_credentials;
 
 
-
-- (IBAction)remember_me:(id)sender forEvent:(UIEvent *)event;
 - (IBAction)login_button:(id)sender;
 
 - (IBAction)register_button:(id)sender;

@@ -1,0 +1,6 @@
+framework module Pods_DrupalAPITester {
+  umbrella header "Pods-DrupalAPITester-umbrella.h"
+
+  export *
+  module * { export * }
+}

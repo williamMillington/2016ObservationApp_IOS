@@ -95,7 +95,10 @@
     switch(indexPath.row)
     {
         case 0:
-            [self showViewControllerForSegueWithIdentifier:@"UserViewController" sender:nil];
+            if([[NSUserDefaults standardUserDefaults] valueForKey:@"uid"])
+                [self showViewControllerForSegueWithIdentifier:@"UserViewController" sender:nil];
+            else
+                [self showViewControllerForSegueWithIdentifier:@"LoginViewController" sender:nil];
             break;
         case 1:
             [self showViewControllerForSegueWithIdentifier:@"NewestViewController" sender:nil];

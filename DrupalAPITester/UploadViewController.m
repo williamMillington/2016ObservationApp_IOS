@@ -14,8 +14,6 @@
 
 @implementation UploadViewController{
     UIScrollView *scrollView;
-
-
 }
 
 - (void)viewDidLoad {

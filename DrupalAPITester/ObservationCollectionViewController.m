@@ -18,8 +18,6 @@
 @implementation ObservationCollectionViewController{
 //    NSMutableArray *observations;
     NSArray *observations;
-    
-    
 }
 
 @synthesize fabView;
@@ -62,8 +60,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     fabView = [VCUtility initFABView];
     [self.view addSubview:fabView];
-    
-    
 }
 
 
