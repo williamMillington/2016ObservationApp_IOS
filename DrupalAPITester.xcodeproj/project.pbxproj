@@ -262,10 +262,10 @@
 		FC7181E71CAC94C900D22462 /* User and Login */ = {
 			isa = PBXGroup;
 			children = (
-				FC7929CD1CB3349700208481 /* UserRegisterViewController.h */,
-				FC7929CE1CB3349700208481 /* UserRegisterViewController.m */,
 				79E480D11C8B309A005047ED /* LoginViewController.h */,
 				79E480D21C8B309A005047ED /* LoginViewController.m */,
+				FC7929CD1CB3349700208481 /* UserRegisterViewController.h */,
+				FC7929CE1CB3349700208481 /* UserRegisterViewController.m */,
 				FC7181E81CAC9CB600D22462 /* UserViewController.h */,
 				FC7181E91CAC9CB600D22462 /* UserViewController.m */,
 				790FDC7C1C8396E50081DE8E /* ViewController.h */,

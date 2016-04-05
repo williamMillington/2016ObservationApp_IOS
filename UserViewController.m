@@ -33,9 +33,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *postalCodeL2;
 @property (weak, nonatomic) IBOutlet UILabel *cityL2;
 
-@property (weak, nonatomic) IBOutlet UIButton *addL1;
-@property (weak, nonatomic) IBOutlet UIButton *addL2;
-
 @end
 
 @implementation UserViewController
@@ -135,8 +132,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 /*
 #pragma mark - Navigation

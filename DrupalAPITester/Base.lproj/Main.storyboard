@@ -231,7 +231,7 @@
         <!--Register-->
         <scene sceneID="ng2-ai-RZK">
             <objects>
-                <viewController title="Register" id="g9x-ed-fOp" sceneMemberID="viewController">
+                <viewController title="Register" id="g9x-ed-fOp" customClass="UserRegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qQ7-tS-9lE"/>
                         <viewControllerLayoutGuide type="bottom" id="cYd-eh-xGZ"/>
@@ -248,23 +248,11 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aot-ys-aT6">
-                                <rect key="frame" x="33" y="180" width="255" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="idA-it-TSF">
-                                <rect key="frame" x="33" y="142" width="255" height="30"/>
+                                <rect key="frame" x="33" y="77" width="255" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPT-X6-G6p">
-                                <rect key="frame" x="115" y="396" width="91" height="71"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I agree to the terms and conditions of use" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bH-tM-Fiw">
                                 <rect key="frame" x="82" y="239" width="156" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -275,15 +263,57 @@
                                 <rect key="frame" x="33" y="239" width="41" height="34"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
                                 <state key="normal" title="Yes"/>
+                                <connections>
+                                    <action selector="agreeToTerms:" destination="g9x-ed-fOp" eventType="touchUpInside" id="Xge-cZ-FhF"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FEb-Tw-qYJ">
+                                <rect key="frame" x="33" y="153" width="255" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PhY-Gi-aH8">
+                                <rect key="frame" x="33" y="191" width="255" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aot-ys-aT6">
+                                <rect key="frame" x="33" y="115" width="255" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaL-re-M56">
+                                <rect key="frame" x="33" y="306" width="255" height="73"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.29679418103448274" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="YPT-X6-G6p">
+                                <rect key="frame" x="20" y="396" width="280" height="100"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Register"/>
+                                <state key="disabled" title="You must agree to the terms and conditions"/>
+                                <connections>
+                                    <action selector="registerUser:" destination="g9x-ed-fOp" eventType="touchUpInside" id="6NI-Y5-WCs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="agreeButton" destination="FBk-Bt-8dp" id="w78-Bc-u2f"/>
+                        <outlet property="confirmPassword" destination="PhY-Gi-aH8" id="4TJ-f2-KY1"/>
+                        <outlet property="emailAddressField" destination="aot-ys-aT6" id="Ctp-Pl-XOi"/>
+                        <outlet property="errorMessage" destination="AaL-re-M56" id="3Ay-Jp-jev"/>
+                        <outlet property="passwordField" destination="FEb-Tw-qYJ" id="sDe-WS-st4"/>
+                        <outlet property="registerButton" destination="YPT-X6-G6p" id="tKq-i6-aDD"/>
+                        <outlet property="userNameField" destination="idA-it-TSF" id="Ywn-oT-26p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXf-0I-Oqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135" y="2669"/>
+            <point key="canvasLocation" x="-379" y="3025"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="zH4-PA-SFO">
@@ -575,10 +605,10 @@
             </objects>
             <point key="canvasLocation" x="-1277" y="2062"/>
         </scene>
-        <!--View Controller-->
+        <!--Terms and Conditions view-->
         <scene sceneID="ct8-iQ-JIj">
             <objects>
-                <viewController id="0RU-lf-ZC2" sceneMemberID="viewController">
+                <viewController title="Terms and Conditions view" modalTransitionStyle="crossDissolve" modalPresentationStyle="pageSheet" id="0RU-lf-ZC2" customClass="UserRegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ESC-0T-jb4"/>
                         <viewControllerLayoutGuide type="bottom" id="Npb-gD-O46"/>
@@ -594,6 +624,9 @@
                                 <rect key="frame" x="125" y="507" width="70" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Return"/>
+                                <connections>
+                                    <action selector="returnFromTerms:" destination="0RU-lf-ZC2" eventType="touchUpInside" id="aJ1-KM-bUZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terms and Conditions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZK-pq-Dex">
                                 <rect key="frame" x="60" y="63" width="200" height="21"/>
@@ -604,10 +637,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEk-xR-dpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304" y="2669"/>
+            <point key="canvasLocation" x="56" y="3025"/>
         </scene>
     </scenes>
 </document>
