@@ -3,7 +3,7 @@
 //
 //
 //  Created by William Millington on 2016-03-05.
-//
+//  Modifications by Jonathan Cudmore
 //
 
 #import "LoginViewController.h"
@@ -57,7 +57,6 @@
 }
 
 /*
- 
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
@@ -65,6 +64,10 @@
  }
  */
 
+// Log in the user and set up user defaults.
+// User defaults will allow the user to be logged in  until
+// they specifically request to log out from the user profile
+// view even after the app closes
 - (IBAction)login_button:(id)sender {
     
     if([username_field.text isEqualToString:@""] || [password_field.text isEqualToString:@""]) {
@@ -139,11 +142,12 @@
                                     
                                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                                     UIViewController *userAccountViewController = [storyboard instantiateViewControllerWithIdentifier:@"UserViewController"];
+                                    
                                     // create UINavigationController to house it
                                     UINavigationController *destinationViewController = [[UINavigationController alloc] initWithRootViewController:userAccountViewController];
                                     
                                     // swap new view controller into the FrontViewController
-                                    [self.revealViewController setFrontViewController:destinationViewController animated:NO];
+                                    [self.revealViewController setFrontViewController:destinationViewController animated:YES];
                                     [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
                                 }
                                                                              failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -159,6 +163,20 @@
                             }
      ];
 }
+
+
+// Navigate to the registration page
+-(IBAction)register_button:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *userAccountViewController = [storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+    // create UINavigationController to house it
+    UINavigationController *destinationViewController = [[UINavigationController alloc] initWithRootViewController:userAccountViewController];
+    
+    // swap new view controller into the FrontViewController
+    [self.revealViewController setFrontViewController:destinationViewController animated:YES];
+    [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
+}
+
 
 // Get user value from AFHTTPRequests
 //
@@ -183,6 +201,8 @@
     return valueRequested;
 }
 
+
+// Fetch user information from services view */mobile-api/user/'uid'
 - (void)fetchUserInfoForId:(NSString *)uid {
     // Set up URL for one-time request to Newest Observations
     NSString *urlString = [[NSString alloc] initWithFormat:@"http://137.149.157.10/cs482/mobile-api/user/%@", uid];

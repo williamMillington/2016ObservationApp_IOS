@@ -30,7 +30,4 @@
 
 - (IBAction)login_button:(id)sender;
 
-- (IBAction)register_button:(id)sender;
-
-
 @end

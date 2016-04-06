@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		790FDC781C8396E50081DE8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC771C8396E50081DE8E /* main.m */; };
 		790FDC7B1C8396E50081DE8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC7A1C8396E50081DE8E /* AppDelegate.m */; };
-		790FDC7E1C8396E50081DE8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC7D1C8396E50081DE8E /* ViewController.m */; };
 		790FDC811C8396E50081DE8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790FDC7F1C8396E50081DE8E /* Main.storyboard */; };
 		790FDC831C8396E50081DE8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 790FDC821C8396E50081DE8E /* Assets.xcassets */; };
 		790FDC861C8396E50081DE8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790FDC841C8396E50081DE8E /* LaunchScreen.storyboard */; };
@@ -34,6 +33,7 @@
 		79F1F5531C8692D300E73733 /* ObservationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F1F5521C8692D300E73733 /* ObservationCollectionViewCell.m */; };
 		ABA04421A0D87EA9C31616A2 /* Pods_DrupalAPITester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1A7F47067AE4E1F450875C /* Pods_DrupalAPITester.framework */; };
 		FC4D16351CAD30E5000CA1DF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4D16341CAD30E5000CA1DF /* Security.framework */; };
+		FC67DC861CB487EF0043A8CA /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC67DC851CB487EF0043A8CA /* EditProfileViewController.m */; };
 		FC7181EA1CAC9CB600D22462 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7181E91CAC9CB600D22462 /* UserViewController.m */; };
 		FC7929CF1CB3349700208481 /* UserRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7929CE1CB3349700208481 /* UserRegisterViewController.m */; };
 /* End PBXBuildFile section */
@@ -45,8 +45,6 @@
 		790FDC771C8396E50081DE8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		790FDC791C8396E50081DE8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		790FDC7A1C8396E50081DE8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		790FDC7C1C8396E50081DE8E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = DrupalAPITester/ViewController.h; sourceTree = "<group>"; };
-		790FDC7D1C8396E50081DE8E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = DrupalAPITester/ViewController.m; sourceTree = "<group>"; };
 		790FDC801C8396E50081DE8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		790FDC821C8396E50081DE8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		790FDC851C8396E50081DE8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,6 +82,8 @@
 		79F1F5521C8692D300E73733 /* ObservationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservationCollectionViewCell.m; sourceTree = "<group>"; };
 		AE1A7F47067AE4E1F450875C /* Pods_DrupalAPITester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrupalAPITester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4D16341CAD30E5000CA1DF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FC67DC841CB487EF0043A8CA /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProfileViewController.h; path = DrupalAPITester/EditProfileViewController.h; sourceTree = "<group>"; };
+		FC67DC851CB487EF0043A8CA /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProfileViewController.m; path = DrupalAPITester/EditProfileViewController.m; sourceTree = "<group>"; };
 		FC7181E81CAC9CB600D22462 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		FC7181E91CAC9CB600D22462 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		FC7929CD1CB3349700208481 /* UserRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRegisterViewController.h; path = DrupalAPITester/UserRegisterViewController.h; sourceTree = "<group>"; };
@@ -268,8 +268,8 @@
 				FC7929CE1CB3349700208481 /* UserRegisterViewController.m */,
 				FC7181E81CAC9CB600D22462 /* UserViewController.h */,
 				FC7181E91CAC9CB600D22462 /* UserViewController.m */,
-				790FDC7C1C8396E50081DE8E /* ViewController.h */,
-				790FDC7D1C8396E50081DE8E /* ViewController.m */,
+				FC67DC841CB487EF0043A8CA /* EditProfileViewController.h */,
+				FC67DC851CB487EF0043A8CA /* EditProfileViewController.m */,
 			);
 			name = "User and Login";
 			path = ..;
@@ -403,7 +403,6 @@
 				79E480E91C90D0CA005047ED /* SideMenuViewController.m in Sources */,
 				792373C81C99A330008F67C6 /* ObservationViewController.m in Sources */,
 				7956595E1CA34317003239CB /* VCUtility.m in Sources */,
-				790FDC7E1C8396E50081DE8E /* ViewController.m in Sources */,
 				790FDC7B1C8396E50081DE8E /* AppDelegate.m in Sources */,
 				79E480D31C8B309A005047ED /* LoginViewController.m in Sources */,
 				FC7181EA1CAC9CB600D22462 /* UserViewController.m in Sources */,
@@ -413,6 +412,7 @@
 				FC7929CF1CB3349700208481 /* UserRegisterViewController.m in Sources */,
 				79E480E61C90CC5F005047ED /* SWRevealViewController.m in Sources */,
 				790FDC781C8396E50081DE8E /* main.m in Sources */,
+				FC67DC861CB487EF0043A8CA /* EditProfileViewController.m in Sources */,
 				79E480E21C907352005047ED /* SearchViewController.m in Sources */,
 				792373CD1C99AE91008F67C6 /* XMLReader.m in Sources */,
 				79F1F5501C8692B800E73733 /* ObservationCollectionViewController.m in Sources */,
