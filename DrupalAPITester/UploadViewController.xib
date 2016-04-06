@@ -25,11 +25,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="1207"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="1270"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yd-mK-DHD">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="1207"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="1270"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ga-Ts-PhE">
                             <rect key="frame" x="9" y="245" width="304" height="72"/>
@@ -365,7 +365,7 @@
             </subviews>
             <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="237" y="592.5"/>
+            <point key="canvasLocation" x="237" y="624"/>
         </view>
     </objects>
 </document>

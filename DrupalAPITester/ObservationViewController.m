@@ -131,32 +131,21 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
-//    NSLog(@"REACHED 0");
-    
     NSString *url = [connection.currentRequest.URL absoluteString];
     
     // convert data to JSON
     NSError *error = nil;
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_responseData options:kNilOptions error:&error];
     
-//    NSLog(@"REACHED 1");
     
     if([url rangeOfString:@"single-node-detail-mobile"].length != 0){
         
-        
-//        NSLog(@"REACHED 2");
-        
         observation = jsonArray[0];
-        
-//        NSLog(@"%@",observation);
-        
-//        NSLog(@"REACHED 3");
         NSString *urlString = observation[@"Image"];
         NSString *urlString_userPic = observation[@"user_picture"];
         
         if(urlString.length > 0){
             
-//            NSLog(@"REACHED 4");
             NSURL *url = [NSURL URLWithString:[self retrieveImageURLFromString:urlString]];
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
                 NSData *imageData = [NSData dataWithContentsOfURL:url];
@@ -169,8 +158,6 @@
         
         
         if(urlString_userPic.length > 0){
-            
-//            NSLog(@"REACHED 5");
             NSURL *url_userPic =
                 [NSURL URLWithString:[self retrieveImageURLFromString:urlString_userPic]];
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -182,18 +169,11 @@
             });
         }
         
-        
-//        NSLog(@"REACHED 6");
         [self updateView];
     }
     else {
-        
-//        NSLog(@"REACHED 10");
         user = jsonArray[0];
     }
-    
-    
-    
 }
 
 
@@ -205,10 +185,7 @@
 
 - (void) updateView {
     
-    
-//    NSLog(@"REACHED 10");
     [_observation_title setText: [observation objectForKey:@"title"]];
-    
     
     NSString *dateString = [observation objectForKey:@"Date Observed"];
     
@@ -216,9 +193,7 @@
 //    // Find the first occurence of the substring "src" and store its location
 //    NSRange locationOfSubstring = [dateString rangeOfString:@"\">"];
 //    int startIndex = locationOfSubstring.location;
-//    
-//    
-//    NSLog(@"REACHED 11");
+//
 //    
 //    // - Clip the string starting from the location of "src="
 //    // - Clip "src=" in the process (+5)
@@ -232,28 +207,20 @@
     
     [_date_observed setText: dateString];
     
-    
-//    NSLog(@"REACHED 12");
-    
-//    NSLog(@"%@",observation);
-    
     NSDictionary *coords = [observation objectForKey:@"Location lat/long"];
     
+    
+    // If there are coordinates
     if([coords count] > 0){
         double lon = [[coords objectForKey:@"lon"] doubleValue];
         double lat = [[coords objectForKey:@"lat"] doubleValue];
         CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(lat, lon);
         [self updateMap:coord];
     }
-    
-    
-//    NSLog(@"REACHED 13");
 }
 
 
 - (void) updateMap:(CLLocationCoordinate2D)coord{
-    
-    
     
     MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
     pin.coordinate = coord;

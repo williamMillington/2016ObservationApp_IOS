@@ -25,8 +25,11 @@
     
 }
 
-//@synthesize observations;
+@synthesize fabView;
 static NSString* const reuseIdentifier = @"ObservationCell";
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -76,12 +79,18 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     searchPanel.frame = CGRectMake(0, -panelHeight, panelWidth, panelHeight);
     SPControls.frame = CGRectMake(0, 0, panelWidth, panelHeight);
     
+    
+    
+    fabView = [VCUtility initFABView];
+    
+    
     // add SPControls to the searchPanel
     // add searchPanel to this View Controller
     // add the dimView to this View Controller
     [searchPanel addSubview:SPControls];
     [self.view addSubview:searchPanel];
     [self.view addSubview:dimView];
+    [self.view addSubview:fabView];
 }
 
 

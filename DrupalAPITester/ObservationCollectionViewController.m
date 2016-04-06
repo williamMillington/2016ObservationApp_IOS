@@ -51,14 +51,11 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     observations = [[NSMutableArray alloc] init];
-    [self fetchObservations];
     
     
-//    NSLog(@"-----------------------------------------------");
-//    NSLog(@"%@",self.navigationController.view);
-//    NSLog(@"%@",self);
-//    NSLog(@"%@",self.view);
-//    NSLog(@"-----------------------------------------------");
+    if([AFNetworkReachabilityManager sharedManager].reachable){
+        [self fetchObservations];
+    }
     
     
     fabView = [VCUtility initFABView];
@@ -120,9 +117,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         NSURL *url = [NSURL URLWithString:imgURL];
         [cell.imgThumbnail setImageWithURL:url];
     }
-//    
-//    
-//    NSLog(@"%@",observation);
     
     // Extract observation data from observation
     cell.observation_title.text = observation[@"title"];

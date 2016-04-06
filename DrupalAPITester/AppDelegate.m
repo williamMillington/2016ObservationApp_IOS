@@ -21,15 +21,46 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
    
+    
+    
     [DIOSSession setupDios];
     
+    NSLog(@"REACHED 1");
     
-//    NSLog(@"%@",[DIOSSession sharedSession]);
-//    NSLog(@"%@",[[DIOSSession sharedSession] csrfToken]);
-//    NSLog(@"%@",[[DIOSSession sharedSession] user]);
+    // -- Start monitoring network reachability (globally available) -- //
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
+    NSLog(@"REACHED 2");
+    
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        NSLog(@"Reachability changed: %@", AFStringFromNetworkReachabilityStatus(status));
+        
+        
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                // -- Reachable -- //
+                NSLog(@"Reachable");
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+            default:
+                // -- Not reachable -- //
+                NSLog(@"Not Reachable");
+                break;
+        }
+        
+    }
+     ];
     
     
-    [[DIOSSession sharedSession] getCSRFTokenWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
+    NSLog(@"REACHED 3");
+    
+    if([AFNetworkReachabilityManager sharedManager].reachable){
+        
+        NSLog(@"REACHED 4");
+        
+        [[DIOSSession sharedSession] getCSRFTokenWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
             NSLog(@"SUCCESS");
         
             NSLog(@"%@",[[DIOSSession sharedSession] csrfToken]);
@@ -38,11 +69,14 @@
             [defaults setObject:[[DIOSSession sharedSession] csrfToken] forKey:@"token"];
             [defaults synchronize];
         
-    }
+        }
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error){
                                                      NSLog(@"FAILURE");
+                                                }
+         ];
     }
-     ];
+    
+    NSLog(@"REACHED 5");
     
     
     
@@ -84,6 +118,8 @@
     
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -14,6 +14,10 @@
 
 #import "DIOSNode.h"
 #import "DIOSView.h"
+#import "DIOSUser.h"
+#import "DIOSSystem.h"
+#import "DIOSSession.h"
+
 #import "UIImage+AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 

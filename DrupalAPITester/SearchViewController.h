@@ -14,13 +14,19 @@
 #import "ObservationCollectionViewCell.h"
 #import "ObservationViewController.h"
 
+#import "VCUtility.h"
+
 #import "DIOSNode.h"
 #import "DIOSView.h"
 #import "UIImage+AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 
+@import LGPlusButtonsView;
+
+
 @interface SearchViewController : UICollectionViewController
 
+@property (strong, nonatomic) LGPlusButtonsView *fabView;
 
 - (void) fetchObservations:(NSMutableDictionary *)parameters;
 
