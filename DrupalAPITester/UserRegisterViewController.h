@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserRegisterViewController : UIViewController
+@interface UserRegisterViewController : UIViewController<UIAlertViewDelegate>
 
 @end

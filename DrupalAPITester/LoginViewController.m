@@ -96,12 +96,16 @@
                                     NSDictionary *l2Address;
                                     NSDictionary *imageDict = userInfo[@"picture"];
                                     
+                                    NSLog(@"USER DICTIONARY: %@", userInfo[@"field_l1_address"]);
                                     NSDictionary *und1 = userInfo[@"field_l1_address"];
                                     NSArray *l1;
                                     if([und1 count] > 0) {
                                         l1= und1[@"und"];
                                         l1Address = l1[0];
                                     }
+                                    NSLog(@"Array: %@", l1);
+                                    NSLog(@"Dictionary: %@", und1);
+                                    
                                     NSDictionary *und2 = userInfo[@"field_l2_address"];
                                     NSArray *l2;
                                     if([und2 count] > 0) {

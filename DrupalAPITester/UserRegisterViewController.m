@@ -112,8 +112,14 @@
     [userData setValue:@"Accept" forKey:@"legal_accept"];
     [DIOSUser userRegister:userData
                    success:^(AFHTTPRequestOperation *op, id response) {
-                       // If the user was successfully registered navigate to the newest view
-                       [[self navigationController] popToRootViewControllerAnimated:TRUE];
+                       // If the user was successfully registered display a pop up with intructions on what to do next
+                       // When the user dismisses the pop up they will be navigated to the login view
+                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Registration Successful"
+                                                                       message:@"Before you can log in, you must validate your account. You will have received an email to activate your account."
+                                                                      delegate:self
+                                                             cancelButtonTitle:@"OK"
+                                                             otherButtonTitles:nil];
+                       [alert show];
                    }
                    failure:^(AFHTTPRequestOperation *op, NSError *err) {
                        // Display an error messagge to the user
@@ -121,6 +127,24 @@
                        [_errorMessage setHidden:FALSE];
                    }
      ];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == [alertView cancelButtonIndex]){
+        //Ok clicked
+        // Return to newest view
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *userAccountViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        
+        // create UINavigationController to house it
+        UINavigationController *destinationViewController = [[UINavigationController alloc] initWithRootViewController:userAccountViewController];
+        
+        // swap new view controller into the FrontViewController
+        [self.revealViewController setFrontViewController:destinationViewController animated:YES];
+        [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
+    }
 }
 
 @end
