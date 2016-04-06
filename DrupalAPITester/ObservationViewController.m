@@ -210,7 +210,6 @@
     [_observation_title setText: [observation objectForKey:@"title"]];
     
     
-    
     NSString *dateString = [observation objectForKey:@"Date Observed"];
     
 //    NSLog(@"%@",dateString);

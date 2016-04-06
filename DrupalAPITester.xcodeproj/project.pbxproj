@@ -18,6 +18,8 @@
 		792373C81C99A330008F67C6 /* ObservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792373C71C99A330008F67C6 /* ObservationViewController.m */; };
 		792373CA1C99A367008F67C6 /* ObservationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 792373C91C99A367008F67C6 /* ObservationViewController.xib */; };
 		792373CD1C99AE91008F67C6 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 792373CC1C99AE91008F67C6 /* XMLReader.m */; };
+		792929DD1CAC6A0D00348399 /* Observation.m in Sources */ = {isa = PBXBuildFile; fileRef = 792929DC1CAC6A0D00348399 /* Observation.m */; };
+		792929E01CB2C38400348399 /* UploadNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792929DF1CB2C38400348399 /* UploadNavigationViewController.m */; };
 		7956595E1CA34317003239CB /* VCUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7956595D1CA34317003239CB /* VCUtility.m */; };
 		795659631CA34BF9003239CB /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795659621CA34BF9003239CB /* UploadViewController.xib */; };
 		795659661CA34C27003239CB /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 795659651CA34C27003239CB /* UploadViewController.m */; };
@@ -56,6 +58,10 @@
 		792373C91C99A367008F67C6 /* ObservationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ObservationViewController.xib; path = ../ObservationViewController.xib; sourceTree = "<group>"; };
 		792373CB1C99AE91008F67C6 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		792373CC1C99AE91008F67C6 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		792929DB1CAC6A0D00348399 /* Observation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observation.h; sourceTree = "<group>"; };
+		792929DC1CAC6A0D00348399 /* Observation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Observation.m; sourceTree = "<group>"; };
+		792929DE1CB2C38400348399 /* UploadNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadNavigationViewController.h; sourceTree = "<group>"; };
+		792929DF1CB2C38400348399 /* UploadNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadNavigationViewController.m; sourceTree = "<group>"; };
 		7956595C1CA34317003239CB /* VCUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCUtility.h; sourceTree = "<group>"; };
 		7956595D1CA34317003239CB /* VCUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCUtility.m; sourceTree = "<group>"; };
 		795659621CA34BF9003239CB /* UploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadViewController.xib; sourceTree = "<group>"; };
@@ -188,6 +194,8 @@
 		795659581CA34237003239CB /* Observation */ = {
 			isa = PBXGroup;
 			children = (
+				792929DB1CAC6A0D00348399 /* Observation.h */,
+				792929DC1CAC6A0D00348399 /* Observation.m */,
 				79F1F5511C8692D300E73733 /* ObservationCollectionViewCell.h */,
 				79F1F5521C8692D300E73733 /* ObservationCollectionViewCell.m */,
 				792373C61C99A330008F67C6 /* ObservationViewController.h */,
@@ -228,6 +236,8 @@
 		795659611CA34975003239CB /* Upload */ = {
 			isa = PBXGroup;
 			children = (
+				792929DE1CB2C38400348399 /* UploadNavigationViewController.h */,
+				792929DF1CB2C38400348399 /* UploadNavigationViewController.m */,
 				795659641CA34C27003239CB /* UploadViewController.h */,
 				795659651CA34C27003239CB /* UploadViewController.m */,
 			);
@@ -286,6 +296,7 @@
 				TargetAttributes = {
 					790FDC721C8396E50081DE8E = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 96DC6YV3DR;
 					};
 				};
 			};
@@ -378,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79E480E91C90D0CA005047ED /* SideMenuViewController.m in Sources */,
+				792929DD1CAC6A0D00348399 /* Observation.m in Sources */,
 				792373C81C99A330008F67C6 /* ObservationViewController.m in Sources */,
 				7956595E1CA34317003239CB /* VCUtility.m in Sources */,
 				790FDC7E1C8396E50081DE8E /* ViewController.m in Sources */,
@@ -390,6 +402,7 @@
 				790FDC781C8396E50081DE8E /* main.m in Sources */,
 				79E480E21C907352005047ED /* SearchViewController.m in Sources */,
 				792373CD1C99AE91008F67C6 /* XMLReader.m in Sources */,
+				792929E01CB2C38400348399 /* UploadNavigationViewController.m in Sources */,
 				79F1F5501C8692B800E73733 /* ObservationCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,15 +514,18 @@
 			baseConfigurationReference = 69C17DE28DC32AFC96D683C4 /* Pods-DrupalAPITester.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = DrupalAPITester/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.william.DrupalAPITester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -519,15 +535,18 @@
 			baseConfigurationReference = 1EA8BFD529523BBE789661B6 /* Pods-DrupalAPITester.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = DrupalAPITester/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.william.DrupalAPITester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
