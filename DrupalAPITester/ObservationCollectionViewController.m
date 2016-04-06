@@ -58,6 +58,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 //    NSLog(@"%@",self.view);
 //    NSLog(@"-----------------------------------------------");
     
+    
     fabView = [VCUtility initFABView];
     [self.view addSubview:fabView];
 }
@@ -115,6 +116,9 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         NSURL *url = [NSURL URLWithString:imgURL];
         [cell.imgThumbnail setImageWithURL:url];
     }
+//    
+//    
+//    NSLog(@"%@",observation);
     
     // Extract observation data from observation
     cell.observation_title.text = observation[@"title"];

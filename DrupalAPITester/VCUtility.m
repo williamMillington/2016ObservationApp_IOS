@@ -21,22 +21,29 @@
                                                       showAfterInit:YES
                                                       actionHandler:^(LGPlusButtonsView *plusButtonView, NSString *title, NSString *description, NSUInteger index)
                {
+                   
+                   
+                   
+                   
+                   
                    switch(index){
                        case 0:
-                           NSLog(@"index 0");
                            break;
                        case 1:
                            // Take photo
-                           NSLog(@"index 1");
+                           [self createObservationWithOption:CREATE_WITH_TAKE_PHOTO];
+                           [plusButtonView hideButtonsAnimated:YES completionHandler:nil];
                            
                            break;
                        case 2:
                            // Choose photo
-                           NSLog(@"index 2");
+                           [self createObservationWithOption:CREATE_WITH_GALLERY_PHOTO];
+                           [plusButtonView hideButtonsAnimated:YES completionHandler:nil];
                            break;
                        case 3:
                            // No photo
-                           NSLog(@"index 3");
+                           [self createObservationWithOption:CREATE_WITHOUT_PHOTO];
+                           [plusButtonView hideButtonsAnimated:YES completionHandler:nil];
                            break;
                        default:
                            NSLog(@"DEFAULT CASE SOMETHING DONE FUCKED UP");
@@ -44,20 +51,6 @@
                    }
                    
                    
-                   
-                   
-                   if(index == 1){
-                       UIWindow *window=[UIApplication sharedApplication].keyWindow;
-                       UIViewController *root = (SWRevealViewController *)[window rootViewController];
-                   
-                       UploadViewController *uploader = [[UploadViewController alloc] initWithNibName:@"UploadViewController"
-                                                                                           bundle:nil];
-                   
-                       [uploader setModalPresentationStyle:UIModalPresentationPopover];
-                       [root presentViewController:uploader animated:YES completion:nil];
-                       
-                       [plusButtonView hideButtonsAnimated:YES completionHandler:nil];
-                   }
                    
                }];
     
@@ -133,19 +126,50 @@
 
 + (void) createObservationWithOption:(CREATE_OBSERVATION_OPTION)option{
 
+    UIWindow *window=[UIApplication sharedApplication].keyWindow;
+    UIViewController *root = (SWRevealViewController *)[window rootViewController];
+    
+    UploadViewController *uploader = [[UploadViewController alloc] initWithNibName:@"UploadViewController"
+                                                                            bundle:nil];
+    UploadNavigationViewController *uploaderNav = [[UploadNavigationViewController alloc] initWithRootViewController:uploader];
+    
+    [uploaderNav setModalPresentationStyle:UIModalPresentationPopover];
     
     
-}
-
-
--(void) launchUploadView:(UIImage *)photo{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.delegate = uploader;
     
     
-}
-
--(void) launchUploadView{
-
-
+    if(option == CREATE_WITHOUT_PHOTO){
+        [root presentViewController:uploaderNav animated:YES completion:nil];
+    }
+    else {
+        
+        if(option == CREATE_WITH_TAKE_PHOTO){
+        
+            if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+                ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+            }
+            else {
+                UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@""
+                                                                        message:@"No Camera Available"
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"uggggggggh, fine"
+                                                              otherButtonTitles:nil,
+                                              nil];
+                [noCameraAlert show];
+                noCameraAlert = nil;
+            }
+        }
+        else {
+            ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }
+    
+        
+        [root presentViewController:uploaderNav animated:YES completion:nil];
+        [uploaderNav presentViewController:ipc animated:YES completion:nil];
+    
+    }
 }
 
 

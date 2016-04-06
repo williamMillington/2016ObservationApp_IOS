@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 
 #import "UploadViewController.h"
+#import "UploadNavigationViewController.h"
 #import "SWRevealViewController.h"
 #import "SideMenuViewController.h"
+
 
 @import LGPlusButtonsView;
 

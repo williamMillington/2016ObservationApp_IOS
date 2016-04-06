@@ -63,10 +63,9 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     // Create view that will provide "dimming" effect on collection view
     // when control panel is showing
-    dimView = [[UIView alloc] initWithFrame:
-                                CGRectMake(0, 0,
-                                           self.view.frame.size.width,
-                                           self.view.frame.size.height)
+    dimView = [[UIView alloc] initWithFrame: CGRectMake(0, 0,
+                                                        self.view.frame.size.width,
+                                                        self.view.frame.size.height)
                ];
     [dimView setUserInteractionEnabled:NO]; 
     
@@ -125,10 +124,12 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         [cell.imgThumbnail setImageWithURL:url];
     }
     
+//    NSLog(@"%@",observation);
+    
     // Extract observation data from observation
     NSString *title = observation[@"title"];
     NSString *user = observation[@"name"];
-    cell.nid = observation[@"nid"];
+    cell.nid = observation[@"Nid"];
     cell.uid = observation[@"uid"];
     cell.field_date_observed = observation[@"field_date_observed"];
     
@@ -151,8 +152,13 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
     
+//    NSLog(@"%@",cell);
+//    NSLog(@"%@",cell.nid);
+    
     [data setObject:cell.nid forKey:@"nid"];
-    [data setObject:cell.uid forKey:@"uid"];
+//    [data setObject:cell.uid forKey:@"uid"];
+    
+//    NSLog(@"REACHED");
     
     obsViewContr.cellData = data;
     [obsViewContr reload];
@@ -292,11 +298,8 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     observations = jsonArray;
     
-    
     [self.collectionView reloadData];
     [self toggleSearchPanel];
-    
-//    NSLog(@"%@",jsonArray);
     
 }
 
