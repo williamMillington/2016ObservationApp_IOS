@@ -26,8 +26,10 @@
 #import "SWRevealViewController.h"
 #import "XMLReader.h"
 @import LGPlusButtonsView;
-@import KCFloatingActionButton;
+//@import KCFloatingActionButton;
 
 @interface ObservationCollectionViewController : UICollectionViewController
+
+@property (strong, nonatomic) LGPlusButtonsView *fabView;
 
 @end

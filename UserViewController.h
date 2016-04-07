@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "VCUtility.h"
+
+@import LGPlusButtonsView;
 
 @interface UserViewController : UIViewController
+
+@property (strong, nonatomic) LGPlusButtonsView *fabView;
 
 @end

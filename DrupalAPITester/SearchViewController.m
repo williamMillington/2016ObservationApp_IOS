@@ -81,17 +81,30 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     
-    fabView = [VCUtility initFABView];
-    
-    
     // add SPControls to the searchPanel
     // add searchPanel to this View Controller
     // add the dimView to this View Controller
     [searchPanel addSubview:SPControls];
     [self.view addSubview:searchPanel];
     [self.view addSubview:dimView];
-    [self.view addSubview:fabView];
 }
+
+
+
+- (void) viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL isLoggedIn  = [[defaults objectForKey:@"isLoggedIn"] boolValue];
+    
+    if(isLoggedIn){
+        fabView = [VCUtility initFABView];
+        [self.view addSubview:fabView];
+    }
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {

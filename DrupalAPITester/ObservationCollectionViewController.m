@@ -11,7 +11,6 @@
 
 
 @interface ObservationCollectionViewController ()
-@property (strong, nonatomic) LGPlusButtonsView *fabView;
 @end
 
 
@@ -56,8 +55,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     
-    fabView = [VCUtility initFABView];
-    [self.view addSubview:fabView];
     
     
     
@@ -70,6 +67,22 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                                object:nil];
     
 }
+
+
+- (void) viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL isLoggedIn  = [[defaults objectForKey:@"isLoggedIn"] boolValue];
+    
+    if(isLoggedIn){
+        fabView = [VCUtility initFABView];
+        [self.view addSubview:fabView];
+    }
+}
+
+
 
 - (void) networkStatusChanged:(NSNotification*)notification{
     if([AFNetworkReachabilityManager sharedManager].reachable){

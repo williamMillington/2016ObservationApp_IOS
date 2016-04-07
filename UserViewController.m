@@ -37,6 +37,10 @@
 
 @implementation UserViewController
 
+
+
+@synthesize fabView;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -62,6 +66,11 @@
     _profilePicture.clipsToBounds = YES;
     
     [self refreshUserInfo];
+    
+    
+    fabView = [VCUtility initFABView];
+    [self.view addSubview:fabView];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {

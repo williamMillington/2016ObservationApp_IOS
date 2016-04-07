@@ -22,9 +22,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-<<<<<<< HEAD
-    [DIOSSession setupDios];
-=======
+//<<<<<<< HEAD
+//    [DIOSSession setupDios];
+//=======
    
     [DIOSSession setupDios];
     

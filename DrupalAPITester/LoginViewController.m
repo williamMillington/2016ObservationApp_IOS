@@ -74,6 +74,8 @@
         [wrong_credentials setHidden:FALSE];
         return;
     }
+    
+    
     [DIOSUser userLoginWithUsername:username_field.text
                         andPassword:password_field.text
                             success:^(AFHTTPRequestOperation *op, id response) {
@@ -96,15 +98,12 @@
                                     NSDictionary *l2Address;
                                     NSDictionary *imageDict = userInfo[@"picture"];
                                     
-                                    NSLog(@"USER DICTIONARY: %@", userInfo[@"field_l1_address"]);
                                     NSDictionary *und1 = userInfo[@"field_l1_address"];
                                     NSArray *l1;
                                     if([und1 count] > 0) {
                                         l1= und1[@"und"];
                                         l1Address = l1[0];
                                     }
-                                    NSLog(@"Array: %@", l1);
-                                    NSLog(@"Dictionary: %@", und1);
                                     
                                     NSDictionary *und2 = userInfo[@"field_l2_address"];
                                     NSArray *l2;
@@ -112,6 +111,8 @@
                                         l2 = und2[@"und"];
                                         l2Address = l2[0];
                                     }
+                                    
+                                    
                                     // Set user defaults for use outside of this class, user will stay logged in until they are logged out
                                     // or until
                                     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -141,6 +142,12 @@
                                         [defaults setValue:l2Address[@"premise"] forKey:@"l2AddressLine2"];
                                         [defaults setValue:l2Address[@"postal_code"] forKey:@"l2PostalCode"];
                                     }
+                                    
+                                    
+                                    // Set isLoggedIn
+                                    [defaults setValue:[NSNumber numberWithBool:YES] forKey:@"isLoggedIn"];
+                                    
+                                    
                                     
                                     [defaults synchronize];
                                     
