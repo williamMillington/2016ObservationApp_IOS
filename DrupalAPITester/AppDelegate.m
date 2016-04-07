@@ -21,10 +21,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-<<<<<<< HEAD
-    [DIOSSession setupDios];
-=======
-   
     [DIOSSession setupDios];
     
     
@@ -85,7 +81,6 @@
 //         NSLog(@"FUCK");
 //     }
 //     ];
->>>>>>> development
     
     return YES;
 }
