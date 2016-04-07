@@ -82,3 +82,16 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-DrupalAPITester/AFNetworking.framework"
+  install_framework "Pods-DrupalAPITester/KCFloatingActionButton.framework"
+  install_framework "Pods-DrupalAPITester/LGPlusButtonsView.framework"
+  install_framework "Pods-DrupalAPITester/drupal_ios_sdk.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-DrupalAPITester/AFNetworking.framework"
+  install_framework "Pods-DrupalAPITester/KCFloatingActionButton.framework"
+  install_framework "Pods-DrupalAPITester/LGPlusButtonsView.framework"
+  install_framework "Pods-DrupalAPITester/drupal_ios_sdk.framework"
+fi

@@ -18,8 +18,6 @@
 @implementation ObservationCollectionViewController{
 //    NSMutableArray *observations;
     NSArray *observations;
-    
-    
 }
 
 @synthesize fabView;

@@ -25,6 +25,9 @@
 @implementation UploadViewController{
     
     UIScrollView *scrollView;
+<<<<<<< HEAD
+}
+=======
     BOOL datePickerVisible;
     UIDatePicker *datePicker;
     UIVisualEffectView *datePanel;
@@ -50,6 +53,7 @@
 
 @synthesize locationManager;
 @synthesize presentCameraOnStartup;
+>>>>>>> development
 
 - (void)viewDidLoad {
     [super viewDidLoad];

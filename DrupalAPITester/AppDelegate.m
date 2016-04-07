@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ObservationCollectionViewController.h"
 
 #import "DIOSUser.h"
 #import "DIOSSystem.h"
@@ -21,6 +22,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+<<<<<<< HEAD
+    [DIOSSession setupDios];
+=======
    
     [DIOSSession setupDios];
     
