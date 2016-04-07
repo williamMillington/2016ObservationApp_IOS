@@ -11,6 +11,7 @@
 #import "DIOSUser.h"
 #import "DIOSSystem.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -21,104 +22,52 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
    
-    
-    
     [DIOSSession setupDios];
     
-    NSLog(@"REACHED 1");
+    // register self for network reconnection notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkStatusChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    
     
     // -- Start monitoring network reachability (globally available) -- //
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
-    NSLog(@"REACHED 2");
     
+    // AFNetworking only allows one responder block, so use this to send out a notification that can be picked up anywhere
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
-        NSLog(@"Reachability changed: %@", AFStringFromNetworkReachabilityStatus(status));
+        [[NSNotificationCenter defaultCenter] postNotificationName:kReachabilityChangedNotification object:nil];
         
-        
-        switch (status) {
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-                // -- Reachable -- //
-                NSLog(@"Reachable");
-                break;
-            case AFNetworkReachabilityStatusNotReachable:
-            default:
-                // -- Not reachable -- //
-                NSLog(@"Not Reachable");
-                break;
         }
-        
-    }
      ];
-    
-    
-    NSLog(@"REACHED 3");
-    
-    if([AFNetworkReachabilityManager sharedManager].reachable){
-        
-        NSLog(@"REACHED 4");
-        
-        [[DIOSSession sharedSession] getCSRFTokenWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
-            NSLog(@"SUCCESS");
-        
-            NSLog(@"%@",[[DIOSSession sharedSession] csrfToken]);
-        
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:[[DIOSSession sharedSession] csrfToken] forKey:@"token"];
-            [defaults synchronize];
-        
-        }
-                                                 failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                                                     NSLog(@"FAILURE");
-                                                }
-         ];
-    }
-    
-    NSLog(@"REACHED 5");
-    
-    
-    
-//    [DIOSUser
-//     userMakeSureUserIsLoggedInWithUsername:@"wmillington"
-//     andPassword:@"password"
-//     success:^(AFHTTPRequestOperation *op, id response) { /* Handle successful operation here */
-//         
-//         NSLog(@"Still Logged In!");
-//         NSLog(@"%@",response);
-//         
-//         
-//         NSString *token = response[@"token"];
-//         NSLog(@"%@",token);
-//         
-//         
-////         sessionName = response[@"session_name"];
-////         sessionValue = response[@"sessid"];
-////         tokenValue = response[@"sessid"];
-////         
-////         DIOSSession *session = [DIOSSession sharedSession];
-//////         [[DIOSSession sharedSession] addHeaderValue:[NSString stringWithFormat:@"%@=%@", sessionName, sessionValue] forKey:@"cookie"];
-//////         [[DIOSSession sharedSession] addHeaderValue:[NSString stringWithFormat:@"%@", tokenValue] forKey:@"X-CSRF-Token"];
-////         
-////         [[DIOSSession sharedSession] setCsrfToken:tokenValue];
-////         
-////         [DIOSSystem systemConnectwithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject) {
-////             NSLog(@"SUCCESS RECONNECT");
-////         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-////             NSLog(@"FAIL RECONNECT: %@", error);
-////         }
-////          ];
-//         
-//     }
-//     failure:^(AFHTTPRequestOperation *op, NSError *err) { /* Handle operation failire here */
-//         NSLog(@"FUCK");
-//     }
-//     ];
     
     return YES;
 }
 
+
+
+- (void) networkStatusChanged:(NSNotification*)notification{
+
+    // if we can reach the internet, refetch the CSRF token
+    if([AFNetworkReachabilityManager sharedManager].reachable){
+        
+        [[DIOSSession sharedSession] getCSRFTokenWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+                    NSLog(@"%@",[[DIOSSession sharedSession] csrfToken]);
+        
+                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                    [defaults setObject:[[DIOSSession sharedSession] csrfToken] forKey:@"token"];
+                    [defaults synchronize];
+        
+                }
+                                                         failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                                                             NSLog(@"FAILURE");
+                                                        }
+                 ];
+    }
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

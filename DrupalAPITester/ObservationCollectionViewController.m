@@ -28,7 +28,6 @@
 static NSString* const reuseIdentifier = @"ObservationCell";
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -51,17 +50,33 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     observations = [[NSMutableArray alloc] init];
-    
+
     
     if([AFNetworkReachabilityManager sharedManager].reachable){
         [self fetchObservations];
     }
     
     
+    
     fabView = [VCUtility initFABView];
     [self.view addSubview:fabView];
     
     
+    
+    
+    // Register this class for network changes
+    // ------------------------------------------------------------------------------
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkStatusChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    
+}
+
+- (void) networkStatusChanged:(NSNotification*)notification{
+    if([AFNetworkReachabilityManager sharedManager].reachable){
+        [self fetchObservations];
+    }
 }
 
 
@@ -98,12 +113,14 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    
     ObservationCollectionViewCell *cell = [collectionView
                                         dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                         forIndexPath:indexPath];
     
     // grab observation
     NSDictionary *observation = observations[indexPath.row];
+    
     
     // Retrieve the html string detailing the URL of the image
     NSString *htmlImgUrl = observation[@"image"];
@@ -210,6 +227,9 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 // fetches the observations
 - (void) fetchObservations{
     
+    
+//    NSLog(@"FETCH OBSERVATIONS");
+    
     // Set up URL for one-time request to Newest Observations
     NSMutableURLRequest *request =
         [NSMutableURLRequest requestWithURL:
@@ -233,6 +253,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     // load observation into observations list
     observations = jsonArray;
     
+    [self.collectionView reloadData];
 }
 
 
