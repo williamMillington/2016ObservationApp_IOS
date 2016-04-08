@@ -21,6 +21,7 @@
 
 - (IBAction)executeSearch:(id)sender {
     
+    
     SearchViewController *parent = (SearchViewController *)[[[self superview] superview] nextResponder];
     
     
@@ -31,9 +32,9 @@
     
     
 //    NSLog(@"REACHED 1");
-    [parameters setObject:searchString forKey:@"title"];
-//    parameters 
 //    NSLog(@"%@",searchString);
+    [parameters setObject:searchString forKey:@"title"];
+//    parameters
     
     [parent fetchObservations:parameters];
 //    NSLog(@"REACHED 2");

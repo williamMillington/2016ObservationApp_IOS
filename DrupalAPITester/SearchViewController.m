@@ -174,13 +174,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
     
-//    NSLog(@"%@",cell);
-//    NSLog(@"%@",cell.nid);
-    
     [data setObject:cell.nid forKey:@"nid"];
-//    [data setObject:cell.uid forKey:@"uid"];
-    
-//    NSLog(@"REACHED");
     
     obsViewContr.cellData = data;
     [obsViewContr reload];
@@ -262,6 +256,8 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 // fetches the observations
 - (void) fetchObservations:(NSMutableDictionary *)parameters{
     
+//    NSLog(@"FETCH OBSERVATIONS");
+    
     NSURLComponents *requestURL =
     [[NSURLComponents alloc]
      initWithString:@"http://137.149.157.10/cs482/mobile-api/search-mobile"];
@@ -319,6 +315,9 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_responseData options:kNilOptions error:&error];
     
     observations = jsonArray;
+    
+//    NSLog(@"%@",observations);
+    
     
     [self.collectionView reloadData];
     [self toggleSearchPanel];

@@ -138,6 +138,9 @@
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_responseData options:kNilOptions error:&error];
     
     
+    NSLog(@"%@",jsonArray);
+    
+    
     if([url rangeOfString:@"single-node-detail-mobile"].length != 0){
         
         observation = jsonArray[0];

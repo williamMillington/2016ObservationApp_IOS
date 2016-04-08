@@ -16,8 +16,14 @@
 
 @implementation ObservationCollectionViewController{
 //    NSMutableArray *observations;
-    NSArray *observations;
+    NSMutableArray *observations;
+    UIRefreshControl *refresh;
+    NSMutableData *_responseData;
+    int pageSize;
+    int item_offset;
+    BOOL no_new_items;
 }
+
 
 @synthesize fabView;
 
@@ -47,16 +53,14 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     observations = [[NSMutableArray alloc] init];
+    pageSize = 10;
+    item_offset = 0;
+    no_new_items = NO;
 
     
     if([AFNetworkReachabilityManager sharedManager].reachable){
-        [self fetchObservations];
+        [self fetchObservations:pageSize offset:item_offset];
     }
-    
-    
-    
-    
-    
     
     
     // Register this class for network changes
@@ -65,6 +69,14 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                              selector:@selector(networkStatusChanged:)
                                                  name:kReachabilityChangedNotification
                                                object:nil];
+    
+    
+    // Pull to refresh
+    // -----------------------------------------------------------------------------
+    refresh = [[UIRefreshControl alloc] init];
+    [refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.collectionView addSubview:refresh];
     
 }
 
@@ -86,9 +98,24 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 - (void) networkStatusChanged:(NSNotification*)notification{
     if([AFNetworkReachabilityManager sharedManager].reachable){
-        [self fetchObservations];
+        [self fetchObservations:pageSize offset:item_offset];
     }
 }
+
+
+
+- (void) refresh:(UIRefreshControl *)refreshControl{
+    
+    // reset observation list
+    item_offset = 0;
+    observations = [[NSMutableArray alloc] init];
+    
+    [self fetchObservations:pageSize offset:item_offset];
+    [refresh endRefreshing];
+    
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -122,7 +149,17 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 
 
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    if(indexPath.row == observations.count-1){
+        // fetch if we know we haven't reached the end
+        if(!no_new_items){
+            item_offset += pageSize;
+            [self fetchObservations:pageSize offset:item_offset];
+        }
+    }
     
     
     ObservationCollectionViewCell *cell = [collectionView
@@ -175,6 +212,10 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     [self.navigationController pushViewController:obsViewContr animated:YES];
 }
+
+
+
+
 
 #pragma mark <UICollectionViewDelegate>
 
@@ -236,36 +277,80 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 
 // fetches the observations
-- (void) fetchObservations{
+- (void) fetchObservations:(int)numberOfItems offset:(int)offset {
+
+    
+    NSURLComponents *requestURL =
+    [[NSURLComponents alloc]
+     initWithString:@"http://137.149.157.10/cs482/mobile-api/newest-observations-mobile"];
     
     
-//    NSLog(@"FETCH OBSERVATIONS");
+    NSURLQueryItem *q_num_items = [[NSURLQueryItem alloc] initWithName:@"num_items"
+                                                                value:[NSString stringWithFormat:@"%d",numberOfItems]];
+    
+    NSURLQueryItem *q_offset = [[NSURLQueryItem alloc] initWithName:@"offset"
+                                                                    value:[NSString stringWithFormat:@"%d",offset]];
+    requestURL.queryItems = @[q_num_items,q_offset];
+    
     
     // Set up URL for one-time request to Newest Observations
     NSMutableURLRequest *request =
-        [NSMutableURLRequest requestWithURL:
-         [NSURL URLWithString:@"http://137.149.157.10/cs482/mobile-api/newest-observations-mobile"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+        [NSMutableURLRequest requestWithURL:requestURL.URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+    
     
     // Set Request to GET, and specify JSON
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setHTTPMethod:@"GET"];
     
-    // Set up error and response objects
-    NSError *requestError = nil;
-    NSURLResponse *response = nil;
     
-    // Send request
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+
+
+
+#pragma mark NSURLConnection Delegate Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    // A response has been received, this is where we initialize the instance var you created
+    // so that we can append data to it in the didReceiveData method
+    // Furthermore, this method is called each time there is a redirect so reinitializing it
+    // also serves to clear it
     
-    // Convert data into JSON
+    _responseData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    // Append the new data to the instance variable you declared
+    [_responseData appendData:data];
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    // convert data to JSON
     NSError *error = nil;
-    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_responseData options:kNilOptions error:&error];
     
-    // load observation into observations list
-    observations = jsonArray;
+    // the server has run out of new observations
+    if(jsonArray.count < pageSize)
+        no_new_items = YES;
     
+    [observations addObjectsFromArray:jsonArray];
     [self.collectionView reloadData];
 }
 
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
+    NSLog(@"%@",error);
+}
 
 @end

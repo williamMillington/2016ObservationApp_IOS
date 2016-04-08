@@ -300,8 +300,6 @@
 
 
 
-
-
 // ------------------------------------------------------------------------------------
 // Drupal requires the node data be sent in a specific, layered format. Therefore, the
 // setting of the data is somewhat complex, sometimes requiring an NSDictionary inside
@@ -309,7 +307,81 @@
 // ------------------------------------------------------------------------------------
 - (IBAction)submitObservation:(id)sender {
     
-    [[DIOSSession sharedSession] setCsrfToken:[[DIOSSession sharedSession] csrfToken]];
+    if(_image_to_upload.image == nil){
+        [self uploadObservation];
+    }
+    else{
+        [self uploadImage];
+    }
+}
+
+
+- (void) uploadImage{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    
+    NSData *imageData = UIImageJPEGRepresentation(_image_to_upload.image, 1.0);
+    NSString *base64Image = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    
+    
+    NSMutableDictionary *file = [[NSMutableDictionary alloc] init];
+    [file setObject:base64Image forKey:@"file"];
+    
+    
+    long timeInMilliseconds = (long)[[NSDate date] timeIntervalSince1970];
+    NSString *timestamp = [NSString stringWithFormat:@"%ld", timeInMilliseconds];
+    [file setObject:timestamp forKey:@"timestamp"];
+    
+    
+    NSString *filename = [NSString stringWithFormat:@"observation_entry_image_%@_%ld.jpg",
+                          @"wmillington",
+                          timeInMilliseconds
+                          ];
+    NSString *filepath = [NSString stringWithFormat:@"public://%@",filename];
+    [file setObject:filepath forKey:@"filepath"];
+    
+    
+    
+    
+    NSLog(@"%@",timestamp);
+    
+    
+    NSString *fileSize = [NSString stringWithFormat:@"%lu", (unsigned long)[imageData length]];
+    [file setObject:fileSize forKey:@"filesize"];
+    
+    
+    NSString *username = [defaults objectForKey:@"userName"];
+    NSString *fileName = [NSString stringWithFormat:@"observation_entry_image_%@_%ld.jpg",username,timeInMilliseconds];
+//    NSString *fileName = [NSString stringWithFormat:@"observation_entry_image_%@_2.jpg",username];
+    
+    NSLog(@"%@",fileName);
+    
+    [file setObject:fileName forKey:@"filename"];
+    
+    
+    NSString *uid = [defaults objectForKey:@"uid"];
+    [file setObject:uid forKey:@"uid"];
+    
+    NSLog(@"%ld",timeInMilliseconds);
+    
+    [DIOSFile fileSave:file success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        imageFileID = [responseObject[@"fid"] intValue];
+        [self uploadObservation];
+    }
+               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   NSLog(@"Something went wrong with the upload");
+               }
+     ];
+}
+
+
+
+
+- (void) uploadObservation{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     NSMutableDictionary *nodeData = [NSMutableDictionary new];
     
     
@@ -318,9 +390,9 @@
     NSString *title = [_title_field text];
     NSMutableDictionary *title_field_val = [[NSMutableDictionary alloc] init];
     [title_field_val setObject:title forKey:@"value"];
-        NSArray *title_field_array = [[NSArray alloc] initWithObjects:title_field_val, nil];
-            NSMutableDictionary *title_field = [[NSMutableDictionary alloc] init];
-            [title_field setObject:title_field_array forKey:@"und"];
+    NSArray *title_field_array = [[NSArray alloc] initWithObjects:title_field_val, nil];
+    NSMutableDictionary *title_field = [[NSMutableDictionary alloc] init];
+    [title_field setObject:title_field_array forKey:@"und"];
     
     [nodeData setObject:title_field forKey:@"title_field"];
     
@@ -350,11 +422,11 @@
     [dateVals setObject:[NSString stringWithFormat:@"%ld",(long)year] forKey:@"year"];
     [dateVals setObject:[NSString stringWithFormat:@"%ld",(long)month] forKey:@"month"];
     [dateVals setObject:[NSString stringWithFormat:@"%ld",(long)day] forKey:@"day"];
-        NSMutableDictionary *dateValueHolder = [[NSMutableDictionary alloc] init];
-        [dateValueHolder setObject:dateVals forKey:@"value"];
-            NSArray *date_array = [[NSArray alloc] initWithObjects:dateValueHolder, nil];
-                NSMutableDictionary *date_field = [[NSMutableDictionary alloc] init];
-                [date_field setObject:date_array forKey:@"und"];
+    NSMutableDictionary *dateValueHolder = [[NSMutableDictionary alloc] init];
+    [dateValueHolder setObject:dateVals forKey:@"value"];
+    NSArray *date_array = [[NSArray alloc] initWithObjects:dateValueHolder, nil];
+    NSMutableDictionary *date_field = [[NSMutableDictionary alloc] init];
+    [date_field setObject:date_array forKey:@"und"];
     [nodeData setObject:date_field forKey:@"field_date_observed"];
     
     
@@ -366,88 +438,34 @@
     NSMutableDictionary *currLocationVals = [[NSMutableDictionary alloc] init];
     [currLocationVals setObject:location_lat  forKey:@"lat"];
     [currLocationVals setObject:location_long forKey:@"long"];
-        NSMutableDictionary *currLocationValsHolder = [[NSMutableDictionary alloc] init];
-        [currLocationValsHolder setObject:currLocationVals forKey:@"geom"];
-            NSArray *currLocation_array = [[NSArray alloc] initWithObjects:currLocationValsHolder, nil];
-                NSMutableDictionary *currLocation_field = [[NSMutableDictionary alloc] init];
-                [currLocation_field setObject:currLocation_array forKey:@"und"];
+    NSMutableDictionary *currLocationValsHolder = [[NSMutableDictionary alloc] init];
+    [currLocationValsHolder setObject:currLocationVals forKey:@"geom"];
+    NSArray *currLocation_array = [[NSArray alloc] initWithObjects:currLocationValsHolder, nil];
+    NSMutableDictionary *currLocation_field = [[NSMutableDictionary alloc] init];
+    [currLocation_field setObject:currLocation_array forKey:@"und"];
     [nodeData setObject:currLocation_field forKey:@"field_location_lat_long"];
     
+
     
-    
-    NSData *imageData = UIImageJPEGRepresentation(_image_to_upload.image, 1.0);
-    DIOSFile *dfile = [[DIOSFile alloc] init];
-    
-    NSString *base64Image = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-    
-    
-    NSMutableDictionary *file = [[NSMutableDictionary alloc] init];
-    
-    
-    [file setObject:base64Image forKey:@"file"];
-    
-    NSString *filename = [NSString stringWithFormat:@"observation_entry_image_%@_%f.jpg",
-                            @"wmillington",
-                            ([[NSDate date] timeIntervalSince1970] * 1000)
-                          ];
-    NSString *filepath = [NSString stringWithFormat:@"public://%@",filename];
-    
-    NSString *fileSize = [NSString stringWithFormat:@"%lu", (unsigned long)[imageData length]];
-    [file setObject:fileSize forKey:@"filesize"];
-    
-    
-    [file setObject:@"uid" forKey:@"uid"];
+    NSDictionary *image_fid = @{
+                                @"und" : @[
+                                            @{
+                                               @"fid" : [NSString stringWithFormat:@"%d",imageFileID]
+                                               }
+                                            ]
+                                };
+    [nodeData setObject:image_fid forKey:@"field_image"];
     
     
     
-    NSMutableDictionary *image_fid_value = [[NSMutableDictionary alloc] init];
-    [DIOSFile fileSave:file success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    
-        [image_fid_value setObject:responseObject[@"fid"] forKey:@"fid"];
-    
-    
-    }
-               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            
-                   NSLog(@"Something went wrong with the upload");
-                   
-               }
-     ];
-    
-    
-    
-    NSArray *image_fid_holder = [[NSArray alloc] initWithObjects:image_fid_value, nil];
-    
-        NSMutableDictionary *image_fid = [[NSMutableDictionary alloc] init];
-        [image_fid setObject:image_fid_holder forKey:@"und"];
-    
-    [nodeData setObject:image_fid forKey:@"fid"];
-    
-    
-    NSLog(@"%@",nodeData);
-    
-    
-//    [DIOSNode nodeSave:nodeData success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//            //Successful node Creation
-//            NSLog(@"SUCCESS");
-//            NSLog(@"%@",operation);
-//            NSLog(@"%@",responseObject);
-//        
-//
-//            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    
-//        
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        //WE failed to upload the node
-//        
-//        NSLog(@"FAIL");
-//        NSLog(@"request: %@",operation.request.URL);
-//        NSLog(@"%@",error);
-//        
-//        }
-//     ];
-    
+    [DIOSNode nodeSave:nodeData success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }
+    ];
     
 }
 
