@@ -22,6 +22,9 @@
     int pageSize;
     int item_offset;
     BOOL no_new_items;
+    UIActivityIndicatorView *loadingIndicator;
+    UILabel *no_more_items;
+    
 }
 
 
@@ -56,7 +59,25 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     pageSize = 10;
     item_offset = 0;
     no_new_items = NO;
+    no_more_items = [[UILabel alloc] init];
+    [no_more_items setText:@"No More Items"];
+    [no_more_items setTextAlignment:NSTextAlignmentCenter];
 
+    
+    double footerWidth = self.view.frame.size.width;
+    double footerHeight = 50;
+    double indicatorWidth = 20;
+    double indicatorHeight = 20;
+    double indicator_x = (footerWidth / 2) - (indicatorWidth / 2);
+    double indicator_y = (footerHeight / 2) - (indicatorHeight / 2);
+    
+    loadingIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(indicator_x,
+                                                                                 indicator_y,
+                                                                                 indicatorWidth,
+                                                                                 indicatorHeight)];
+    [loadingIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    [loadingIndicator setHidesWhenStopped:YES];
+    
     
     if([AFNetworkReachabilityManager sharedManager].reachable){
         [self fetchObservations:pageSize offset:item_offset];
@@ -109,9 +130,13 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     // reset observation list
     item_offset = 0;
     observations = [[NSMutableArray alloc] init];
+    no_new_items = NO;
+    no_more_items = [[UILabel alloc] init];
+    [no_more_items setText:@"No More Items"];
+    [no_more_items setTextAlignment:NSTextAlignmentCenter];
+    
     
     [self fetchObservations:pageSize offset:item_offset];
-    [refresh endRefreshing];
     
 }
 
@@ -152,12 +177,14 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+//    NSLog(@"REACHING CELL %ld",(long)indexPath.row);
     
     if(indexPath.row == observations.count-1){
         // fetch if we know we haven't reached the end
         if(!no_new_items){
             item_offset += pageSize;
             [self fetchObservations:pageSize offset:item_offset];
+            [loadingIndicator startAnimating];
         }
     }
     
@@ -166,8 +193,13 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                         dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                         forIndexPath:indexPath];
     
+    
+//    NSLog(@"-----------------------------------------");
+//    NSLog(@"grabbing observation %@",observations[indexPath.row]);
+    
     // grab observation
     NSDictionary *observation = observations[indexPath.row];
+//    NSLog(@"-----------------------------------------");
     
     
     // Retrieve the html string detailing the URL of the image
@@ -215,6 +247,42 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)theCollectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)theIndexPath
+{
+    
+    UICollectionReusableView *theView;
+    
+    if(kind == UICollectionElementKindSectionHeader)
+    {
+        theView = [theCollectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                        withReuseIdentifier:@"header"
+                                                               forIndexPath:theIndexPath];
+    } else {
+        theView = [theCollectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                        withReuseIdentifier:@"footer"
+                                                               forIndexPath:theIndexPath];
+        
+        // position indicator in the middle of the footer
+        
+        if(no_new_items){
+            no_more_items.frame = CGRectMake(0,
+                                             0,
+                                             theView.frame.size.width,
+                                             theView.frame.size.height);
+            
+            [theView addSubview:no_more_items];
+        }
+        else {
+        
+            if(![loadingIndicator isDescendantOfView:theView])
+                [theView addSubview:loadingIndicator];
+            
+            [loadingIndicator startAnimating];
+        }
+    }
+    
+    return theView;
+}
 
 
 #pragma mark <UICollectionViewDelegate>
@@ -339,11 +407,22 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_responseData options:kNilOptions error:&error];
     
     // the server has run out of new observations
-    if(jsonArray.count < pageSize)
+    if(jsonArray.count < pageSize){
         no_new_items = YES;
+        
+    }
     
+    
+    NSLog(@"Observations: %lu",(unsigned long)observations.count);
+    
+    [loadingIndicator stopAnimating];
     [observations addObjectsFromArray:jsonArray];
+    
+    
+    NSLog(@"Observations: %lu",(unsigned long)observations.count);
+    
     [self.collectionView reloadData];
+    [refresh endRefreshing];
 }
 
 

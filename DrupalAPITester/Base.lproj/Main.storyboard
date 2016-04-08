@@ -805,7 +805,7 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8B7-tC-5pT">
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="footer" id="8B7-tC-5pT">
                             <rect key="frame" x="0.0" y="251" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </collectionReusableView>
