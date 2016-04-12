@@ -62,10 +62,8 @@
     
     menuItems = @[@"title", @"newest", @"search"];
     
-    
     // eliminates warning about ambiguous cell height
     self.tableView.rowHeight = 45;
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -157,12 +155,6 @@
         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
     }
 }
-
-
-
-
-
-
 
 
 

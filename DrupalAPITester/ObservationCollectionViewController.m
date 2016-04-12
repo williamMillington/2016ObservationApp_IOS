@@ -86,12 +86,11 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     
-    // if we are connected to the internet
+    // if we are connected to the internet, fetch observations
     // ------------------------------------------------------------------------------
     if([AFNetworkReachabilityManager sharedManager].reachable){
         [self fetchObservations:pageSize offset:item_offset];
     }
-    
     
     
     // Register this class for network changes
@@ -356,7 +355,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 // fetches the observations
 - (void) fetchObservations:(int)numberOfItems offset:(int)offset {
 
-    
     NSURLComponents *requestURL =
     [[NSURLComponents alloc]
      initWithString:@"http://137.149.157.10/cs482/mobile-api/newest-observations-mobile"];
@@ -421,14 +419,8 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         
     }
     
-    
-    NSLog(@"Observations: %lu",(unsigned long)observations.count);
-    
     [loadingIndicator stopAnimating];
     [observations addObjectsFromArray:jsonArray];
-    
-    
-    NSLog(@"Observations: %lu",(unsigned long)observations.count);
     
     [self.collectionView reloadData];
     [refresh endRefreshing];

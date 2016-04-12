@@ -17,7 +17,6 @@
 		791EB60F1C91F2F800B02FC7 /* SearchPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 791EB60E1C91F2F800B02FC7 /* SearchPanelView.m */; };
 		792373C81C99A330008F67C6 /* ObservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792373C71C99A330008F67C6 /* ObservationViewController.m */; };
 		792373CA1C99A367008F67C6 /* ObservationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 792373C91C99A367008F67C6 /* ObservationViewController.xib */; };
-		792373CD1C99AE91008F67C6 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 792373CC1C99AE91008F67C6 /* XMLReader.m */; };
 		792929DD1CAC6A0D00348399 /* Observation.m in Sources */ = {isa = PBXBuildFile; fileRef = 792929DC1CAC6A0D00348399 /* Observation.m */; };
 		792929E01CB2C38400348399 /* UploadNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792929DF1CB2C38400348399 /* UploadNavigationViewController.m */; };
 		7956595E1CA34317003239CB /* VCUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7956595D1CA34317003239CB /* VCUtility.m */; };
@@ -61,8 +60,6 @@
 		792373C61C99A330008F67C6 /* ObservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservationViewController.h; sourceTree = "<group>"; };
 		792373C71C99A330008F67C6 /* ObservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservationViewController.m; sourceTree = "<group>"; };
 		792373C91C99A367008F67C6 /* ObservationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ObservationViewController.xib; path = ../ObservationViewController.xib; sourceTree = "<group>"; };
-		792373CB1C99AE91008F67C6 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
-		792373CC1C99AE91008F67C6 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		792929DB1CAC6A0D00348399 /* Observation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observation.h; sourceTree = "<group>"; };
 		792929DC1CAC6A0D00348399 /* Observation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Observation.m; sourceTree = "<group>"; };
 		792929DE1CB2C38400348399 /* UploadNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadNavigationViewController.h; sourceTree = "<group>"; };
@@ -252,8 +249,6 @@
 			children = (
 				7956595C1CA34317003239CB /* VCUtility.h */,
 				7956595D1CA34317003239CB /* VCUtility.m */,
-				792373CB1C99AE91008F67C6 /* XMLReader.h */,
-				792373CC1C99AE91008F67C6 /* XMLReader.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -445,7 +440,6 @@
 				790FDC781C8396E50081DE8E /* main.m in Sources */,
 				FC67DC861CB487EF0043A8CA /* EditProfileViewController.m in Sources */,
 				79E480E21C907352005047ED /* SearchViewController.m in Sources */,
-				792373CD1C99AE91008F67C6 /* XMLReader.m in Sources */,
 				792929E01CB2C38400348399 /* UploadNavigationViewController.m in Sources */,
 				79F1F5501C8692B800E73733 /* ObservationCollectionViewController.m in Sources */,
 				790521851CB6A3B000676BD2 /* Reachability.m in Sources */,

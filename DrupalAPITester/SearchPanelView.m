@@ -21,23 +21,17 @@
 
 - (IBAction)executeSearch:(id)sender {
     
-    
+    // Grab searchbar text
     SearchViewController *parent = (SearchViewController *)[[[self superview] superview] nextResponder];
-    
-    
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-    
     UISearchBar *searchbar = (UISearchBar *)parent.navigationItem.titleView;
     NSString *searchString = [searchbar text];
     
-    
-//    NSLog(@"REACHED 1");
-//    NSLog(@"%@",searchString);
+    // set string as parameter
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setObject:searchString forKey:@"title"];
-//    parameters
     
+    // fetch observations
     [parent fetchObservations:parameters];
-//    NSLog(@"REACHED 2");
 }
 @end
 

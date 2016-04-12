@@ -321,51 +321,41 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     
+    // encode the image for HTTP POST
     NSData *imageData = UIImageJPEGRepresentation(_image_to_upload.image, 1.0);
     NSString *base64Image = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     
-    
+    // Set image data in file parameters
     NSMutableDictionary *file = [[NSMutableDictionary alloc] init];
     [file setObject:base64Image forKey:@"file"];
     
-    
-    long timeInMilliseconds = (long)[[NSDate date] timeIntervalSince1970];
-    NSString *timestamp = [NSString stringWithFormat:@"%ld", timeInMilliseconds];
+    // Set Timestamp
+    NSString *timestamp = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
     [file setObject:timestamp forKey:@"timestamp"];
     
     
-    NSString *filename = [NSString stringWithFormat:@"observation_entry_image_%@_%ld.jpg",
-                          @"wmillington",
-                          timeInMilliseconds
-                          ];
+    // Create unique filename as "observation_entry_username_timestamp"
+    // Create unique filepath as "public://filename"
+    // Set file name
+    // Set file path
+    NSString *username = [defaults objectForKey:@"userName"]; //get username
+    NSString *filename = [NSString stringWithFormat:@"observation_entry_image_%@_%@.jpg",username,timestamp];
     NSString *filepath = [NSString stringWithFormat:@"public://%@",filename];
     [file setObject:filepath forKey:@"filepath"];
+    [file setObject:filename forKey:@"filename"];
     
-    
-    
-    
-    NSLog(@"%@",timestamp);
-    
-    
+    // Set file size
     NSString *fileSize = [NSString stringWithFormat:@"%lu", (unsigned long)[imageData length]];
     [file setObject:fileSize forKey:@"filesize"];
-    
-    
-    NSString *username = [defaults objectForKey:@"userName"];
-    NSString *fileName = [NSString stringWithFormat:@"observation_entry_image_%@_%ld.jpg",username,timeInMilliseconds];
-//    NSString *fileName = [NSString stringWithFormat:@"observation_entry_image_%@_2.jpg",username];
-    
-    NSLog(@"%@",fileName);
-    
-    [file setObject:fileName forKey:@"filename"];
-    
-    
+
+    // Set user ID associated with image
     NSString *uid = [defaults objectForKey:@"uid"];
     [file setObject:uid forKey:@"uid"];
     
-    NSLog(@"%ld",timeInMilliseconds);
     
     [DIOSFile fileSave:file success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        // If iamge upload is successful, continue on with the rest of the observation upload
         imageFileID = [responseObject[@"fid"] intValue];
         [self uploadObservation];
     }
@@ -376,84 +366,88 @@
 }
 
 
-
-
+//
+// The data-wrapping required by the Drupal site consists of:
+//
+//      Key-Value pair with the Key "und"
+//          Array of length 1
+//              Key-Value pair describing the data
+//
+// Someimes this is not required, as is the case with "type", and "field_comments"
 - (void) uploadObservation{
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSMutableDictionary *nodeData = [NSMutableDictionary new];
+    NSMutableDictionary *nodeParameters = [NSMutableDictionary new];
     
     
-    // observation title
-    // ------------------------------------------------------------------------------------
+    // Wrap observation title
     NSString *title = [_title_field text];
-    NSMutableDictionary *title_field_val = [[NSMutableDictionary alloc] init];
-    [title_field_val setObject:title forKey:@"value"];
-    NSArray *title_field_array = [[NSArray alloc] initWithObjects:title_field_val, nil];
-    NSMutableDictionary *title_field = [[NSMutableDictionary alloc] init];
-    [title_field setObject:title_field_array forKey:@"und"];
-    
-    [nodeData setObject:title_field forKey:@"title_field"];
-    
-    
-    // specify node type as observation
-    // ------------------------------------------------------------------------------------
-    [nodeData setObject:@"climate_diary_entry" forKey:@"type"];
+    NSDictionary *title_field = @{  // NSDictionary with Key "und"
+                                  @"und" : @[   // Array of length 1
+                                                @{  // NSDictionary containing data
+                                                    @"value" : title
+                                                    }
+                                                ]
+                                  };
+    // Save to parameters
+    [nodeParameters setObject:title_field forKey:@"title_field"];
     
     
-    // observationdescription
-    // ------------------------------------------------------------------------------------
-    [nodeData setObject:description forKey:@"field_comments"];
+    // Specify node type as observation
+    [nodeParameters setObject:@"climate_diary_entry" forKey:@"type"];
     
     
+    // observation description
+    [nodeParameters setObject:description forKey:@"field_comments"];
     
-    // observation date
-    // ------------------------------------------------------------------------------------
+    
+    // Wrap observation date
     NSDateComponents *dateData = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear
                                                                  fromDate:date];
-    NSInteger year = [dateData year];
-    NSInteger month = [dateData month];
-    NSInteger day = [dateData day];
     
-    NSMutableDictionary *dateVals = [[NSMutableDictionary alloc] init];
-    [dateVals setObject:[NSString stringWithFormat:@"%ld",(long)year] forKey:@"year"];
-    [dateVals setObject:[NSString stringWithFormat:@"%ld",(long)month] forKey:@"month"];
-    [dateVals setObject:[NSString stringWithFormat:@"%ld",(long)day] forKey:@"day"];
-    NSMutableDictionary *dateValueHolder = [[NSMutableDictionary alloc] init];
-    [dateValueHolder setObject:dateVals forKey:@"value"];
-    NSArray *date_array = [[NSArray alloc] initWithObjects:dateValueHolder, nil];
-    NSMutableDictionary *date_field = [[NSMutableDictionary alloc] init];
-    [date_field setObject:date_array forKey:@"und"];
-    [nodeData setObject:date_field forKey:@"field_date_observed"];
-    
-    
-    // observation CURRENT Location
-    // ------------------------------------------------------------------------------------
-    NSString *location_lat = [NSString stringWithFormat:@"%f",[currentLocation coordinate].latitude];
-    NSString *location_long = [NSString stringWithFormat:@"%f",[currentLocation coordinate].longitude];
-    
-    NSMutableDictionary *currLocationVals = [[NSMutableDictionary alloc] init];
-    [currLocationVals setObject:location_lat  forKey:@"lat"];
-    [currLocationVals setObject:location_long forKey:@"long"];
-    NSMutableDictionary *currLocationValsHolder = [[NSMutableDictionary alloc] init];
-    [currLocationValsHolder setObject:currLocationVals forKey:@"geom"];
-    NSArray *currLocation_array = [[NSArray alloc] initWithObjects:currLocationValsHolder, nil];
-    NSMutableDictionary *currLocation_field = [[NSMutableDictionary alloc] init];
-    [currLocation_field setObject:currLocation_array forKey:@"und"];
-    [nodeData setObject:currLocation_field forKey:@"field_location_lat_long"];
-    
-
-    
-    // Get the imageFileID and store it in the format required by Drupal
-    NSString *fid = [NSString stringWithFormat:@"%d",imageFileID];
-    NSDictionary *image_fid = @{@"und" : @[@{@"fid" : fid}]};
-    
-    [nodeData setObject:image_fid forKey:@"field_image"];
+    NSDictionary *date_field = @{
+                                 @"und" : @[
+                                            @{
+                                                 @"value" : @{
+                                                            @"year"     : [NSString stringWithFormat:@"%ld",(long)[dateData year]],
+                                                            @"month"    : [NSString stringWithFormat:@"%ld",(long)[dateData month]],
+                                                            @"day"      : [NSString stringWithFormat:@"%ld",(long)[dateData day]]
+                                                              }
+                                                 }
+                                            ]
+                                   };
+    // Save to parameters
+    [nodeParameters setObject:date_field forKey:@"field_date_observed"];
     
     
+    // Wrap location data
+    NSDictionary *currLocation_field = @{
+                                           @"und" : @[
+                                                        @{
+                                                          @"geom" :
+                                                            @{
+                                                                    @"lat"  : [NSString stringWithFormat:@"%f",[currentLocation coordinate].latitude],
+                                                                    @"long" : [NSString stringWithFormat:@"%f",[currentLocation coordinate].longitude]
+                                                                }
+                                                          }
+                                                   ]
+                                           };
+    // Save to parameters
+    [nodeParameters setObject:currLocation_field forKey:@"field_location_lat_long"];
     
-    [DIOSNode nodeSave:nodeData success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    // Wrap the image_fid
+    NSDictionary *image_fid = @{
+                                @"und" : @[
+                                            @{
+                                                @"fid" :[NSString stringWithFormat:@"%d",imageFileID]
+                                                }
+                                            ]
+                                };
+    // Save to parameters
+    [nodeParameters setObject:image_fid forKey:@"field_image"];
+    
+    
+    [DIOSNode nodeSave:nodeParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         
@@ -465,11 +459,8 @@
 }
 
 
-
-
-
+// Called by datepicker when its data changes
 -(void) dateChanged:(id)sender{
-    
     date = [datePicker date];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -485,6 +476,7 @@
 - (IBAction)cancel:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 - (IBAction)showDatePicker:(id)sender {
     if(!datePickerVisible){
@@ -511,6 +503,7 @@
         [self dismissDatePicker:nil];
     }
 }
+
 
 -(void) dismissDatePicker:(UIGestureRecognizer *)gestureRecognizer{
     if(datePickerVisible){
@@ -562,19 +555,21 @@
 - (void) imagePickerController:(UIImagePickerController *)picker
  didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info  {
     
+    // Dismiss imagePicker and get image
     [picker dismissViewControllerAnimated:YES completion:nil];
     observation_image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     _image_to_upload.image = observation_image;
 }
 
+// Dismiss imagePicker if cancelled
 - (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 
+// Toggle the overlay to allow user to choose new photo to upload
 - (void) toggleChooseOverlay:(UITapGestureRecognizer*)sender {
-    
     if(!imageViewPickerOverlayToggled){
         imageViewPickerOverlay.alpha = 0.7;
         imageViewPickerOverlayToggled = YES;
@@ -584,19 +579,21 @@
         imageViewPickerOverlay.alpha = 0.0;
         imageViewPickerOverlayToggled = NO;
     }
-    
 }
 
+
+// If user chooses to take a new picture with the camera
 - (void) openCamera:(UIButton *)sender{
     
+    // check if camera is available
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     else {
-        UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@""
+        UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                 message:@"No Camera Available"
                                                                delegate:self
-                                                      cancelButtonTitle:@"uggggggggh, fine"
+                                                      cancelButtonTitle:@"Okay"
                                                       otherButtonTitles:nil,
                                       nil];
         [noCameraAlert show];
@@ -611,26 +608,27 @@
     imageViewPickerOverlayToggled = NO;
 }
 
+// If the user chooses to select a new picture from the gallery
 - (void) openGallery:(UIButton *)sender{
     
     
+    // check if photo library is available
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
         ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         
         [self.navigationController presentViewController:ipc animated:YES completion:nil];
     }
     else {
-        UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@""
+        UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                 message:@"No Library Available"
                                                                delegate:self
-                                                      cancelButtonTitle:@"uggggggggh, fine"
+                                                      cancelButtonTitle:@"Okay"
                                                       otherButtonTitles:nil,
                                       nil];
         [noCameraAlert show];
         noCameraAlert = nil;
     }
     
-
     // hide overlay for when the user is returned to the upload view
     imageViewPickerOverlay.alpha = 0.0;
     imageViewPickerOverlayToggled = NO;

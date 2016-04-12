@@ -146,8 +146,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         [cell.imgThumbnail setImageWithURL:url];
     }
     
-//    NSLog(@"%@",observation);
-    
     // Extract observation data from observation
     NSString *title = observation[@"title"];
     NSString *user = observation[@"name"];
@@ -256,8 +254,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 // fetches the observations
 - (void) fetchObservations:(NSMutableDictionary *)parameters{
     
-//    NSLog(@"FETCH OBSERVATIONS");
-    
     NSURLComponents *requestURL =
     [[NSURLComponents alloc]
      initWithString:@"http://137.149.157.10/cs482/mobile-api/search-mobile"];
@@ -315,9 +311,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_responseData options:kNilOptions error:&error];
     
     observations = jsonArray;
-    
-//    NSLog(@"%@",observations);
-    
     
     [self.collectionView reloadData];
     [self toggleSearchPanel];

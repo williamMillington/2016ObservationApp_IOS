@@ -48,8 +48,6 @@
     
     
     
-    
-    
     //------------------------------------------------------------------------------
     // This is all pretty much copied verbatim from the LGPlusButtons github page
     //------------------------------------------------------------------------------
@@ -140,6 +138,8 @@
     [uploaderNav setModalPresentationStyle:UIModalPresentationPopover];
     
     
+    
+    
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
     ipc.delegate = uploader;
     
@@ -155,10 +155,10 @@
                 ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
             }
             else {
-                UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@""
+                UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                         message:@"No Camera Available"
                                                                        delegate:self
-                                                              cancelButtonTitle:@"uggggggggh, fine"
+                                                              cancelButtonTitle:@"Okay"
                                                               otherButtonTitles:nil,
                                               nil];
                 [noCameraAlert show];
@@ -175,10 +175,6 @@
     
     }
 }
-
-
-
-
 
 @end
 

@@ -15,7 +15,6 @@
 #import "UIImage+AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 #import "SWRevealViewController.h"
-#import "XMLReader.h"
 
 @interface LoginViewController : UIViewController
 

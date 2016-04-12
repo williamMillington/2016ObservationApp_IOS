@@ -27,9 +27,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // for some reason this won't work elsewhere
-//    [self.observation_image setImage:[self.cellData objectForKey:@"image"]];
 }
 
 
@@ -38,15 +35,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+// Method called when the User's picture is tapped to navigate to User page
 - (IBAction)openUser:(id)sender {
     
-//    NSLog(@"OPEN USER");
     
 }
 
+
 - (void) reload{
     [self fetchObservationData:[self.cellData objectForKey:@"nid"]];
-//    [self fetchUser:[self.cellData objectForKey:@"uid"]];
 }
 
 
@@ -138,11 +136,7 @@
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_responseData options:kNilOptions error:&error];
     
     
-    NSLog(@"%@",jsonArray);
-    
-    
     if([url rangeOfString:@"single-node-detail-mobile"].length != 0){
-        
         observation = jsonArray[0];
         NSString *urlString = observation[@"Image"];
         NSString *urlString_userPic = observation[@"user_picture"];
@@ -158,7 +152,6 @@
                 });
             });
         }
-        
         
         if(urlString_userPic.length > 0){
             NSURL *url_userPic =
@@ -191,23 +184,6 @@
     [_observation_title setText: [observation objectForKey:@"title"]];
     
     NSString *dateString = [observation objectForKey:@"Date Observed"];
-    
-//    NSLog(@"%@",dateString);
-//    // Find the first occurence of the substring "src" and store its location
-//    NSRange locationOfSubstring = [dateString rangeOfString:@"\">"];
-//    int startIndex = locationOfSubstring.location;
-//
-//    
-//    // - Clip the string starting from the location of "src="
-//    // - Clip "src=" in the process (+5)
-//    // - Store the location of the first whitespace following the url
-//    NSString *tailString = [dateString substringFromIndex:startIndex+2];
-//    NSRange endIndex = [tailString rangeOfString:@"</"];
-//    
-//    // - Clip everything from the string following the whitespace
-//    // - (-1) clips off the closing quotation around the URL
-//    NSString *date = [tailString substringToIndex:endIndex.location];
-    
     [_date_observed setText: dateString];
     
     NSDictionary *coords = [observation objectForKey:@"Location lat/long"];

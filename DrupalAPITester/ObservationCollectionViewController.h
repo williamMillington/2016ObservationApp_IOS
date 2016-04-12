@@ -24,7 +24,6 @@
 #import "Reachability.h"
 
 #import "SWRevealViewController.h"
-#import "XMLReader.h"
 @import LGPlusButtonsView;
 //@import KCFloatingActionButton;
 
