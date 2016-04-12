@@ -178,11 +178,9 @@
                                                                                       action:@selector(toggleChooseOverlay:)];
     imageViewTap.numberOfTapsRequired = 1;
     
-    
-    
-    
     [_image_to_upload setUserInteractionEnabled:YES];
     [_image_to_upload addGestureRecognizer:imageViewTap];
+    
     
     
     CGRect imageViewPickerOverlay_frame = CGRectMake(0, 0,
@@ -285,26 +283,19 @@
 }
 */
 
-- (IBAction)useMyLocation:(id)sender {
-}
+
+// Intended to allow the selection of one location option
+// to deselect the other options programatically in these methods.
+// Left unimplemented due to time contraints
+- (IBAction)useMyLocation:(id)sender {}
+- (IBAction)useSavedLocations:(id)sender {}
+- (IBAction)useCustomLocation:(id)sender {}
 
 
 
-- (IBAction)useSavedLocations:(id)sender {
-}
-
-
-
-- (IBAction)useCustomLocation:(id)sender {
-}
-
-
-
-// ------------------------------------------------------------------------------------
-// Drupal requires the node data be sent in a specific, layered format. Therefore, the
-// setting of the data is somewhat complex, sometimes requiring an NSDictionary inside
-// an NSArray inside an NSDictionary. I've tried to make it clear with indentation.
-// ------------------------------------------------------------------------------------
+// Separates the image upload from the rest of the upload,as the
+// image upload must occur first in order to imclude the image ID
+// in the upload fields
 - (IBAction)submitObservation:(id)sender {
     
     if(_image_to_upload.image == nil){

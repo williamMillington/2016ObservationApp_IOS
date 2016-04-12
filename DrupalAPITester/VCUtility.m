@@ -131,19 +131,19 @@
     UIWindow *window=[UIApplication sharedApplication].keyWindow;
     UIViewController *root = (SWRevealViewController *)[window rootViewController];
     
+    // Create Upload View, and place it in Navigation Controller
     UploadViewController *uploader = [[UploadViewController alloc] initWithNibName:@"UploadViewController"
                                                                             bundle:nil];
     UploadNavigationViewController *uploaderNav = [[UploadNavigationViewController alloc] initWithRootViewController:uploader];
-    
     [uploaderNav setModalPresentationStyle:UIModalPresentationPopover];
     
     
-    
-    
+    // Create imagePicker and set the delegate to uploader
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
     ipc.delegate = uploader;
     
     
+    // If user does not take a photo now, UIImagePicker can allow them to choose one later
     if(option == CREATE_WITHOUT_PHOTO){
         [root presentViewController:uploaderNav animated:YES completion:nil];
     }
@@ -151,6 +151,7 @@
         
         if(option == CREATE_WITH_TAKE_PHOTO){
         
+            // Check if Camera is available
             if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
                 ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
             }
@@ -165,11 +166,12 @@
                 noCameraAlert = nil;
             }
         }
-        else {
+        else {// If not, go to photo gallery
             ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
     
         
+        // Navigate to iamge picker
         [root presentViewController:uploaderNav animated:YES completion:nil];
         [uploaderNav presentViewController:ipc animated:YES completion:nil];
     
