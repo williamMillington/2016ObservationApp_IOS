@@ -15,7 +15,6 @@
 
 
 @implementation ObservationCollectionViewController{
-//    NSMutableArray *observations;
     NSMutableArray *observations;
     UIRefreshControl *refresh;
     NSMutableData *_responseData;
@@ -46,6 +45,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                                     UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.leftBarButtonItem = sidebarButton;
     
+    
     // Grab and configure Side Menu Controller 
     SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController){
@@ -54,16 +54,20 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
     
-    
+    // initialize variables
     observations = [[NSMutableArray alloc] init];
     pageSize = 10;
     item_offset = 0;
     no_new_items = NO;
+    
     no_more_items = [[UILabel alloc] init];
     [no_more_items setText:@"No More Items"];
     [no_more_items setTextAlignment:NSTextAlignmentCenter];
 
     
+    // Configure size of collectionview footer
+    // Configure size of loading icon based on size of footer
+    // ------------------------------------------------------------------------------
     double footerWidth = self.view.frame.size.width;
     double footerHeight = 50;
     double indicatorWidth = 20;
@@ -71,6 +75,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     double indicator_x = (footerWidth / 2) - (indicatorWidth / 2);
     double indicator_y = (footerHeight / 2) - (indicatorHeight / 2);
     
+    // create & configure loading icon
     loadingIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(indicator_x,
                                                                                  indicator_y,
                                                                                  indicatorWidth,
@@ -79,9 +84,14 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     [loadingIndicator setHidesWhenStopped:YES];
     
     
+    
+    
+    // if we are connected to the internet
+    // ------------------------------------------------------------------------------
     if([AFNetworkReachabilityManager sharedManager].reachable){
         [self fetchObservations:pageSize offset:item_offset];
     }
+    
     
     
     // Register this class for network changes
@@ -103,12 +113,12 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 
 - (void) viewWillAppear:(BOOL)animated {
-    
     [super viewWillAppear:animated];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     BOOL isLoggedIn  = [[defaults objectForKey:@"isLoggedIn"] boolValue];
     
+    // If use is logged in, present option to create observations
     if(isLoggedIn){
         fabView = [VCUtility initFABView];
         [self.view addSubview:fabView];
@@ -118,6 +128,8 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 
 - (void) networkStatusChanged:(NSNotification*)notification{
+    // If network connection goes from unreachable to reachable, fetch
+    // observations
     if([AFNetworkReachabilityManager sharedManager].reachable){
         [self fetchObservations:pageSize offset:item_offset];
     }
@@ -131,6 +143,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     item_offset = 0;
     observations = [[NSMutableArray alloc] init];
     no_new_items = NO;
+    
     no_more_items = [[UILabel alloc] init];
     [no_more_items setText:@"No More Items"];
     [no_more_items setTextAlignment:NSTextAlignmentCenter];
@@ -177,10 +190,10 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-//    NSLog(@"REACHING CELL %ld",(long)indexPath.row);
-    
+    // if we reach the bottom of the screen, try to load more
     if(indexPath.row == observations.count-1){
-        // fetch if we know we haven't reached the end
+        
+        // fetch if we know there are more observations on the server
         if(!no_new_items){
             item_offset += pageSize;
             [self fetchObservations:pageSize offset:item_offset];
@@ -189,17 +202,13 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     }
     
     
+    
     ObservationCollectionViewCell *cell = [collectionView
                                         dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                         forIndexPath:indexPath];
     
-    
-//    NSLog(@"-----------------------------------------");
-//    NSLog(@"grabbing observation %@",observations[indexPath.row]);
-    
     // grab observation
     NSDictionary *observation = observations[indexPath.row];
-//    NSLog(@"-----------------------------------------");
     
     
     // Retrieve the html string detailing the URL of the image
@@ -230,17 +239,18 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     ObservationViewController *obsViewContr = [[ObservationViewController alloc] initWithNibName:@"ObservationViewController" bundle:nil];
-    
     ObservationCollectionViewCell *cell = (ObservationCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
     
     
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
     
+    
     [data setObject:cell.nid forKey:@"nid"];
     [data setObject:cell.uid forKey:@"uid"];
     
+    
     obsViewContr.cellData = data;
-    [obsViewContr reload];
+    [obsViewContr reload]; //reload the view after it receives its data
     
     [self.navigationController pushViewController:obsViewContr animated:YES];
 }
@@ -263,7 +273,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                                                forIndexPath:theIndexPath];
         
         // position indicator in the middle of the footer
-        
         if(no_new_items){
             no_more_items.frame = CGRectMake(0,
                                              0,

@@ -397,8 +397,6 @@
     [nodeData setObject:title_field forKey:@"title_field"];
     
     
-    
-    
     // specify node type as observation
     // ------------------------------------------------------------------------------------
     [nodeData setObject:@"climate_diary_entry" forKey:@"type"];
@@ -447,13 +445,10 @@
     
 
     
-    NSDictionary *image_fid = @{
-                                @"und" : @[
-                                            @{
-                                               @"fid" : [NSString stringWithFormat:@"%d",imageFileID]
-                                               }
-                                            ]
-                                };
+    // Get the imageFileID and store it in the format required by Drupal
+    NSString *fid = [NSString stringWithFormat:@"%d",imageFileID];
+    NSDictionary *image_fid = @{@"und" : @[@{@"fid" : fid}]};
+    
     [nodeData setObject:image_fid forKey:@"field_image"];
     
     

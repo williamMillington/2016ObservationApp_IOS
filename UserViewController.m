@@ -38,7 +38,6 @@
 @implementation UserViewController
 
 
-
 @synthesize fabView;
 
 - (void)viewDidLoad {
@@ -67,7 +66,6 @@
     
     [self refreshUserInfo];
     
-    
     fabView = [VCUtility initFABView];
     [self.view addSubview:fabView];
     
@@ -84,7 +82,6 @@
     [DIOSSession sharedSession].csrfToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
     
     [DIOSUser userLogoutWithSuccessBlock:^(AFHTTPRequestOperation *op, id response) {
-        NSLog(@"Successful Logout");
         
         // Flush user defaults
         NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
@@ -102,7 +99,27 @@
         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
     }
                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                     NSLog(@"Unable to logout");
+                                     
+                                     // Can't logout because not logged in.
+                                     // Proceed with Logout.
+                                     if(operation.response.statusCode == 406)
+                                     {
+                                         // Flush user defaults
+                                         NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+                                         [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+                                         
+                                         // Navigate away from user profile page
+                                         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                         UIViewController *userAccountViewController = [storyboard instantiateViewControllerWithIdentifier:@"NewestViewController"];
+                                         
+                                         // create UINavigationController to house it
+                                         UINavigationController *destinationViewController = [[UINavigationController alloc] initWithRootViewController:userAccountViewController];
+                                         
+                                         // swap new view controller into the FrontViewController
+                                         [self.revealViewController setFrontViewController:destinationViewController animated:YES];
+                                         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated: YES];
+                                     }
+                                     
                                      return;
                                  }
      ];

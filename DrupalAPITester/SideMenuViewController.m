@@ -8,6 +8,8 @@
 
 #import "SideMenuViewController.h"
 
+#import "UserLoginNavigationViewController.h"
+
 @interface SideMenuViewController ()
 @property (nonatomic, strong) NSMutableDictionary *viewControllerCache;
 //@property (nonatomic, strong) UIViewController *current;
@@ -34,8 +36,11 @@
     [storyboard instantiateViewControllerWithIdentifier:cacheKey];
     
     // create UINavigationController to contain newestViewController
-    UINavigationController *startViewController =
-    [[UINavigationController alloc]  initWithRootViewController:newestViewController];
+//    UINavigationController *startViewController =
+//    [[UINavigationController alloc]  initWithRootViewController:newestViewController];
+    
+    UserLoginNavigationViewController *startViewController = [[UserLoginNavigationViewController alloc]  initWithRootViewController:newestViewController];
+    
     
     // set it into the cache
     [self.viewControllerCache setObject:startViewController forKey:cacheKey];
@@ -118,8 +123,10 @@
     // search the cache for a UINavigationController with
     // the requested key
     NSString *cacheKey = identifier;
-    UINavigationController *destinationViewController =
-                                    [self.viewControllerCache objectForKey:cacheKey];
+    
+    UserLoginNavigationViewController *destinationViewController = [self.viewControllerCache objectForKey:cacheKey];
+//    UINavigationController *destinationViewController =
+//                                    [self.viewControllerCache objectForKey:cacheKey];
     
     // if controller exists, swap it into the FrontViewController
     if(destinationViewController)
@@ -137,7 +144,7 @@
                                 [storyboard instantiateViewControllerWithIdentifier:identifier];
         // create UINavigationController to house it
         destinationViewController =
-                    [[UINavigationController alloc] initWithRootViewController:searchViewCont];
+                    [[UserLoginNavigationViewController alloc] initWithRootViewController:searchViewCont];
         
         
         // stick it in the cache

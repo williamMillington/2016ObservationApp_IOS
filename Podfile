@@ -6,7 +6,6 @@
 
 target 'DrupalAPITester' do
     pod 'drupal-ios-sdk', '~> 2.1'
-    pod 'KCFloatingActionButton'
     pod 'LGPlusButtonsView', '~> 1.1.0'
 
 end

@@ -22,10 +22,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//<<<<<<< HEAD
-//    [DIOSSession setupDios];
-//=======
-   
     [DIOSSession setupDios];
     
     // register self for network reconnection notification

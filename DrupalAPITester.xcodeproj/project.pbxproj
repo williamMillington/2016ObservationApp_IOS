@@ -24,6 +24,7 @@
 		795659631CA34BF9003239CB /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795659621CA34BF9003239CB /* UploadViewController.xib */; };
 		795659661CA34C27003239CB /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 795659651CA34C27003239CB /* UploadViewController.m */; };
 		796DA8791C84907500741F2D /* dios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 796DA8781C84907500741F2D /* dios.plist */; };
+		79C89C731CB7D34E00E34D3D /* UserLoginNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C89C721CB7D34E00E34D3D /* UserLoginNavigationViewController.m */; };
 		79E380371CA31787006C8B31 /* drupal_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E380361CA31787006C8B31 /* drupal_ios_sdk.framework */; };
 		79E380391CA3178B006C8B31 /* KCFloatingActionButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E380381CA3178B006C8B31 /* KCFloatingActionButton.framework */; };
 		79E3803D1CA33407006C8B31 /* LGPlusButtonsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E3803C1CA33407006C8B31 /* LGPlusButtonsView.framework */; };
@@ -72,6 +73,8 @@
 		795659641CA34C27003239CB /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
 		795659651CA34C27003239CB /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		796DA8781C84907500741F2D /* dios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dios.plist; sourceTree = "<group>"; };
+		79C89C711CB7D34E00E34D3D /* UserLoginNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginNavigationViewController.h; sourceTree = "<group>"; };
+		79C89C721CB7D34E00E34D3D /* UserLoginNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginNavigationViewController.m; sourceTree = "<group>"; };
 		79E380361CA31787006C8B31 /* drupal_ios_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = drupal_ios_sdk.framework; path = "../../../../Library/Developer/Xcode/DerivedData/DrupalAPITester-gbhjxbpsmgnghmesnhetlltzjszy/Build/Products/Debug-iphonesimulator/drupal_ios_sdk.framework"; sourceTree = "<group>"; };
 		79E380381CA3178B006C8B31 /* KCFloatingActionButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KCFloatingActionButton.framework; path = "../../../../Library/Developer/Xcode/DerivedData/DrupalAPITester-gbhjxbpsmgnghmesnhetlltzjszy/Build/Products/Debug-iphonesimulator/KCFloatingActionButton.framework"; sourceTree = "<group>"; };
 		79E3803A1CA333B5006C8B31 /* LGPlusButtonsView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LGPlusButtonsView.framework; path = "Pods/../build/Debug-iphoneos/LGPlusButtonsView.framework"; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				790FDC791C8396E50081DE8E /* AppDelegate.h */,
 				790FDC7A1C8396E50081DE8E /* AppDelegate.m */,
 				7956595A1CA34291003239CB /* Interface_Files */,
+				79C89C711CB7D34E00E34D3D /* UserLoginNavigationViewController.h */,
+				79C89C721CB7D34E00E34D3D /* UserLoginNavigationViewController.m */,
 				795659581CA34237003239CB /* Observation */,
 				795659571CA3422B003239CB /* Newest_Observations */,
 				790521821CB6A39500676BD2 /* Network_Check */,
@@ -429,6 +434,7 @@
 				792373C81C99A330008F67C6 /* ObservationViewController.m in Sources */,
 				7956595E1CA34317003239CB /* VCUtility.m in Sources */,
 				790FDC7B1C8396E50081DE8E /* AppDelegate.m in Sources */,
+				79C89C731CB7D34E00E34D3D /* UserLoginNavigationViewController.m in Sources */,
 				79E480D31C8B309A005047ED /* LoginViewController.m in Sources */,
 				FC7181EA1CAC9CB600D22462 /* UserViewController.m in Sources */,
 				79F1F5531C8692D300E73733 /* ObservationCollectionViewCell.m in Sources */,

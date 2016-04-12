@@ -47,7 +47,7 @@
                                         <rect key="frame" x="27" y="83" width="194" height="30"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wrong username or password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRX-J5-lVV">
                                         <rect key="frame" x="34" y="127" width="181" height="21"/>
@@ -912,10 +912,10 @@
             </objects>
             <point key="canvasLocation" x="-103" y="1394"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--User Login Navigation View Controller-->
         <scene sceneID="Kem-yT-jVg">
             <objects>
-                <navigationController id="BZt-PL-CCM" sceneMemberID="viewController">
+                <navigationController id="BZt-PL-CCM" customClass="UserLoginNavigationViewController" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YsX-1m-HSz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
