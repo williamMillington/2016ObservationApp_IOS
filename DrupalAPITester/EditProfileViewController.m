@@ -97,8 +97,9 @@
         [defaults setValue:_l2PostalCode.text forKey:@"l2PostalCode"];
     
     // Create dictionaries for the locations so it can be read into the drupal addressfield
-    NSDictionary *location1 = @{@"und":@[@{@"administrative_area":_l1Province.text, @"country":_l1Country.text, @"locality":_l1City.text, @"postal_code":_l1PostalCode.text, @"premise":_l1AddressLine2.text, @"thoroughfare":_l1AddressLine1.text}]};
-    NSDictionary *location2 = @{@"und":@[@{@"administrative_area":_l2Province.text, @"country":_l2Country.text, @"locality":_l2City.text, @"postal_code":_l2PostalCode.text, @"premise":_l2AddressLine2.text, @"thoroughfare":_l2AddressLine1.text}]};
+    NSDictionary *location1 = @{@"und":@[@{@"administrative_area":_l1Province.text, @"country":_l1Country.text, @"data":@"", @"dependent_locality":@"", @"first_name":@"", @"last_name":@"", @"locality":_l1City.text, @"name_line":@"", @"organisation_name":@"", @"postal_code":_l1PostalCode.text, @"premise":_l1AddressLine2.text, @"sub_administrative_area":@"", @"sub_premise":@"", @"thoroughfare":_l1AddressLine1.text}]};
+    
+    NSDictionary *location2 = @{@"und":@[@{@"administrative_area":_l2Province.text, @"country":_l2Country.text, @"data":@"", @"dependent_locality":@"", @"first_name":@"", @"last_name":@"", @"locality":_l2City.text, @"name_line":@"", @"organisation_name":@"", @"postal_code":_l2PostalCode.text, @"premise":_l2AddressLine2.text, @"sub_administrative_area":@"", @"sub_premise":@"", @"thoroughfare":_l2AddressLine1.text}]};
     
     // Update the data on the server
     NSMutableDictionary *userData = [NSMutableDictionary new];

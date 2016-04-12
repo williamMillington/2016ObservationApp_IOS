@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F150122E3DD01928BF28AB7D'
+               BlueprintIdentifier = '82F0B3EF07007282ECF60234'
                BlueprintName = 'LGPlusButtonsView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'LGPlusButtonsView.framework'>

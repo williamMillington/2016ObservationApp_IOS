@@ -43,9 +43,10 @@
     
     // Configure the menu button on the leftside
     UIBarButtonItem *sidebarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style: UIBarButtonItemStylePlain target:nil action:nil];
-    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutAction:)];
-    
     self.navigationItem.leftBarButtonItem = sidebarButton;
+    
+    // Configure the menu button on the right side
+    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutAction:)];
     self.navigationItem.rightBarButtonItem = logoutButton;
     
     // Grab and configure Side Menu Controller
@@ -66,7 +67,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    // Refresh User info in case it has been changed
     [self refreshUserInfo];
 }
 

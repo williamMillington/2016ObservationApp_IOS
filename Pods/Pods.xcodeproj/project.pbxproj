@@ -119,6 +119,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>061FCDB4251E8A608C8A434AD5430DE2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITester-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>06EAE94BEBC44DB4162779DB6B756E57</key>
 		<dict>
 			<key>containerPortal</key>
@@ -157,19 +170,6 @@
 			<string>text.plist.xml</string>
 			<key>path</key>
 			<string>dios_example.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>076E33D5C7C37CE4B33A042DCA585D6C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-DrupalAPITester-dummy.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -221,7 +221,7 @@
 			<key>productName</key>
 			<string>Pods-DrupalAPITester</string>
 			<key>productReference</key>
-			<string>F52D461A9F0B3BC7C3716AA2F7C5EDA6</string>
+			<string>82AE2459B25521643AD0286DB0C8B06B</string>
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
 		</dict>
@@ -240,17 +240,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>09609CAB95336E97B2B9E27F0973E063</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods-DrupalAPITester.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>0995A73F3E53ADF4D92D471A30487ABA</key>
 		<dict>
 			<key>fileRef</key>
@@ -261,7 +250,7 @@
 		<key>0A47750405DDE8568F0157EEF5F691F7</key>
 		<dict>
 			<key>fileRef</key>
-			<string>8283588EB201E10E6924B7598488465B</string>
+			<string>F7795E8028549DACEA1FED859EEE488C</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -275,7 +264,7 @@
 		<key>0A7FA48AC52301EA127321CFB9B99897</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>B7E39BF033FDD021DC47FEC957F0DAC5</string>
+			<string>D02F5B4B9B8DBAAFFE3978F88EC53257</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -334,6 +323,19 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
+		<key>0B36AE8E04E5855845E7E95516523CB3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITesterTests-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>0B7E87D04B0826F4B533F03D0F354945</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -346,6 +348,17 @@
 			<string>Info.plist</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0BE5B9660441840508DC39F3FDD4ABA4</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>AFNetworking</string>
+			<key>target</key>
+			<string>4878C70B21CA37D7CB8A476BF986741B</string>
+			<key>targetProxy</key>
+			<string>54CA4688CF7DD6EAF3A9B0735CF16DD3</string>
 		</dict>
 		<key>0F580C139834B39E4D3CC73A17A26F20</key>
 		<dict>
@@ -551,22 +564,19 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>17C922388AB82D588B34194C692BB547</key>
+		<key>16934A0BFF59F5CD61B24B2216DCA7EA</key>
 		<dict>
-			<key>children</key>
+			<key>buildConfigurations</key>
 			<array>
-				<string>495CED3F63A534E1B3142F54F9D5DF0D</string>
-				<string>BA606AB55694CF8A5B69A88E5E812800</string>
-				<string>FC17189797A76F341E410A67CC5D72EE</string>
-				<string>E0330C25B0B0EA734C9E2736295D7D44</string>
-				<string>F52D461A9F0B3BC7C3716AA2F7C5EDA6</string>
+				<string>9BDB28F69B20650152D7915224FFB4A7</string>
+				<string>5038B0B82713F5F1C80BA9DC118ACEDE</string>
 			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>XCConfigurationList</string>
 		</dict>
 		<key>17EEF8BD0ED70B07F81618AC1EBCFB72</key>
 		<dict>
@@ -631,6 +641,32 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
+		<key>1877E83D3A8C39C095E860790CB954E4</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>LGPlusButtonsView.framework</string>
+			<key>path</key>
+			<string>LGPlusButtonsView.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>189868CE150E84087428BE2FCC74E34D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>KCFloatingActionButton</string>
+			<key>target</key>
+			<string>7CD483F08A2AC430A4F47E66B4025664</string>
+			<key>targetProxy</key>
+			<string>C3270C798844E3B950E6F683DE187D1A</string>
+		</dict>
 		<key>1905DA34542BB38A785A6ACD01CD3C1B</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -639,19 +675,6 @@
 			<string>PBXFileReference</string>
 			<key>path</key>
 			<string>AFNetworking.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>19CE5A62D8AD0E0CCE5076843525FBE0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-DrupalAPITester-acknowledgements.markdown</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -872,6 +895,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>249C213F75E145C27F3D796C10579BD8</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>KCFloatingActionButton.framework</string>
+			<key>path</key>
+			<string>KCFloatingActionButton.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>24DAE314549ADECF207F680FF56C7777</key>
 		<dict>
 			<key>fileRef</key>
@@ -885,6 +923,35 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>257FF25712B3204658025DB74C4307F9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITesterTests.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>260C3E250B822B8F1A7A2507A25B4D15</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8F9E21F9E06D2852897868146010812A</string>
+				<string>2E3E86176101D3AF8F62DA191154B932</string>
+				<string>249C213F75E145C27F3D796C10579BD8</string>
+				<string>1877E83D3A8C39C095E860790CB954E4</string>
+				<string>82AE2459B25521643AD0286DB0C8B06B</string>
+				<string>DC3551B5B6EBD450594C2E8D4776D56B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>26D45689CA8C61277AA65DF6E60E1091</key>
 		<dict>
@@ -956,6 +1023,34 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
+		</dict>
+		<key>2E3E86176101D3AF8F62DA191154B932</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>drupal_ios_sdk.framework</string>
+			<key>path</key>
+			<string>drupal_ios_sdk.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>2EB32541349120F3D0AC41F564449C9E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>5D459529945AF357832EF0EB6EE5D1F3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>300222A70DAD7C6D11F52D9B12065231</key>
 		<dict>
@@ -1162,6 +1257,30 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>42F657BD68A632EC7B51963B83E8C86E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6B80E596EF0F103A01464B96B1E4E6EF</string>
+				<string>257FF25712B3204658025DB74C4307F9</string>
+				<string>4F166B17BF4C1D5F203FCAABFAFFBD23</string>
+				<string>0B36AE8E04E5855845E7E95516523CB3</string>
+				<string>A6F45EFD4705F54768BF979249080144</string>
+				<string>B8D7121BF4A28FEBD7E9C5C36F2D7516</string>
+				<string>8C45B767F82A0F257BB2F7AE7BFF1D57</string>
+				<string>A2BF506D624CC3D193D2C55184B0E3D9</string>
+				<string>672C0DA2340EFB696004F163DFB39981</string>
+				<string>5DDD15CF6BFB56894B4FC456DC757AA8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods-DrupalAPITesterTests</string>
+			<key>path</key>
+			<string>Target Support Files/Pods-DrupalAPITesterTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>42F803F976E0DDA02610CFE5F66077B5</key>
 		<dict>
 			<key>fileRef</key>
@@ -1214,19 +1333,6 @@
 			<string>Support Files</string>
 			<key>path</key>
 			<string>../Target Support Files/KCFloatingActionButton</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43D390D1DAB540EEAB700E9A352B7142</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>85A42DC943D8ED9E9A9E136027DDC78B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1313,6 +1419,20 @@
 				</array>
 			</dict>
 		</dict>
+		<key>46B3620B2840C9EAFA553656009BDB0F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A2BF506D624CC3D193D2C55184B0E3D9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>474D9FB0B37EEA290236D52D566313AA</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -1381,24 +1501,22 @@
 			<key>productName</key>
 			<string>AFNetworking</string>
 			<key>productReference</key>
-			<string>495CED3F63A534E1B3142F54F9D5DF0D</string>
+			<string>8F9E21F9E06D2852897868146010812A</string>
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
 		</dict>
-		<key>495CED3F63A534E1B3142F54F9D5DF0D</key>
+		<key>4A103FE7B21BA8C2D3901E48AAC95D25</key>
 		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
 			<key>includeInIndex</key>
-			<string>0</string>
+			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>AFNetworking.framework</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
 			<key>path</key>
-			<string>AFNetworking.framework</string>
+			<string>Pods-DrupalAPITester-frameworks.sh</string>
 			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>4A65C4339BEE6FFDE9F08AFA74A0BBEA</key>
 		<dict>
@@ -1434,6 +1552,19 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>4EDB6BEE1895FB32AEA15B78FFB94910</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITester-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>4F093F6FBA6E6B060CF66145CF214E14</key>
 		<dict>
 			<key>fileRef</key>
@@ -1448,12 +1579,100 @@
 				</array>
 			</dict>
 		</dict>
+		<key>4F166B17BF4C1D5F203FCAABFAFFBD23</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITesterTests-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>5033C3E1246C0775C011A3AB46208762</key>
 		<dict>
 			<key>fileRef</key>
 			<string>D82D65AC6192DA9B50136C27B34472F4</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>5038B0B82713F5F1C80BA9DC118ACEDE</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>5DDD15CF6BFB56894B4FC456DC757AA8</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-DrupalAPITesterTests/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-DrupalAPITesterTests/Pods-DrupalAPITesterTests.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_DrupalAPITesterTests</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>53401CDD17CE8F13EF610E1140CFC54C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>5383F9EFE8177E0BD7D81F88FEDB7691</key>
 		<dict>
@@ -1478,6 +1697,43 @@
 			<string>LGPlusButtonsView.modulemap</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>53F6DE50CA129DBDEC386A9904381AAD</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>C3846F7F1F89A09DDD213DDEC926D548</string>
+			<key>remoteInfo</key>
+			<string>LGPlusButtonsView</string>
+		</dict>
+		<key>54CA4688CF7DD6EAF3A9B0735CF16DD3</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>4878C70B21CA37D7CB8A476BF986741B</string>
+			<key>remoteInfo</key>
+			<string>AFNetworking</string>
+		</dict>
+		<key>56955AEC7E14EA243AB3E3A2C80E3811</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>LGPlusButtonsView</string>
+			<key>target</key>
+			<string>C3846F7F1F89A09DDD213DDEC926D548</string>
+			<key>targetProxy</key>
+			<string>53F6DE50CA129DBDEC386A9904381AAD</string>
 		</dict>
 		<key>56C7076CB691078CFED49C95C7B701C9</key>
 		<dict>
@@ -1536,6 +1792,36 @@
 				</array>
 			</dict>
 		</dict>
+		<key>573D4DF76B26CE0B19CBB7C5470C3584</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>16934A0BFF59F5CD61B24B2216DCA7EA</string>
+			<key>buildPhases</key>
+			<array>
+				<string>2EB32541349120F3D0AC41F564449C9E</string>
+				<string>FE5BA7E10E9816B4C8B6F44A97C8554D</string>
+				<string>C31E9BAE3447842D11B153BFD237CD80</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>0BE5B9660441840508DC39F3FDD4ABA4</string>
+				<string>189868CE150E84087428BE2FCC74E34D</string>
+				<string>56955AEC7E14EA243AB3E3A2C80E3811</string>
+				<string>B61679B79AAC9148A019AE546F6AA4E8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-DrupalAPITesterTests</string>
+			<key>productName</key>
+			<string>Pods-DrupalAPITesterTests</string>
+			<key>productReference</key>
+			<string>DC3551B5B6EBD450594C2E8D4776D56B</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
 		<key>57C9465187C6ABF143AD3209EE09D59C</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -1571,6 +1857,13 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>5D459529945AF357832EF0EB6EE5D1F3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A6F45EFD4705F54768BF979249080144</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>5DBB7CA28181CF82D683C11F192FDB81</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1583,6 +1876,19 @@
 			<string>AFNetworkReachabilityManager.m</string>
 			<key>path</key>
 			<string>AFNetworking/AFNetworkReachabilityManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5DDD15CF6BFB56894B4FC456DC757AA8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITesterTests.release.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1609,7 +1915,7 @@
 			<key>productName</key>
 			<string>drupal-ios-sdk</string>
 			<key>productReference</key>
-			<string>BA606AB55694CF8A5B69A88E5E812800</string>
+			<string>2E3E86176101D3AF8F62DA191154B932</string>
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
 		</dict>
@@ -1729,19 +2035,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>644D31CE99D515A0EE3D1404D479CB09</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-DrupalAPITester.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>66606CD8B52DEAD925A3CBCCC8000013</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -1778,6 +2071,19 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>672C0DA2340EFB696004F163DFB39981</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITesterTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>682FCB0BDC2067D09DAE0A9F7E1A0C78</key>
 		<dict>
@@ -1838,6 +2144,19 @@
 			<string>UIWebView+AFNetworking.m</string>
 			<key>path</key>
 			<string>UIKit+AFNetworking/UIWebView+AFNetworking.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6B80E596EF0F103A01464B96B1E4E6EF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1992,19 +2311,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>77833954A11B8EC4AF1FD15D9E46401C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-DrupalAPITester-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>7999F436677B92F6DDA1C3D45B67762F</key>
 		<dict>
 			<key>fileRef</key>
@@ -2018,19 +2324,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>79D21F412486A501B8CF74F67E6AE498</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-DrupalAPITester-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>79D287D48B2A81896F365CA21F0B27D6</key>
 		<dict>
@@ -2060,7 +2353,7 @@
 			<key>productName</key>
 			<string>KCFloatingActionButton</string>
 			<key>productReference</key>
-			<string>FC17189797A76F341E410A67CC5D72EE</string>
+			<string>249C213F75E145C27F3D796C10579BD8</string>
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
 		</dict>
@@ -2071,8 +2364,8 @@
 				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
 				<string>AD37EE3CE22F2D6A660B5BD65007E786</string>
 				<string>24674E7BD89166553DF51683B4521EFC</string>
-				<string>17C922388AB82D588B34194C692BB547</string>
-				<string>43D390D1DAB540EEAB700E9A352B7142</string>
+				<string>260C3E250B822B8F1A7A2507A25B4D15</string>
+				<string>9164627BA18FB4395D5F4434694ABCA4</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -2119,18 +2412,20 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>8283588EB201E10E6924B7598488465B</key>
+		<key>82AE2459B25521643AD0286DB0C8B06B</key>
 		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
 			<key>includeInIndex</key>
-			<string>1</string>
+			<string>0</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>Pods_DrupalAPITester.framework</string>
 			<key>path</key>
-			<string>Pods-DrupalAPITester-umbrella.h</string>
+			<string>Pods_DrupalAPITester.framework</string>
 			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>84283BA0832CD313A4E3FCBAD8E69C07</key>
 		<dict>
@@ -2168,29 +2463,25 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>85A42DC943D8ED9E9A9E136027DDC78B</key>
+		<key>86B6EA56F441677C6A1DAC140ECEF371</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>F44D326E7655F4B57C8AE4DF10599ED4</string>
-				<string>09609CAB95336E97B2B9E27F0973E063</string>
-				<string>19CE5A62D8AD0E0CCE5076843525FBE0</string>
-				<string>95835861360BC2097C3A1E639740434E</string>
-				<string>076E33D5C7C37CE4B33A042DCA585D6C</string>
-				<string>79D21F412486A501B8CF74F67E6AE498</string>
-				<string>77833954A11B8EC4AF1FD15D9E46401C</string>
-				<string>8283588EB201E10E6924B7598488465B</string>
-				<string>644D31CE99D515A0EE3D1404D479CB09</string>
-				<string>B7E39BF033FDD021DC47FEC957F0DAC5</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-DrupalAPITester</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
 			<key>path</key>
-			<string>Target Support Files/Pods-DrupalAPITester</string>
+			<string>Pods-DrupalAPITester-resources.sh</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>86BE2AEC9F3D4CB1872F6B535C040F69</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AD42BD66FC79490BEB62281517D559AF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>87EAFC80B04EE350C5B78178675229C9</key>
 		<dict>
@@ -2222,6 +2513,30 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>8C45B767F82A0F257BB2F7AE7BFF1D57</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITesterTests-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8D234F79C33DBE92DE5701205F305BAF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITester.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>8E78F95F2AF5001039013A993626261A</key>
 		<dict>
 			<key>fileRef</key>
@@ -2229,12 +2544,54 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>8F9E21F9E06D2852897868146010812A</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>AFNetworking.framework</string>
+			<key>path</key>
+			<string>AFNetworking.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>9051909A1D42E32DD43A874692BF7E0D</key>
 		<dict>
 			<key>fileRef</key>
 			<string>AD42BD66FC79490BEB62281517D559AF</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>90CEECA8E5C9623DCC2E715B3689FBE7</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>5DDD6F149D12A923D6A2C373BEA9A1E4</string>
+			<key>remoteInfo</key>
+			<string>drupal-ios-sdk</string>
+		</dict>
+		<key>9164627BA18FB4395D5F4434694ABCA4</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>CA2066635D3954C36C29C8A0D9379F01</string>
+				<string>42F657BD68A632EC7B51963B83E8C86E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>92AE8653A1632F89C491FFBF99667B9F</key>
 		<dict>
@@ -2304,19 +2661,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>95835861360BC2097C3A1E639740434E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-DrupalAPITester-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>9594D7A7E53B24905AA9996F003ECE7E</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -2357,6 +2701,70 @@
 			<string>C3846F7F1F89A09DDD213DDEC926D548</string>
 			<key>remoteInfo</key>
 			<string>LGPlusButtonsView</string>
+		</dict>
+		<key>9BDB28F69B20650152D7915224FFB4A7</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>672C0DA2340EFB696004F163DFB39981</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-DrupalAPITesterTests/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-DrupalAPITesterTests/Pods-DrupalAPITesterTests.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_DrupalAPITesterTests</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
 		</dict>
 		<key>9C6E0E56B52CA1D3B3A0B703770CAE28</key>
 		<dict>
@@ -2566,6 +2974,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>A2BF506D624CC3D193D2C55184B0E3D9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITesterTests-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>A4B96FA9C8B7B2EA64C3B2A8AA2224D2</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -2679,6 +3100,19 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Release</string>
+		</dict>
+		<key>A6F45EFD4705F54768BF979249080144</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITesterTests-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>A70CDAD61F90AC503C7D04CC22DA2923</key>
 		<dict>
@@ -2946,16 +3380,27 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>B7E39BF033FDD021DC47FEC957F0DAC5</key>
+		<key>B61679B79AAC9148A019AE546F6AA4E8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>drupal-ios-sdk</string>
+			<key>target</key>
+			<string>5DDD6F149D12A923D6A2C373BEA9A1E4</string>
+			<key>targetProxy</key>
+			<string>90CEECA8E5C9623DCC2E715B3689FBE7</string>
+		</dict>
+		<key>B8D7121BF4A28FEBD7E9C5C36F2D7516</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
+			<string>text.script.sh</string>
 			<key>path</key>
-			<string>Pods-DrupalAPITester.release.xcconfig</string>
+			<string>Pods-DrupalAPITesterTests-frameworks.sh</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2987,21 +3432,6 @@
 			<string>LGPlusButtonsView/LGPlusButton.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BA606AB55694CF8A5B69A88E5E812800</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>drupal_ios_sdk.framework</string>
-			<key>path</key>
-			<string>drupal_ios_sdk.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
 		<dict>
@@ -3155,6 +3585,32 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>C31E9BAE3447842D11B153BFD237CD80</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>46B3620B2840C9EAFA553656009BDB0F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>C3270C798844E3B950E6F683DE187D1A</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>7CD483F08A2AC430A4F47E66B4025664</string>
+			<key>remoteInfo</key>
+			<string>KCFloatingActionButton</string>
+		</dict>
 		<key>C3846F7F1F89A09DDD213DDEC926D548</key>
 		<dict>
 			<key>buildConfigurationList</key>
@@ -3176,7 +3632,7 @@
 			<key>productName</key>
 			<string>LGPlusButtonsView</string>
 			<key>productReference</key>
-			<string>E0330C25B0B0EA734C9E2736295D7D44</string>
+			<string>1877E83D3A8C39C095E860790CB954E4</string>
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
 		</dict>
@@ -3295,6 +3751,19 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>C7C14E48CC9A460F9D9C197BD575C3F9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITester.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>C8A37952E4162712D0625E505C96A34C</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3323,6 +3792,30 @@
 			<string>59AFB56935E040E01AF0F6BAAC9E26BA</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>CA2066635D3954C36C29C8A0D9379F01</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>53401CDD17CE8F13EF610E1140CFC54C</string>
+				<string>8D234F79C33DBE92DE5701205F305BAF</string>
+				<string>061FCDB4251E8A608C8A434AD5430DE2</string>
+				<string>FDC4583330FA55A93FFAF3722F2311BC</string>
+				<string>4EDB6BEE1895FB32AEA15B78FFB94910</string>
+				<string>4A103FE7B21BA8C2D3901E48AAC95D25</string>
+				<string>86B6EA56F441677C6A1DAC140ECEF371</string>
+				<string>F7795E8028549DACEA1FED859EEE488C</string>
+				<string>C7C14E48CC9A460F9D9C197BD575C3F9</string>
+				<string>D02F5B4B9B8DBAAFFE3978F88EC53257</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods-DrupalAPITester</string>
+			<key>path</key>
+			<string>Target Support Files/Pods-DrupalAPITester</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>CBC6BB7E7C19407B6D0C3989D33629A3</key>
 		<dict>
@@ -3373,6 +3866,19 @@
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>iOS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D02F5B4B9B8DBAAFFE3978F88EC53257</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITester.release.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3474,7 +3980,7 @@
 			<key>mainGroup</key>
 			<string>7DB346D0F39D3F0E887471402A8071AB</string>
 			<key>productRefGroup</key>
-			<string>17C922388AB82D588B34194C692BB547</string>
+			<string>260C3E250B822B8F1A7A2507A25B4D15</string>
 			<key>projectDirPath</key>
 			<string></string>
 			<key>projectReferences</key>
@@ -3488,12 +3994,13 @@
 				<string>7CD483F08A2AC430A4F47E66B4025664</string>
 				<string>C3846F7F1F89A09DDD213DDEC926D548</string>
 				<string>0866C786FD892F8C72F94CA044DFC496</string>
+				<string>573D4DF76B26CE0B19CBB7C5470C3584</string>
 			</array>
 		</dict>
 		<key>D431B9C5C9A9E8A664627E2788F8EDA9</key>
 		<dict>
 			<key>fileRef</key>
-			<string>076E33D5C7C37CE4B33A042DCA585D6C</string>
+			<string>4EDB6BEE1895FB32AEA15B78FFB94910</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -3611,6 +4118,21 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>DC3551B5B6EBD450594C2E8D4776D56B</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>Pods_DrupalAPITesterTests.framework</string>
+			<key>path</key>
+			<string>Pods_DrupalAPITesterTests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>DCFA04D9F87841983F47B020C3F295D0</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -3671,21 +4193,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>E0330C25B0B0EA734C9E2736295D7D44</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>LGPlusButtonsView.framework</string>
-			<key>path</key>
-			<string>LGPlusButtonsView.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>E06C5A9B1C2CABACA2B6E792661E0599</key>
 		<dict>
@@ -3868,7 +4375,7 @@
 		<key>EFDE017DF9EEBC8867F986680D4F65C3</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>644D31CE99D515A0EE3D1404D479CB09</string>
+			<string>C7C14E48CC9A460F9D9C197BD575C3F9</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -4015,19 +4522,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>F44D326E7655F4B57C8AE4DF10599ED4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>F4CC50E1098CDBE3FF1908A000C8FD44</key>
 		<dict>
 			<key>containerPortal</key>
@@ -4040,21 +4534,6 @@
 			<string>5DDD6F149D12A923D6A2C373BEA9A1E4</string>
 			<key>remoteInfo</key>
 			<string>drupal-ios-sdk</string>
-		</dict>
-		<key>F52D461A9F0B3BC7C3716AA2F7C5EDA6</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods_DrupalAPITester.framework</string>
-			<key>path</key>
-			<string>Pods_DrupalAPITester.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>F71CC71AF8C4828669E5B500D5F42F30</key>
 		<dict>
@@ -4087,6 +4566,19 @@
 			<string>drupal-ios-sdk</string>
 			<key>path</key>
 			<string>drupal-ios-sdk</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F7795E8028549DACEA1FED859EEE488C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITester-umbrella.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -4217,21 +4709,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>FC17189797A76F341E410A67CC5D72EE</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>KCFloatingActionButton.framework</string>
-			<key>path</key>
-			<string>KCFloatingActionButton.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
 		<key>FD8380ADADFDDA9B21C39837A69950A1</key>
 		<dict>
 			<key>isa</key>
@@ -4242,6 +4719,32 @@
 			<string>7CD483F08A2AC430A4F47E66B4025664</string>
 			<key>targetProxy</key>
 			<string>CBC6BB7E7C19407B6D0C3989D33629A3</string>
+		</dict>
+		<key>FDC4583330FA55A93FFAF3722F2311BC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-DrupalAPITester-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FE5BA7E10E9816B4C8B6F44A97C8554D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>86BE2AEC9F3D4CB1872F6B535C040F69</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>FEA6D6BABC88212D04632A5C99A28A0E</key>
 		<dict>

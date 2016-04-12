@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52F9C64EA6E59B85BE3D16F7 /* Pods_DrupalAPITesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C83C8D242BC54D3727CC26D /* Pods_DrupalAPITesterTests.framework */; };
 		790FDC781C8396E50081DE8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC771C8396E50081DE8E /* main.m */; };
 		790FDC7B1C8396E50081DE8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 790FDC7A1C8396E50081DE8E /* AppDelegate.m */; };
 		790FDC811C8396E50081DE8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790FDC7F1C8396E50081DE8E /* Main.storyboard */; };
@@ -38,7 +39,18 @@
 		FC67DC861CB487EF0043A8CA /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC67DC851CB487EF0043A8CA /* EditProfileViewController.m */; };
 		FC7181EA1CAC9CB600D22462 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7181E91CAC9CB600D22462 /* UserViewController.m */; };
 		FC7929CF1CB3349700208481 /* UserRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7929CE1CB3349700208481 /* UserRegisterViewController.m */; };
+		FCF9FBD71CB8221F0047F26A /* DrupalAPITesterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF9FBD61CB8221F0047F26A /* DrupalAPITesterTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCF9FBD91CB8221F0047F26A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 790FDC6B1C8396E50081DE8E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 790FDC721C8396E50081DE8E;
+			remoteInfo = DrupalAPITester;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1EA8BFD529523BBE789661B6 /* Pods-DrupalAPITester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrupalAPITester.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrupalAPITester/Pods-DrupalAPITester.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,7 +98,10 @@
 		79F1F54F1C8692B800E73733 /* ObservationCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservationCollectionViewController.m; sourceTree = "<group>"; };
 		79F1F5511C8692D300E73733 /* ObservationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservationCollectionViewCell.h; sourceTree = "<group>"; };
 		79F1F5521C8692D300E73733 /* ObservationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservationCollectionViewCell.m; sourceTree = "<group>"; };
+		9888FFFB5DFE1FE5E48680F0 /* Pods-DrupalAPITesterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrupalAPITesterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrupalAPITesterTests/Pods-DrupalAPITesterTests.release.xcconfig"; sourceTree = "<group>"; };
+		9C83C8D242BC54D3727CC26D /* Pods_DrupalAPITesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrupalAPITesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1A7F47067AE4E1F450875C /* Pods_DrupalAPITester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrupalAPITester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5FE02D445F0AAC3A2CA7B5A /* Pods-DrupalAPITesterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrupalAPITesterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrupalAPITesterTests/Pods-DrupalAPITesterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4D16341CAD30E5000CA1DF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FC67DC841CB487EF0043A8CA /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProfileViewController.h; path = DrupalAPITester/EditProfileViewController.h; sourceTree = "<group>"; };
 		FC67DC851CB487EF0043A8CA /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProfileViewController.m; path = DrupalAPITester/EditProfileViewController.m; sourceTree = "<group>"; };
@@ -94,6 +109,9 @@
 		FC7181E91CAC9CB600D22462 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		FC7929CD1CB3349700208481 /* UserRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserRegisterViewController.h; path = DrupalAPITester/UserRegisterViewController.h; sourceTree = "<group>"; };
 		FC7929CE1CB3349700208481 /* UserRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserRegisterViewController.m; path = DrupalAPITester/UserRegisterViewController.m; sourceTree = "<group>"; };
+		FCF9FBD41CB8221F0047F26A /* DrupalAPITesterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrupalAPITesterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCF9FBD61CB8221F0047F26A /* DrupalAPITesterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrupalAPITesterTests.m; sourceTree = "<group>"; };
+		FCF9FBD81CB8221F0047F26A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +128,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCF9FBD11CB8221F0047F26A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F9C64EA6E59B85BE3D16F7 /* Pods_DrupalAPITesterTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -123,6 +149,7 @@
 				79E380361CA31787006C8B31 /* drupal_ios_sdk.framework */,
 				79E7A2B71CA08DCF00AB701F /* MapKit.framework */,
 				AE1A7F47067AE4E1F450875C /* Pods_DrupalAPITester.framework */,
+				9C83C8D242BC54D3727CC26D /* Pods_DrupalAPITesterTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -131,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				790FDC751C8396E50081DE8E /* DrupalAPITester */,
+				FCF9FBD51CB8221F0047F26A /* DrupalAPITesterTests */,
 				790FDC741C8396E50081DE8E /* Products */,
 				BA0A41DBE963EEC03A6B23E9 /* Pods */,
 				2D67848F78CB0E08CD819AE4 /* Frameworks */,
@@ -141,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				790FDC731C8396E50081DE8E /* DrupalAPITester.app */,
+				FCF9FBD41CB8221F0047F26A /* DrupalAPITesterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -265,6 +294,8 @@
 			children = (
 				69C17DE28DC32AFC96D683C4 /* Pods-DrupalAPITester.debug.xcconfig */,
 				1EA8BFD529523BBE789661B6 /* Pods-DrupalAPITester.release.xcconfig */,
+				B5FE02D445F0AAC3A2CA7B5A /* Pods-DrupalAPITesterTests.debug.xcconfig */,
+				9888FFFB5DFE1FE5E48680F0 /* Pods-DrupalAPITesterTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -283,6 +314,15 @@
 			);
 			name = "User and Login";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		FCF9FBD51CB8221F0047F26A /* DrupalAPITesterTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCF9FBD61CB8221F0047F26A /* DrupalAPITesterTests.m */,
+				FCF9FBD81CB8221F0047F26A /* Info.plist */,
+			);
+			path = DrupalAPITesterTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +348,27 @@
 			productReference = 790FDC731C8396E50081DE8E /* DrupalAPITester.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FCF9FBD31CB8221F0047F26A /* DrupalAPITesterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCF9FBDB1CB8221F0047F26A /* Build configuration list for PBXNativeTarget "DrupalAPITesterTests" */;
+			buildPhases = (
+				75DD4F6FB19F2BA4B577D971 /* Check Pods Manifest.lock */,
+				FCF9FBD01CB8221F0047F26A /* Sources */,
+				FCF9FBD11CB8221F0047F26A /* Frameworks */,
+				FCF9FBD21CB8221F0047F26A /* Resources */,
+				61759122736B8327BBB26BBF /* Embed Pods Frameworks */,
+				E129F5C53DBFF87D52C1F8B5 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCF9FBDA1CB8221F0047F26A /* PBXTargetDependency */,
+			);
+			name = DrupalAPITesterTests;
+			productName = DrupalAPITesterTests;
+			productReference = FCF9FBD41CB8221F0047F26A /* DrupalAPITesterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -320,6 +381,10 @@
 					790FDC721C8396E50081DE8E = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 96DC6YV3DR;
+					};
+					FCF9FBD31CB8221F0047F26A = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 790FDC721C8396E50081DE8E;
 					};
 				};
 			};
@@ -337,6 +402,7 @@
 			projectRoot = "";
 			targets = (
 				790FDC721C8396E50081DE8E /* DrupalAPITester */,
+				FCF9FBD31CB8221F0047F26A /* DrupalAPITesterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -353,6 +419,13 @@
 				792373CA1C99A367008F67C6 /* ObservationViewController.xib in Resources */,
 				790FDC811C8396E50081DE8E /* Main.storyboard in Resources */,
 				791EB60C1C91F13A00B02FC7 /* SearchPanel.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCF9FBD21CB8221F0047F26A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +460,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrupalAPITester/Pods-DrupalAPITester-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61759122736B8327BBB26BBF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrupalAPITesterTests/Pods-DrupalAPITesterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75DD4F6FB19F2BA4B577D971 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E129F5C53DBFF87D52C1F8B5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrupalAPITesterTests/Pods-DrupalAPITesterTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E30377D3F07FB00DD62B3958 /* Embed Pods Frameworks */ = {
@@ -432,7 +550,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCF9FBD01CB8221F0047F26A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCF9FBD71CB8221F0047F26A /* DrupalAPITesterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCF9FBDA1CB8221F0047F26A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 790FDC721C8396E50081DE8E /* DrupalAPITester */;
+			targetProxy = FCF9FBD91CB8221F0047F26A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		790FDC7F1C8396E50081DE8E /* Main.storyboard */ = {
@@ -576,6 +710,36 @@
 			};
 			name = Release;
 		};
+		FCF9FBDC1CB8221F0047F26A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5FE02D445F0AAC3A2CA7B5A /* Pods-DrupalAPITesterTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = DrupalAPITesterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cs.DrupalAPITesterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DrupalAPITester.app/DrupalAPITester";
+			};
+			name = Debug;
+		};
+		FCF9FBDD1CB8221F0047F26A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9888FFFB5DFE1FE5E48680F0 /* Pods-DrupalAPITesterTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = DrupalAPITesterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cs.DrupalAPITesterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DrupalAPITester.app/DrupalAPITester";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -593,6 +757,15 @@
 			buildConfigurations = (
 				790FDC8B1C8396E50081DE8E /* Debug */,
 				790FDC8C1C8396E50081DE8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCF9FBDB1CB8221F0047F26A /* Build configuration list for PBXNativeTarget "DrupalAPITesterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCF9FBDC1CB8221F0047F26A /* Debug */,
+				FCF9FBDD1CB8221F0047F26A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
