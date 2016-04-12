@@ -135,6 +135,7 @@
     _userName.text= [[NSUserDefaults standardUserDefaults] valueForKey:@"userName"];
     _emailAddress.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"emailAddress"];
     
+    // If User has a Location saved, display it
     if([[NSUserDefaults standardUserDefaults] valueForKey:@"l1Country"]) {
         _countryL1.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"l1Country"];
         _firstAddressL1.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"l1AddressLine1"];
@@ -143,7 +144,7 @@
         _postalCodeL1.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"l1PostalCode"];
         _cityL1.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"l1City"];
     }
-    else {
+    else { // Else hide fields
         [_location1 setHidden:TRUE];
         [_countryL1 setHidden:TRUE];
         [_firstAddressL1 setHidden:TRUE];
@@ -153,6 +154,7 @@
         [_cityL1 setHidden:TRUE];
     }
     
+    // If User has a second Location saved, display it
     if([[NSUserDefaults standardUserDefaults] valueForKey:@"l2Country"]) {
         _countryL2.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"l2Country"];
         _firstAddressL2.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"l2AddressLine1"];
@@ -161,7 +163,7 @@
         _postalCodeL2.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"l2PostalCode"];
         _cityL2.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"l2City"];
     }
-    else {
+    else {// Else hide fields
         [_location2 setHidden:TRUE];
         [_countryL2 setHidden:TRUE];
         [_firstAddressL2 setHidden:TRUE];

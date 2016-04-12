@@ -122,7 +122,7 @@
                        [alert show];
                    }
                    failure:^(AFHTTPRequestOperation *op, NSError *err) {
-                       // Display an error messagge to the user
+                       // Display an error message to the user
                        [_errorMessage setText:@"Could not create account at this time. Please try again later"];
                        [_errorMessage setHidden:FALSE];
                    }
