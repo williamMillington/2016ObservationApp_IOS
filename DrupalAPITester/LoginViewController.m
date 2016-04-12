@@ -48,8 +48,24 @@
     [credentialsBox.layer setCornerRadius:10.0f];
     [credentialsBox.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     
+    
+    
+    UITapGestureRecognizer * hideKeyboardGesture = [[UITapGestureRecognizer alloc]
+                                           initWithTarget:self
+                                           action:@selector(hideKeyBoard)];
+    
+    [self.view addGestureRecognizer:hideKeyboardGesture];
 }
 
+
+-(void)hideKeyBoard {
+    if([password_field isFirstResponder]){
+        [password_field resignFirstResponder];
+    }
+    else if(username_field){
+        [username_field resignFirstResponder];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
