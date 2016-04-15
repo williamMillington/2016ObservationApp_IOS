@@ -71,6 +71,21 @@ static NSString* const reuseIdentifier = @"ObservationCell";
                                                  name:kReachabilityChangedNotification
                                                object:nil];
     
+    
+    
+    // Register this class for network changes
+    // ------------------------------------------------------------------------------
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkStatusChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    
+}
+
+- (void) networkStatusChanged:(NSNotification*)notification{
+    if([AFNetworkReachabilityManager sharedManager].reachable){
+        [self fetchObservations];
+    }
 }
 
 - (void) networkStatusChanged:(NSNotification*)notification{
