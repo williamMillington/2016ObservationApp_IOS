@@ -7,9 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "ObservationCollectionViewController.h"
 
 #import "DIOSUser.h"
 #import "DIOSSystem.h"
+
 
 @interface AppDelegate ()
 
@@ -20,30 +22,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+<<<<<<< HEAD
    
     [DIOSSession setupDios];
     
+    // register self for network reconnection notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkStatusChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
     
-//    NSLog(@"%@",[DIOSSession sharedSession]);
-//    NSLog(@"%@",[[DIOSSession sharedSession] csrfToken]);
-//    NSLog(@"%@",[[DIOSSession sharedSession] user]);
+    
+    // -- Start monitoring network reachability (globally available) -- //
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     
-    [[DIOSSession sharedSession] getCSRFTokenWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
-            NSLog(@"SUCCESS");
+    // AFNetworking only allows one responder block, so use this to send out a notification that can be picked up anywhere
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
-            NSLog(@"%@",[[DIOSSession sharedSession] csrfToken]);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kReachabilityChangedNotification object:nil];
         
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:[[DIOSSession sharedSession] csrfToken] forKey:@"token"];
-            [defaults synchronize];
-        
-    }
-                                                 failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                                                     NSLog(@"FAILURE");
-    }
+        }
      ];
     
+<<<<<<< HEAD
     
     
 //    [DIOSUser
@@ -81,9 +83,38 @@
 //         NSLog(@"FUCK");
 //     }
 //     ];
+=======
+    [DIOSSession setupDios];
+>>>>>>> User-Login
     
+=======
+>>>>>>> origin/development
     return YES;
 }
+
+
+
+- (void) networkStatusChanged:(NSNotification*)notification{
+
+    // if we can reach the internet, refetch the CSRF token
+    if([AFNetworkReachabilityManager sharedManager].reachable){
+        
+        [[DIOSSession sharedSession] getCSRFTokenWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+                    NSLog(@"%@",[[DIOSSession sharedSession] csrfToken]);
+        
+                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                    [defaults setObject:[[DIOSSession sharedSession] csrfToken] forKey:@"token"];
+                    [defaults synchronize];
+        
+                }
+                                                         failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                                                             NSLog(@"FAILURE");
+                                                        }
+                 ];
+    }
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -18,15 +18,12 @@
 @implementation ObservationCollectionViewController{
 //    NSMutableArray *observations;
     NSArray *observations;
-    
-    
 }
 
 @synthesize fabView;
 
 //@synthesize observations;
 static NSString* const reuseIdentifier = @"ObservationCell";
-
 
 
 - (void)viewDidLoad {
@@ -51,20 +48,36 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     
     
     observations = [[NSMutableArray alloc] init];
-    [self fetchObservations];
+
     
+    if([AFNetworkReachabilityManager sharedManager].reachable){
+        [self fetchObservations];
+    }
     
-//    NSLog(@"-----------------------------------------------");
-//    NSLog(@"%@",self.navigationController.view);
-//    NSLog(@"%@",self);
-//    NSLog(@"%@",self.view);
-//    NSLog(@"-----------------------------------------------");
     
     
     fabView = [VCUtility initFABView];
     [self.view addSubview:fabView];
+<<<<<<< HEAD
+=======
     
     
+    
+    
+    // Register this class for network changes
+    // ------------------------------------------------------------------------------
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkStatusChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    
+}
+
+- (void) networkStatusChanged:(NSNotification*)notification{
+    if([AFNetworkReachabilityManager sharedManager].reachable){
+        [self fetchObservations];
+    }
+>>>>>>> origin/development
 }
 
 
@@ -101,12 +114,14 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    
     ObservationCollectionViewCell *cell = [collectionView
                                         dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                         forIndexPath:indexPath];
     
     // grab observation
     NSDictionary *observation = observations[indexPath.row];
+    
     
     // Retrieve the html string detailing the URL of the image
     NSString *htmlImgUrl = observation[@"image"];
@@ -120,9 +135,6 @@ static NSString* const reuseIdentifier = @"ObservationCell";
         NSURL *url = [NSURL URLWithString:imgURL];
         [cell.imgThumbnail setImageWithURL:url];
     }
-//    
-//    
-//    NSLog(@"%@",observation);
     
     // Extract observation data from observation
     cell.observation_title.text = observation[@"title"];
@@ -216,6 +228,9 @@ static NSString* const reuseIdentifier = @"ObservationCell";
 // fetches the observations
 - (void) fetchObservations{
     
+    
+//    NSLog(@"FETCH OBSERVATIONS");
+    
     // Set up URL for one-time request to Newest Observations
     NSMutableURLRequest *request =
         [NSMutableURLRequest requestWithURL:
@@ -239,6 +254,7 @@ static NSString* const reuseIdentifier = @"ObservationCell";
     // load observation into observations list
     observations = jsonArray;
     
+    [self.collectionView reloadData];
 }
 
 

@@ -25,6 +25,7 @@
 @implementation UploadViewController{
     
     UIScrollView *scrollView;
+<<<<<<< HEAD
     BOOL datePickerVisible;
     UIDatePicker *datePicker;
     UIVisualEffectView *datePanel;
@@ -50,6 +51,9 @@
 
 @synthesize locationManager;
 @synthesize presentCameraOnStartup;
+=======
+}
+>>>>>>> User-Login
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -148,7 +152,7 @@
     scrollView = [[self.view subviews] objectAtIndex:0];
     int screenWidth = self.view.frame.size.width;
     int screenHeight = self.view.frame.size.height;
-    scrollView.contentSize = CGSizeMake(screenWidth,screenHeight+600);
+    scrollView.contentSize = CGSizeMake(screenWidth,screenHeight+700);
     
     
     // Set location choice switches to OFF
@@ -267,7 +271,6 @@
     ipc.delegate = self;
     
     
-    
 }
 
 
@@ -376,8 +379,6 @@
     
     
     
-    
-    
     NSData *imageData = UIImageJPEGRepresentation(_image_to_upload.image, 1.0);
     DIOSFile *dfile = [[DIOSFile alloc] init];
     
@@ -389,7 +390,6 @@
     
     [file setObject:base64Image forKey:@"file"];
     
-    //"observation_entry_image_" + PreferenceUtil.getCurrentUser(this) + "_" + System.currentTimeMillis() + ".jpg";
     NSString *filename = [NSString stringWithFormat:@"observation_entry_image_%@_%f.jpg",
                             @"wmillington",
                             ([[NSDate date] timeIntervalSince1970] * 1000)
@@ -404,17 +404,13 @@
     
     
     
-    
-    
     NSMutableDictionary *image_fid_value = [[NSMutableDictionary alloc] init];
     [DIOSFile fileSave:file success:^(AFHTTPRequestOperation *operation, id responseObject) {
     
-        
         [image_fid_value setObject:responseObject[@"fid"] forKey:@"fid"];
     
     
     }
-    
                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                             
                    NSLog(@"Something went wrong with the upload");
@@ -422,14 +418,14 @@
                }
      ];
     
+    
+    
     NSArray *image_fid_holder = [[NSArray alloc] initWithObjects:image_fid_value, nil];
     
         NSMutableDictionary *image_fid = [[NSMutableDictionary alloc] init];
         [image_fid setObject:image_fid_holder forKey:@"und"];
     
     [nodeData setObject:image_fid forKey:@"fid"];
-    
-    
     
     
     NSLog(@"%@",nodeData);
@@ -442,7 +438,9 @@
 //            NSLog(@"%@",operation);
 //            NSLog(@"%@",responseObject);
 //        
-//        
+//
+//            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
 //        
 //        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        //WE failed to upload the node
@@ -598,13 +596,35 @@
     
     
     [self.navigationController presentViewController:ipc animated:YES completion:nil];
+    
+    // hide overlay for when the user is returned to the upload view
+    imageViewPickerOverlay.alpha = 0.0;
+    imageViewPickerOverlayToggled = NO;
 }
 
 - (void) openGallery:(UIButton *)sender{
     
-    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
+        ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        [self.navigationController presentViewController:ipc animated:YES completion:nil];
+    }
+    else {
+        UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@""
+                                                                message:@"No Library Available"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"uggggggggh, fine"
+                                                      otherButtonTitles:nil,
+                                      nil];
+        [noCameraAlert show];
+        noCameraAlert = nil;
+    }
+    
 
-    [self.navigationController presentViewController:ipc animated:YES completion:nil];
+    // hide overlay for when the user is returned to the upload view
+    imageViewPickerOverlay.alpha = 0.0;
+    imageViewPickerOverlayToggled = NO;
 }
 
 @end
