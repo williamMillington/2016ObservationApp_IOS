@@ -22,6 +22,7 @@
 		7956595E1CA34317003239CB /* VCUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7956595D1CA34317003239CB /* VCUtility.m */; };
 		795659631CA34BF9003239CB /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795659621CA34BF9003239CB /* UploadViewController.xib */; };
 		795659661CA34C27003239CB /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 795659651CA34C27003239CB /* UploadViewController.m */; };
+		796924191CC143A300A70D4B /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 796924181CC143A300A70D4B /* README.txt */; };
 		796DA8791C84907500741F2D /* dios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 796DA8781C84907500741F2D /* dios.plist */; };
 		79C89C731CB7D34E00E34D3D /* UserLoginNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C89C721CB7D34E00E34D3D /* UserLoginNavigationViewController.m */; };
 		79E380371CA31787006C8B31 /* drupal_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E380361CA31787006C8B31 /* drupal_ios_sdk.framework */; };
@@ -69,6 +70,7 @@
 		795659621CA34BF9003239CB /* UploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadViewController.xib; sourceTree = "<group>"; };
 		795659641CA34C27003239CB /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
 		795659651CA34C27003239CB /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
+		796924181CC143A300A70D4B /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		796DA8781C84907500741F2D /* dios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dios.plist; sourceTree = "<group>"; };
 		79C89C711CB7D34E00E34D3D /* UserLoginNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginNavigationViewController.h; sourceTree = "<group>"; };
 		79C89C721CB7D34E00E34D3D /* UserLoginNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginNavigationViewController.m; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				795659611CA34975003239CB /* Upload */,
 				FC7181E71CAC94C900D22462 /* User and Login */,
 				7956595B1CA342A6003239CB /* Utility */,
+				796924181CC143A300A70D4B /* README.txt */,
 				790FDC821C8396E50081DE8E /* Assets.xcassets */,
 				790FDC871C8396E50081DE8E /* Info.plist */,
 				790FDC761C8396E50081DE8E /* Supporting Files */,
@@ -365,6 +368,7 @@
 				796DA8791C84907500741F2D /* dios.plist in Resources */,
 				792373CA1C99A367008F67C6 /* ObservationViewController.xib in Resources */,
 				790FDC811C8396E50081DE8E /* Main.storyboard in Resources */,
+				796924191CC143A300A70D4B /* README.txt in Resources */,
 				791EB60C1C91F13A00B02FC7 /* SearchPanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
