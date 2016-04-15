@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FCF9FBD31CB8221F0047F26A"
+               BuildableName = "DrupalAPITesterTests.xctest"
+               BlueprintName = "DrupalAPITesterTests"
+               ReferencedContainer = "container:DrupalAPITester.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

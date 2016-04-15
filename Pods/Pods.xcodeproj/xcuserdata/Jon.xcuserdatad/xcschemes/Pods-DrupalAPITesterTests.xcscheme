@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EA844314E81A4DE4F8448ECE'
-               BlueprintName = 'Pods-DrupalAPITester'
+               BlueprintIdentifier = 'D997EE9FB454DD06C823E512'
+               BlueprintName = 'Pods-DrupalAPITesterTests'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_DrupalAPITester.framework'>
+               BuildableName = 'Pods_DrupalAPITesterTests.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

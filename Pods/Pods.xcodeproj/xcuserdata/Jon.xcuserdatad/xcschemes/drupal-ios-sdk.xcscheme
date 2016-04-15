@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'DEB0FAC08178F1B85B8B9294'
+               BlueprintIdentifier = 'BE0FECB6AA70DE8718313964'
                BlueprintName = 'drupal-ios-sdk'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'drupal_ios_sdk.framework'>

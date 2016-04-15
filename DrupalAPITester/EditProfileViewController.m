@@ -1,26 +1,24 @@
 //
 //  EditProfileViewController.m
-//  DrupalAPITester
+//  ObservationApp
 //
-//  Created by Jonathan Cudmore on 2016-04-05.
-//  Copyright © 2016 William Millington. All rights reserved.
-//
-// This file is part of DrupalAPITester.
-//
-// DrupalAPITester is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Foobar is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
-// ---------------------------------------------------------------------------------
-//
+/**	 ObservationApp, Copyright 2016, University of Prince Edward Island,
+ *    550 University Avenue, C1A4P3,
+ *    Charlottetown, PE, Canada
+ *
+ * 	 @author Jonathan Cudmore<jrcudmore@upei.ca>
+ *
+ *   This file is part of ObservationApp.
+ *
+ *   ObservationApp is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with Observation App.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #import "EditProfileViewController.h"
 #import "DIOSUser.h"
@@ -113,8 +111,9 @@
         [defaults setValue:_l2PostalCode.text forKey:@"l2PostalCode"];
     
     // Create dictionaries for the locations so it can be read into the drupal addressfield
-    NSDictionary *location1 = @{@"und":@[@{@"administrative_area":_l1Province.text, @"country":_l1Country.text, @"locality":_l1City.text, @"postal_code":_l1PostalCode.text, @"premise":_l1AddressLine2.text, @"thoroughfare":_l1AddressLine1.text}]};
-    NSDictionary *location2 = @{@"und":@[@{@"administrative_area":_l2Province.text, @"country":_l2Country.text, @"locality":_l2City.text, @"postal_code":_l2PostalCode.text, @"premise":_l2AddressLine2.text, @"thoroughfare":_l2AddressLine1.text}]};
+    NSDictionary *location1 = @{@"und":@[@{@"administrative_area":_l1Province.text, @"country":_l1Country.text, @"data":@"", @"dependent_locality":@"", @"first_name":@"", @"last_name":@"", @"locality":_l1City.text, @"name_line":@"", @"organisation_name":@"", @"postal_code":_l1PostalCode.text, @"premise":_l1AddressLine2.text, @"sub_administrative_area":@"", @"sub_premise":@"", @"thoroughfare":_l1AddressLine1.text}]};
+    
+    NSDictionary *location2 = @{@"und":@[@{@"administrative_area":_l2Province.text, @"country":_l2Country.text, @"data":@"", @"dependent_locality":@"", @"first_name":@"", @"last_name":@"", @"locality":_l2City.text, @"name_line":@"", @"organisation_name":@"", @"postal_code":_l2PostalCode.text, @"premise":_l2AddressLine2.text, @"sub_administrative_area":@"", @"sub_premise":@"", @"thoroughfare":_l2AddressLine1.text}]};
     
     // Update the data on the server
     NSMutableDictionary *userData = [NSMutableDictionary new];

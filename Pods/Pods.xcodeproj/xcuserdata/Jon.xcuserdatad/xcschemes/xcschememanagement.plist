@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-DrupalAPITesterTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>drupal-ios-sdk.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +42,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D0C68B9AF96C9D168C6D0737DA4910C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4878C70B21CA37D7CB8A476BF986741B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>494A2724A570A3331E7C583049E73762</key>
+		<key>573D4DF76B26CE0B19CBB7C5470C3584</key>
 		<dict>
 			<key>primary</key>
 			<true/>
